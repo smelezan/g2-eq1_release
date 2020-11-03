@@ -22,7 +22,7 @@
         </ul>
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>faible</td>
     </tr>
     <tr>
      <td>2</td>
@@ -42,7 +42,7 @@
         afin de pouvoir me déplacer entre les différentes pages de l'application.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>faible</td>
     </tr>
     <tr>
      <td>3</td>
@@ -54,7 +54,7 @@
         afin de supprimer un projet.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>faible</td>
     </tr>
     <tr>
      <td>4</td>
@@ -70,7 +70,7 @@
         afin d'y ajouter des Issues.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
      <td>5</td>
@@ -81,7 +81,7 @@
         Afin de déplacer ( drag and drop ) les Issues de tableau en tableau en fonction de nos intentions.
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
      <td>6</td>
@@ -92,7 +92,7 @@
         afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
      <td>7</td>
@@ -117,7 +117,7 @@
         </ul>
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>8</td>
@@ -135,7 +135,7 @@
         </ul>
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>9</td>
@@ -155,7 +155,7 @@
         Pour enfin nous ramener à la nouvelle liste des issues. 
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>10</td>
@@ -181,7 +181,7 @@
         afin de leur associer une difficulté en utilisant la suite de fibonacci. <br>
       </td>
       <td>3</td> 
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>11</td>
@@ -200,7 +200,7 @@
         afin de leur associer une priorité.
       </td>
       <td>3</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>12</td>
@@ -211,7 +211,7 @@
         afin de l'enlever de ma liste des Issues.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>13</td>
@@ -226,7 +226,7 @@
         afin de créer une Tâches.
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
     <td>14</td>
@@ -248,7 +248,7 @@
         afin de voir la progression total des Tâches sur le projet.
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>15</td>
@@ -258,7 +258,7 @@
         afin de choisir et modifier le temps de travail d'une Tâche.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>16</td>
@@ -268,17 +268,17 @@
         afin de répartir les Tâches à faire entre les différent membre de l'équipe de développement.
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>17</td>
       <td>
-      US17 : En tant qu'utilisateur<br>
-      Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais une checkbox que je peux cocher afin d'indiquer que la Tâche est finie et qui mettrait automatiquement à jour le pourcentage de complétion total des Tâches de la page récapitulative<br>
-      afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
+        US17 : En tant qu'utilisateur<br>
+        Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais une checkbox que je peux cocher afin d'indiquer que la Tâche est finie et qui mettrait automatiquement à jour le pourcentage de complétion total des Tâches de la page récapitulative<br>
+        afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>18</td>
@@ -288,7 +288,7 @@
         afin de pouvoir rajouter et supprimer des UserStory à mes Tâches.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>19</td>
@@ -298,7 +298,7 @@
         afin de pouvoir modifier les dépendances entre tâche et facilité la génération d'une planification.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>20</td>
@@ -308,7 +308,7 @@
         afin de pouvoir enlever les Tâches ajoutée par erreur.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>élevée</td>
     </tr>
     <tr>
       <td>21</td>
@@ -328,7 +328,7 @@
         afin d'organiser la charge de travail entre les développeurs.
       </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>22</td>
@@ -338,7 +338,7 @@
         afin d'aider le développeur à plannifier.
       </td>
       <td>3</td>
-      <td>Priorité</td>
+      <td>faible</td>
     </tr>
     <tr>
       <td>23</td>
@@ -349,7 +349,7 @@
         Afin de garder une trace de l'avancement du projet.
       </td>
       <td>3</td>
-      <td>Priorité</td>
+      <td>faible</td>
     </tr>
     <tr>
       <td>24</td>
@@ -366,7 +366,7 @@
           Afin de mettre en place un moyen d'identifier une anomalie de fonctionnenement lié au déroulement d'un cas d'utilisation.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>25</td>
@@ -383,7 +383,7 @@
           Afin d'avoir un suivi des tests.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>26</td>
@@ -393,7 +393,7 @@
           Afin de savoir quels sont les cas d'utilisation associées à un test.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>27</td>
@@ -403,7 +403,7 @@
           Afin de savoir si les tests sont à jours.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>28</td>
@@ -423,7 +423,7 @@
           Afin de permettre l'évolution des tests.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>29</td>
@@ -433,7 +433,7 @@
           Afin de supprimer un test de ma liste de tests.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <td>30</td>
         <td>
@@ -450,7 +450,7 @@
           Afin de me tenir informer de l'avancement du projet.
         </td>
       <td>2</td>
-      <td>Priorité</td>
+      <td>faible</td>
     </tr>
     <tr>
       <td>31</td>
@@ -466,7 +466,7 @@
         Afin d'ajouter une release.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>32</td>
@@ -476,7 +476,7 @@
         Afin d'avoir un suivis des releases.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>33</td>
@@ -491,7 +491,7 @@
         sous forme de deux petits onglets cliquables.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>34</td>
@@ -503,7 +503,7 @@
         afin d'afficher la documentation en fonction des releases.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>35</td>
@@ -515,7 +515,7 @@
         afin d'afficher la documentation en fonction des releases.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>36</td>
@@ -539,7 +539,7 @@
         afin de l'associer à une release.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
     <tr>
       <td>37</td>
@@ -554,7 +554,7 @@
         afin de l'associer à une release.
       </td>
       <td>1</td>
-      <td>Priorité</td>
+      <td>moyenne</td>
     </tr>
   </tbody>
 </table>
