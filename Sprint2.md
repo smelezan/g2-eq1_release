@@ -47,6 +47,16 @@
             <td>TO DO</td>
         </tr>
         <tr>
+            <td>18</td>
+            <td>
+                US18 : En tant qu'utilisateur<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle serait présent un bouton "Modifier UserStory" qui ferait apparaitre la liste des UserStory avec des checkbox que je peux cocher pour indiquer que la Tâche réalise l'UserStory<br>
+                afin de pouvoir rajouter et supprimer des UserStory à mes Tâches.
+            </td>
+            <td>1</td>
+            <td>TO DO</td>
+        </tr>
+        <tr>
             <td>19</td>
             <td>
                 US19 : En tant qu'utilisateur<br>
@@ -138,22 +148,6 @@
                 Afin de supprimer un test de ma liste de tests.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
-        </tr>
-        <tr>
-            <td>31</td>
-            <td>
-                US31 : En tant qu'utilisateur<br>
-                Je souhaite avoir depuis la page des release un bouton "Ajouter une release" qui m'afficher une liste défilante avec :
-                <ul>
-                <li> Majeur
-                <li> Mineur
-                <li> Patch
-                </ul>
-                et va me demander mon archive, le README.md correspondant, un nom de Release et qui une fois les éléments déposer va générer la liste des différences avec la dernière release et l'identifiant de la release ( par incrémentation ) avant d'ensuite l'ajouté au récapitulatif<br>
-                Afin d'ajouter une release.
-            </td>
-            <td>1</td>
             <td>TO DO</td>
         </tr>
     </tbody>

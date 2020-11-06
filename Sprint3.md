@@ -113,32 +113,48 @@
             </td>
         <td>2</td>
         <td>TO DO</td>
-    </tr>
+        </tr>
         <tr>
-      <td>32</td>
-      <td>
-        US32 : En tant qu'utilisateur<br>
-        Je souhaite avoir une page avec des hyper-liens pour télécharger les releases avec à côté un bouton qui peut rendre visible ou masquer le README.md, la note de release correspondante et la documentation d'installation<br>
-        Afin d'avoir un suivis des releases.
-      </td>
-      <td>1</td>
-      <td>TO DO</td>
-    </tr>
-    <tr>
-      <td>33</td>
-      <td>
-        US33 : En tant qu'utilisateur<br>
-        Je souhaite à partir de l'onglet des documentations<br>
-        avoir accès aux deux types de documentations:
-        <ul>  
-          <li>Documentation administrateur </li>
-          <li>Documentation utilisateur</li>
-        </ul>  
-        sous forme de deux petits onglets cliquables.
-      </td>
-      <td>1</td>
-      <td>TO DO</td>
-    </tr>
+            <td>31</td>
+            <td>
+                US31 : En tant qu'utilisateur<br>
+                Je souhaite avoir depuis la page des release un bouton "Ajouter une release" qui m'afficher une liste défilante avec :
+                <ul>
+                <li> Majeur
+                <li> Mineur
+                <li> Patch
+                </ul>
+                et va me demander mon archive, le README.md correspondant, un nom de Release et qui une fois les éléments déposer va générer la liste des différences avec la dernière release et l'identifiant de la release ( par incrémentation ) avant d'ensuite l'ajouté au récapitulatif<br>
+                Afin d'ajouter une release.
+            </td>
+            <td>1</td>
+            <td>TO DO</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>
+            US32 : En tant qu'utilisateur<br>
+            Je souhaite avoir une page avec des hyper-liens pour télécharger les releases avec à côté un bouton qui peut rendre visible ou masquer le README.md, la note de release correspondante et la documentation d'installation<br>
+            Afin d'avoir un suivis des releases.
+          </td>
+          <td>1</td>
+          <td>TO DO</td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td>
+            US33 : En tant qu'utilisateur<br>
+            Je souhaite à partir de l'onglet des documentations<br>
+            avoir accès aux deux types de documentations:
+            <ul>  
+              <li>Documentation administrateur </li>
+              <li>Documentation utilisateur</li>
+            </ul>  
+            sous forme de deux petits onglets cliquables.
+          </td>
+          <td>1</td>
+          <td>TO DO</td>
+        </tr>
     <tr>
       <td>34</td>
       <td>

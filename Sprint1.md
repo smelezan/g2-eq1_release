@@ -45,6 +45,31 @@
             <td>TO DO</td>
         </tr>
         <tr>
+            <td>7</td>
+            <td>
+                US7: En tant que Utilisateur<br>
+                Je souhaite à partir de la page des Issues<br>
+                avoir accès à la liste des Issues déjà créées.<br>
+                Dans cette liste, une Issue sera représentée par une carte composée de:
+                <ul>
+                <li>Son nom</li>
+                <li>Une barre de progression ( calculé en fonction des Tâches réalisées liées à cette Issue )</li>
+                <li>Un potentiel Icone Warning m'informant
+                    <ul>
+                    <li>D'un retard d'une des Tâches liées
+                    <li>D'un manque d'information ( priorité, difficulté ) 
+                    <li>Aucune Tâches associée à cette Issue.
+                    </ul>
+                <li>Un code couleur représentant sa difficulté
+                    <ul> 
+                    <li>Un dégradé de jaune à rouge, jaune étant le plus facile.</li>
+                    <ul>
+                </ul>
+            </td>
+            <td>2</td>
+            <td>élevée</td>
+        </tr>
+        <tr>
             <td>8</td>
             <td>
                 US8 : En tant qu'utilisateur.<br>
@@ -174,16 +199,6 @@
                 afin de répartir les Tâches à faire entre les différent membre de l'équipe de développement.
             </td>
             <td>2</td>
-            <td>TO DO</td>
-        </tr>
-        <tr>
-            <td>18</td>
-            <td>
-                US18 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle serait présent un bouton "Modifier UserStory" qui ferait apparaitre la liste des UserStory avec des checkbox que je peux cocher pour indiquer que la Tâche réalise l'UserStory<br>
-                afin de pouvoir rajouter et supprimer des UserStory à mes Tâches.
-            </td>
-            <td>1</td>
             <td>TO DO</td>
         </tr>
         <tr>
