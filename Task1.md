@@ -40,7 +40,7 @@
             <td>0</td>
             <td>1</td>
             <td>Sébastien</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>3</td>
@@ -49,22 +49,22 @@
                 <ul>
                     <li><code>GET /issues</code> : Renvoie la liste des issues </li>
                     <li> 
-                        <code>POST /issues/add</code> : Crée une issue à l'aide des informations suivantes
+                        <code>POST /issues/:issue</code> : Crée une issue à l'aide des informations suivantes
                         <ul>
                             <li>Titre</li>
                             <li>Description</li>
                             <li>Type ( Feature, documentation) </li>
                         </ul>
                     </li>
-                    <li><code>PUT /issues/update/:issue</code> : Modifie une issue en particulier</li>
-                    <li> <code>DELETE /issues/delete/:issue</code> :Supprime une issue</li>
+                    <li><code>PUT /issues/:issue</code> : Modifie une issue en particulier</li>
+                    <li> <code>DELETE /issues/:issue</code> :Supprime une issue</li>
                 </ul>
             </td>
             <td>8-20</td>
             <td>2</td>
             <td>1</td>
             <td>Sébastien</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>4</td>
@@ -85,8 +85,8 @@
             <td>8-20</td>
             <td>Dépendances</td>
             <td>Coût</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>5</td>
@@ -131,7 +131,7 @@
                 <ul>
                     <li><code>GET /Tasks</code> : Renvoie la liste des Tâches </li>
                     <li> 
-                        <code>POST /Tasks/add</code> : Crée une tâche à l'aide des informations suivantes
+                        <code>POST /Tasks/:task</code> : Crée une tâche à l'aide des informations suivantes
                         <ul>
                             <li>Titre</li>
                             <li>Description</li>
@@ -139,8 +139,8 @@
                             <li>dépendance</li>
                         </ul>
                     </li>
-                    <li><code>PUT /Tasks/update/:task</code> : Modifie une tâche en particulier</li>
-                    <li> <code>DELETE /Tasks/delete/:task</code> : Supprime une tâche</li>
+                    <li><code>PUT /Tasks/:task</code> : Modifie une tâche en particulier</li>
+                    <li> <code>DELETE /Tasks/:task</code> : Supprime une tâche</li>
                 </ul>
             </td>
             <td>13-20</td>
@@ -196,7 +196,7 @@
                 <li>D'un champ date : Date de début</li>
                 <li>D'un champ date : Date de fin</li>
             </ul>
-            Une fois validé, le front fait un appel au back via la route <code>POST /sprints/add</code>, crée un nouveau sprint dans la base et l'utilisateur est redirigé sur IndexSprint.vue où un nouveau tableau se crée à droite du dernier tableau intitulé Sprint#X avec X le numéro du sprint qui s'incrémente automatiquement.
+            Une fois validé, le front fait un appel au back via la route <code>POST /sprints/:sprint</code>, crée un nouveau sprint dans la base et l'utilisateur est redirigé sur IndexSprint.vue où un nouveau tableau se crée à droite du dernier tableau intitulé Sprint#X avec X le numéro du sprint qui s'incrémente automatiquement.
             </td>
             <td>4</td>
             <td>1</td>
@@ -256,7 +256,7 @@
             Sur la page IndexSprint.vue.<br>
             Ajouter un évènement aux boutons "Supprimer" au clique. <br>
             Cet évènement effectue un appel à notre api par la route: <br>
-            <code>DELETE /sprints/delete/:sprint</code> <br>
+            <code>DELETE /sprints/:sprint</code> <br>
             qui va supprimer de la base de données le sprint et les issues associées à ce sprint se retrouveront dans le tableau "Non assignées"
             </td>
             <td>6</td>

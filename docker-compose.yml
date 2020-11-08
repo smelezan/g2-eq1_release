@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+    issues:
+        environment: 
+            - MONGO_ISSUEADDRESS=issue_database
+            
+        build: 
+            context: ./issues-back
+            dockerfile: Dockerfile
+        ports:
+            - "4000:4000"
+        networks:
+            - cdp
+        depends_on:
+          - mongoIssues
+
+    mongoIssues:
+        image: mongo
+        container_name: issue_database
+        ports:
+          - 27017:27017
+        networks:
+          - cdp
+    
+    
+networks:
+    cdp:
+        driver: bridge
