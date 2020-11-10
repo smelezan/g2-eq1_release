@@ -175,18 +175,59 @@
         <tr>
             <td>9</td>
             <td>
-            Créer la page des sprints (IndexSprint.vue).<br>
-            Sur cette page il y un bouton "Ajouter un sprint"<br>
-            Un tableau intitulé 'Non assigné' qui liste les Issues n'appartenant à aucun sprint.
+                Ajouter les routes CRUD concernant les sprints à issues-back <br>
+                <ul>
+                    <li><code>GET /Sprints</code> : Renvoie la liste des Sprint </li>
+                    <li> 
+                        <code>POST /Sprints/:sprint</code> : Crée un Sprint à l'aide des informations suivantes
+                        <ul>
+                            <li>Date de début</li>
+                            <li>Date de fin</li>
+                        </ul>
+                    </li>
+                    <li><code>PUT /Sprints/:sprint</code> : Modifie un sprint en particulier</li>
+                    <li> <code>DELETE /Sprints/:sprint</code> : Supprime un sprint</li>
+                </ul>
             </td>
-            <td>4</td>
-            <td>1</td>
+            <td>4-6</td>
+            <td>2</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
         <tr>
             <td>10</td>
+            <td>
+                Ajouter à la base Issue-Sprint-db<br>
+                la collection nommée Sprint.<br>
+                Chaque sprint est composée:
+                <ul>
+                    <li> D'un id: _id</li>
+                    <li> D'une date de début : beginDate</li>
+                    <li> D'une date de fin : endDate</li>
+                </ul>
+            </td>
+            <td>4-6</td>
+            <td>4</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>
+            Créer la page des sprints (IndexSprint.vue).<br>
+            Sur cette page il y un bouton "Ajouter un sprint"<br>
+            Un tableau intitulé 'Non assigné' qui liste les Issues n'appartenant à aucun sprint.
+            </td>
+            <td>4-5</td>
+            <td>1</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>12</td>
             <td>
             Sur la page IndexSprint.vue.<br>
             Ajouter l'évènement sur le bouton "Ajouter un sprint"<br>
@@ -205,20 +246,20 @@
             <td>To Do</td>
         </tr>
         <tr>
-            <td>11</td>
+            <td>13</td>
             <td>
             Sur la page IndexSprint.vue.<br>
             Ajouter le déplacement d'une issue d'un tableau à un autre avec la fonctionnalité drag and drop<br>
             Ainsi qu'un bouton "Appliquer" en bas à droite de la page ,un bouton "Annuler" aussi en bas à droite, et un bouton "Supprimer" à côté de chaque tableau <br>
             </td>
-            <td>5</td>
+            <td>5,6</td>
             <td>1</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
         <tr>
-            <td>12</td>
+            <td>14</td>
             <td>
             Sur la page IndexSprint.vue.<br>
             Ajouter un évènement au bouton "Appliquer" au clique. <br>
@@ -235,7 +276,7 @@
             <td>To Do</td>
         </tr>
         <tr>
-            <td>13</td>
+            <td>15</td>
             <td>
             Sur la page IndexSprint.vue.<br>
             Ajouter un évènement au bouton "Annuler" au clique. <br>
@@ -251,7 +292,7 @@
             <td>To Do</td>
         </tr>
         <tr>
-            <td>14</td>
+            <td>16</td>
             <td>
             Sur la page IndexSprint.vue.<br>
             Ajouter un évènement aux boutons "Supprimer" au clique. <br>
@@ -266,7 +307,86 @@
             <td>To Do</td>
         </tr>
         <tr>
-            <td>15</td>
+            <td>17</td>
+            <td>
+            Créer la Vue DifficultyManagement.vue <br>
+            Cette vue est composée
+            <ul>
+                <li>D'un tableau intitulé "non assigné" : listant toutes les Issues sans difficultés</li>
+                <li>D'une suite de tableaux : triés dans l'ordre croissant en fonction de la difficulté qu'ils représentent de gauche à droite <br>
+                les issues ayant la même difficultés sont dans le même tableau. 
+                </li>
+            </ul>
+            Il y aura aussi les boutons
+            <ul>
+                <li>Ajouter un niveau de difficulté</li>
+                <li>Sauvegarder</li>
+                <li>Annuler</li>
+            </ul>
+            </td>
+            <td>10</td>
+            <td>1</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>
+            Dans la Vue DifficultyManagement.vue <br>
+            Permettre à l'utilisateur de glisser une issue d'un tableau à un autre en Drag and Drop.<br>
+            </td>
+            <td>10</td>
+            <td>17</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>
+            Dans la Vue DifficultyManagement.vue <br>
+            Ajouter l'évènement onClick au bouton "Ajouter une difficulté<br>
+            Cet évènement va créer un nouveau tableau à la droite du dernier <br>
+            Ce tableau aura pour titre : "Difficulté: N"  où N est le N'ième terme de la suite de fibonacci.
+            </td>
+            <td>10</td>
+            <td>17</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>
+            Dans la Vue DifficultyManagement.vue <br>
+            Ajouter l'évènement onClick au bouton "Sauvegarder"<br>
+            Cet évènement va envoyer au serveur l'ensemble des tableaux des issues, en passant par la route<br>
+             <code>POST issues/manageDifficulty</code> <br>
+            </td>
+            <td>10</td>
+            <td>17</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>
+            Dans la Vue DifficultyManagement.vue <br>
+            Ajouter l'évènement onClick au bouton "Annuler"<br>
+            Cet évènement va récupérer les issues, en passant par la route<br>
+             <code>GET issues/</code> <br>
+            Et va les trier dans les différents tableaux en fonction de leurs difficultés.
+            </td>
+            <td>10</td>
+            <td>17</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>22</td>
             <td>
             Créer la page IndexIssues.vue<br>
             Sur cette page il y a une liste d'issue<br>
@@ -274,30 +394,66 @@
             <ul>
                 <li>D'un titre</li>
                 <li>D'une barre de progression </li>
-                <li>D'un icon</li>
+                <li>D'un icon "warning"</li>
+            </ul>
+            Il y a aussi un bouton "Ajouter une issue"
+            <ul>
+                <li> Ajouter une issue</li>
+                <li> Gérer les difficultés</li>
+                <li> Gérer les priorités</li>
             </ul>
             </td>
-            <td>7</td>
+            <td>8</td>
             <td>1</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
         <tr>
-            <td>16</td>
+            <td>23</td>
             <td>
             Créer l'évènement onClick sur une Issue<br>
-            Cet évènement ouvre une fenêtre à côté dans laquelle 
-            Sur cette page il y a une liste d'issue<br>
-            chaque issue est une carte composée:
+            Cet évènement ouvre une fenêtre à côté dans laquelle se trouve un récapitulatif détaillé d'une Issue. <br>
+            Ce récapitulatif est composé de plusieurs champs modifiables ou non. 
             <ul>
-                <li>D'un titre</li>
-                <li>D'une barre de progression </li>
-                <li>D'un icon</li>
+                <li>Champ Titre: (modifiable)</li>
+                <li>Champ Description: (modifiable)</li>
+                <li>Champ Difficulté: (non modifiable)</li>
+                <li>Champ Priorité: (non modifiable)</li>
+                <li>Sprint dans lequel il apparait: (non modifiable)</li>
+            </ul>
+            Mais aussi les boutons grisés si aucune modiffication n'a eu lieu :
+            <ul>
+                <li>Appliquer</li>
+                <li>Annuler</li>
             </ul>
             </td>
-            <td>7</td>
+            <td>9</td>
+            <td>22</td>
             <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>
+            Créer l'évènement onClick sur le bouton "Annuler" sur la fenêtre récapitulative d'une Issue<br>
+            Cet évènement appelle la route <code>GET /Issues/:issue</code>, qui va récupérer le précédent enregistrement de l'issue dans la base afin de l'afficher dans la fenêtre.
+            </td>
+            <td>9</td>
+            <td>23</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>
+            Créer l'évènement onClick sur le bouton "Sauvegarder" sur la fenêtre récapitulative d'une Issue<br>
+            Cet évènement appelle la route <code>Post /Issues/:issue</code>, qui va envoyer au server l'issue modifiée qui sera mise à jour dans la base de donnée.
+            </td>
+            <td>9</td>
+            <td>23</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
