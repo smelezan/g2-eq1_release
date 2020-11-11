@@ -116,8 +116,51 @@ describe('Issues', () =>{
                         res.body.should.have.property('message').eql('successfully deleted!');
                     done();
                     });
+            
             });
         });
     });
+    describe('/PUT /issues/manageDifficulty ', () => {
+        it ('it should update the difficulty field in each Issues', (done) =>{
+            const issues=[
+                new Issue( {title:'New Issue', description: 'New description', type:'feature'}),
+                new Issue( {title:'New Issue1', description: 'New description', type:'feature'}),
+                new Issue( {title:'New Issue2', description: 'New description', type:'feature'}),
+                new Issue( {title:'New Issue3', description: 'New description', type:'feature'}),
+                new Issue( {title:'New Issue4', description: 'New description', type:'feature'}),
+                new Issue( {title:'New Issue5', description: 'New description', type:'feature'})
+            ];
+
+            const difficultyList= [
+                {
+                    difficulty: 1,
+                    issues:[issues[0]._id,issues[2]._id]
+                },
+                {
+                    difficulty: 2,
+                    issues:[issues[4]._id,issues[5]._id]
+                },
+                {
+                    difficulty: 3,
+                    issues:[issues[1]._id,issues[3]._id]
+                }
+            ];
+
+            Issue.insertMany(issues)
+            .then(()=>{
+                chai.request(app)
+                .put("/issues/manageDifficulty")
+                .send({difficultyList})
+                .end((err,res) =>{
+                    res.should.have.status(200);
+                    res.body.should.have.property('message').eql('Updated');
+                    done();
+                });
+            });
+            
+        });
+    });
+
+    
 
 });

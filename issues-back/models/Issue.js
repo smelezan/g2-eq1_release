@@ -26,7 +26,7 @@ const issueSchema =  mongoose.Schema({
         enum : ['HIGH','MEDIUM','LOW'],
         required: false
     },
-    state:{
+    status:{
         type:String,
         enum:['TO DO', 'DOING', 'DONE'],
         default: 'TO DO'
@@ -34,6 +34,10 @@ const issueSchema =  mongoose.Schema({
     tasks:{
         type: [Number],
         default: []
+    },
+    progression:{
+        type: Number,
+        default: 0
     }
 });
 

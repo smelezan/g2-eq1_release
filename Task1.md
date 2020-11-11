@@ -458,5 +458,24 @@
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
+        <tr>
+            <td>26</td>
+            <td>
+            Dans le serveur Issues-back <br>
+            Créer la route <code>Put Issues/manageDifficulty</code><br>
+            Cette route prends en entré une liste d'objet <code>Difficulty</code><br>
+            Difficulty est composée:
+            <ul>
+                <li>d'un attribut difficulty (Int) : qui est la difficulté attribuée</li>
+                <li>d'un issues ([Issues]) : la liste des Issues associée à cette difficulté</li>
+            </ul>
+            Elle met ensuite à jour le champ "difficulty" des Issues dans la base.
+            </td>
+            <td>9</td>
+            <td>23</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To Do</td>
+        </tr>
     </tbody>
 </table>

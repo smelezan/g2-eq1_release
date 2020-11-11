@@ -37,3 +37,32 @@ exports.findOneIssue=function(req, res,next) {
         .then(issue => res.status(200).json(issue))
         .catch(error => res.status(400).json({error}));
 };
+
+exports.manageDifficulty = function(req,res,next){
+    const difficultyList = req.body.difficultyList;
+    let globalPromise = [];
+
+    updateDifficulty = (issuesArray)=>{
+        let promiseArray=[];
+        issuesArray.issues.forEach(issue=> promiseArray.push(new Promise((resolve,reject)=> {
+            Issue.findOneAndUpdate({_id:issue}, { difficulty: issuesArray.difficulty}, {upsert:true})
+            .then(result=> resolve())
+            .catch(err=> reject(err))
+        })));
+        return promiseArray;
+    }
+
+    difficultyList.forEach( 
+        issuesArray => globalPromise.push(new Promise ((resolve, reject)=>{ 
+            Promise.all(updateDifficulty(issuesArray))
+            .then(result=> resolve())
+            .catch(err =>reject(err));
+            })
+        )
+    );
+
+    Promise.all(globalPromise)
+    .then(() => res.status(200).json({message:"Updated"}))
+    .catch(error =>res.status(400).json({error}));
+
+};
