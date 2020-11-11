@@ -23,8 +23,8 @@
             <td>Toutes les issues</td>
             <td>Dépendances</td>
             <td>Coût</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>2</td>
@@ -406,8 +406,8 @@
             <td>8</td>
             <td>1</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>23</td>
@@ -474,8 +474,8 @@
             <td>9</td>
             <td>23</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
     </tbody>
 </table>
