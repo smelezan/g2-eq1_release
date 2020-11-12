@@ -24,7 +24,7 @@
             <td>Dépendances</td>
             <td>Coût</td>
             <td>Sébastien</td>
-            <td>Doing</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>2</td>
@@ -396,7 +396,7 @@
                 <li>D'une barre de progression </li>
                 <li>D'un icon "warning"</li>
             </ul>
-            Il y a aussi un bouton "Ajouter une issue"
+            Il y a aussi les boutons:
             <ul>
                 <li> Ajouter une issue</li>
                 <li> Gérer les difficultés</li>
@@ -407,7 +407,7 @@
             <td>1</td>
             <td>1</td>
             <td>Sébastien</td>
-            <td>Doing</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>23</td>

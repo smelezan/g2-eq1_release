@@ -20,6 +20,7 @@ exports.updateIssue =function(req, res,next) {
 
 
 exports.getAllIssues=function(req, res,next) {
+    console.log("ALL ISSUES");
     Issue.find()
         .then(issues => res.status(200).json(issues))
         .catch(error => res.status(400).json({error}));
