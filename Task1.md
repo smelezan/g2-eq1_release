@@ -520,5 +520,125 @@
             <td>Développeur</td>
             <td>To do</td>
         </tr>
+        <tr>
+            <td>29</td>
+            <td>
+            Créer la vue IndexTaskComponent.vue<br>
+            Sur cette vue il y a une liste de Tâches représentées par une carte composée :
+            <ul>
+                <li>d'un nom</li>
+                <li>d'un Icon</li>
+            </ul>
+            Elle aurait aussi une couleur dépendant de son état:
+            <ul>
+                <li>Verte: si elle est finie</li>
+                <li>Grise: sinon</li>
+            </ul>
+            Sur cette vue il y a aussi:
+            <ul>
+                <li>une barre de progression globale qui évolue en fonction du nombre de tâches effectuées. </li>
+                <li>Un bouton Ajouter</li>
+            </ul>
+            </td>
+            <td>14</td>
+            <td>22</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>
+            Créer l'évènement onClick sur le bouton "Ajouter" de la vue IndexTaskComponent.vue<br>
+            Cet évènement va renvoyer l'utilisateur vers la vue <br>
+            CreateTaskComponent.vue. <br>
+            Sur cette vue il y a un formulaire composé:
+            <ul>
+                <li>d'un champ titre</li>
+                <li>d'un champ description</li>
+                <li>d'une liste d'issues que l'on peut cocher</li>
+                <li>d'un bouton "Ajouter" </li>
+            </ul>
+            Une fois le bouton "Ajouter" sélectionné, la fonction "CreateTask" est appelée. <br>
+            Cette fonction appelle la route <code>POST /tasks</code> en passant un objet tâche remplie grâce au formulaire.
+            </td>
+            <td>13,14</td>
+            <td>29</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>
+            Créer la fonction <code>getTotalProgession</code> qui récupère la liste des tâches et calcule le pourcentage de tâches complétées. <br>
+            </td>
+            <td>14</td>
+            <td>29</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>32</td>
+            <td>
+            Ajouter l'évènement onClick sur une Tâche <br>
+            cet évènement renvoie à la vue TaskComponent.vue. <br>
+            Sur cette vue il y les informations de la tâche:
+            <ul>
+                <li> Son titre</li>
+                <li> Sa description</li>
+                <li> la liste des issues associées</li>
+                <li> la liste des dépendances</li>
+                <li> son coût</li>
+                <li> le développeur attribué</li>
+            </ul>
+            Et un ensemble de boutons:
+            <ul>
+                <li>Ajouter/modfier un développeur</li>
+                <li>choisir/modfier le temps de travail</li>
+                <li>Supprimer</li>
+            </ul>
+            </td>
+            <td>15,16</td>
+            <td>29</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>
+            Créer l'évènement onClick sur les bouton "Supprimer" de la vue TaskComponent.vue<br>
+            Qui va créer un popup pour confirmer la suppression et envoyer une reqête <code>DELETE /Tasks/:task</code> au serveur des tâches afin de la supprimer la base de données.
+            </td>
+            <td>20</td>
+            <td>32</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>34</td>
+            <td>
+            Créer l'évènement onClick sur les bouton "Ajouter/Modifier un développeur" de la vue TaskComponent.vue<br>
+            </td>
+            <td>16</td>
+            <td>32</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>35</td>
+            <td>
+            Créer l'évènement onClick sur les bouton "choisir/Modifier un temps de travail" de la vue TaskComponent.vue<br>
+            </td>
+            <td>15</td>
+            <td>32</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
     </tbody>
 </table>
