@@ -104,8 +104,8 @@
             <td>4-6</td>
             <td>Dépendances</td>
             <td>Coût</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Emmanoé</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>6</td>
@@ -192,8 +192,8 @@
             <td>4-6</td>
             <td>2</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Emmanoé</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>10</td>
@@ -223,8 +223,8 @@
             <td>4-5</td>
             <td>1</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Emmanoé</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>12</td>

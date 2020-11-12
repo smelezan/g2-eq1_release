@@ -1,15 +1,18 @@
 import Vue from 'vue'
-import App from './App.vue'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-
-import VueAxios from 'vue-axios';
 import axios from 'axios';
+import App from './App.vue'
+import VueAxios from 'vue-axios';
+import VueRouter from 'vue-router';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+Vue.use(VueRouter);
 Vue.use(VueAxios,axios);
-
 Vue.config.productionTip = false
 
 let address = process.env.VUE_APP_ISSUEADDRESS || 'localhost';
@@ -20,6 +23,7 @@ Vue.prototype.$proxy = `http://${address}:${port}`;
 import HomeComponent from './components/HomeComponent.vue';
 import IndexIssueComponent from './components/issues/IndexIssueComponent.vue'
 import CreateIssueComponent from './components/issues/CreateIssueComponent.vue'
+import IndexSprintComponent from './components/sprints/IndexSprintComponent.vue';
 
 
 const routes = [
@@ -27,6 +31,11 @@ const routes = [
     name: 'home',
     path:'/', 
     component: HomeComponent
+  },
+  {
+    name: 'sprint',
+    path: '/sprint',
+    component: IndexSprintComponent
   },
   {
     name: 'issues',
