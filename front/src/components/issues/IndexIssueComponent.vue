@@ -1,11 +1,11 @@
 <template>
 
     <div class="container">
-        <h3>IndexIssue   <span> <router-link to="/"> <button class="btn btn-primary">Ajouter une Issue</button> </router-link></span></h3> 
+        <h3>Index Issue   <span> <router-link to="/create-issue"> <button class="btn btn-primary">Ajouter une Issue</button> </router-link></span></h3> 
 
         <div class="row" v-for="issue in issues" :key="issue._id">
             <div class="col-4">
-                <IssuePreviewComponent :title="issue.title" :progression=issue.progression />
+                <IssuePreviewComponent :title="issue.title" :progression=50 />
             </div>
         </div>        
     </div>

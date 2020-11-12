@@ -19,6 +19,7 @@ Vue.prototype.$proxy = `http://${address}:${port}`;
 
 import HomeComponent from './components/HomeComponent.vue';
 import IndexIssueComponent from './components/issues/IndexIssueComponent.vue'
+import CreateIssueComponent from './components/issues/CreateIssueComponent.vue'
 
 
 const routes = [
@@ -31,7 +32,12 @@ const routes = [
     name: 'issues',
     path:'/issues',
     component: IndexIssueComponent
-  }
+  },
+  {
+      name: 'createIssue',
+      path: '/create-issue',
+      component: CreateIssueComponent
+  },
 ]
 
 
