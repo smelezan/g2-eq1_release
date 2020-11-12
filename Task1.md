@@ -49,7 +49,7 @@
                 <ul>
                     <li><code>GET /issues</code> : Renvoie la liste des issues </li>
                     <li> 
-                        <code>POST /issues/:issue</code> : Crée une issue à l'aide des informations suivantes
+                        <code>POST /issues</code> : Crée une issue à l'aide des informations suivantes
                         <ul>
                             <li>Titre</li>
                             <li>Description</li>
@@ -365,7 +365,7 @@
              <code>POST issues/manageDifficulty</code> <br>
             </td>
             <td>10</td>
-            <td>17</td>
+            <td>17, 26</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
@@ -395,6 +395,7 @@
                 <li>D'un titre</li>
                 <li>D'une barre de progression </li>
                 <li>D'un icon "warning"</li>
+                <li>D'un bouton "supprimer"</li>
             </ul>
             Il y a aussi les boutons:
             <ul>
@@ -471,11 +472,53 @@
             </ul>
             Elle met ensuite à jour le champ "difficulty" des Issues dans la base.
             </td>
-            <td>9</td>
+            <td>10</td>
             <td>23</td>
             <td>1</td>
             <td>Sébastien</td>
             <td>Done</td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>
+            Créer la vue  CreateIssueComponent.vue, accessible depuis le bouton "Ajouter une Issue" sur la vue IndexIssueComponent.vue <br>
+            Sur cette vue il y a un formulaire composé:
+            <ul>
+                <li>d'un champ nom ( Text) </li>
+                <li>d'un champ description ( Text) </li>
+                <li>d'un champ type (Option) </li>
+                <li>d'un bouton ajouter</li>
+            </ul>
+            Une fois cliqué sur le bouton ajouter, nous appelons la méthode "createIssue"<br>
+            Cette méthode va envoyer un objet Issue remplie depuis le formulaire au serveur <br>
+            en passant par la route <code>POST /issues</code>
+            Et redirige l'utilisateur sur l'écran d'accueil.
+            </td>
+            <td>8</td>
+            <td>3</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>
+            Dans la vue IndexIssueComponent.vue<br>
+            Créer l'évenèment lié au bouton "supprimer" <br>
+            Cet évenèment va créer un popup composé
+            <ul>
+                <li>D'un text: "Voulez vous vraiment supprimer cette issue ? " </li>
+                <li>D'un bouton "valider" : qui confirme la suppression</li>
+                <li>D'un bouton "annuler" : qui annule la suppression</li>
+            </ul>
+            Si le bouton "valider" est sélectionné, la fonction "deleteIssue" est appelé et va appeler la route <code> DELETE Issues/:issue </code> qui va supprimer l'issue de la base de donnée.<br>
+            Sinon, le popup disparaîtra.
+            </td>
+            <td>12</td>
+            <td>22</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
         </tr>
     </tbody>
 </table>
