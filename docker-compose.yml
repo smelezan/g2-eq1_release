@@ -15,6 +15,8 @@ services:
             - cdp
         depends_on: 
             - issues
+        volumes:
+            - ./front/src:/app/src
         
     issues:
         container_name: issue_server
