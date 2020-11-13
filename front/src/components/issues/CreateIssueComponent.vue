@@ -39,17 +39,16 @@
         return {
           issue:{},
           types: [
-              'Feature',
-              'Documentation'
+              'feature',
+              'documentation'
           ]
         }
     },
     methods: {
       addIssue(){
-        console.log(this.issue)
-        //   this.axios.post(this.$proxy+'/issues', this.issue).then(() => {
-        //     this.$router.push({name: 'issues'});
-        //   });
+          this.axios.post(this.$proxy+'/issues', this.issue).then(() => {
+            this.$router.push({name: 'issues'});
+          });
       }
     }
   }

@@ -21,8 +21,8 @@
                 </ul>
             </td>
             <td>Toutes les issues</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>Aucune</td>
+            <td>1</td>
             <td>Sébastien</td>
             <td>Done</td>
         </tr>
@@ -84,7 +84,7 @@
             </td>
             <td>8-20</td>
             <td>Dépendances</td>
-            <td>Coût</td>
+            <td>1</td>
             <td>Sébastien</td>
             <td>DONE</td>
         </tr>
@@ -102,8 +102,8 @@
                 </ul>
             </td>
             <td>4-6</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>4</td>
+            <td>1</td>
             <td>Emmanoé</td>
             <td>DOING</td>
         </tr>
@@ -119,8 +119,8 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>Aucune</td>
+            <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
@@ -144,8 +144,8 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>6</td>
+            <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
@@ -167,8 +167,8 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>Aucune</td>
+            <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
@@ -327,8 +327,8 @@
             <td>10</td>
             <td>1</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>18</td>
@@ -339,8 +339,8 @@
             <td>10</td>
             <td>17</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>19</td>
@@ -353,8 +353,8 @@
             <td>10</td>
             <td>17</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>20</td>
@@ -367,8 +367,8 @@
             <td>10</td>
             <td>17, 26</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>21</td>
@@ -382,8 +382,8 @@
             <td>10</td>
             <td>17</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>22</td>
@@ -432,8 +432,8 @@
             <td>9</td>
             <td>22</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>24</td>
@@ -444,8 +444,8 @@
             <td>9</td>
             <td>23</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>25</td>
@@ -456,8 +456,8 @@
             <td>9</td>
             <td>23</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>26</td>
@@ -497,8 +497,8 @@
             <td>8</td>
             <td>3</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>28</td>
@@ -517,8 +517,8 @@
             <td>12</td>
             <td>22</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>29</td>
