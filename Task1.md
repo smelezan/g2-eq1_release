@@ -543,8 +543,8 @@
             <td>14</td>
             <td>22</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To do</td>
+            <td>Alexis</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>30</td>
@@ -565,8 +565,8 @@
             <td>13,14</td>
             <td>29</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To do</td>
+            <td>Alexis</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>31</td>
@@ -632,7 +632,7 @@
         <tr>
             <td>35</td>
             <td>
-            Créer l'évènement onClick sur les bouton "choisir/Modifier un temps de travail" de la vue TaskComponent.vue<br>
+            Créer l'évènement onClick sur les bouton "Choisir/Modifier un temps de travail" de la vue TaskComponent.vue<br>
             </td>
             <td>15</td>
             <td>32</td>

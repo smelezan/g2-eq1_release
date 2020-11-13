@@ -157,7 +157,7 @@
                 afin de créer une Tâches.
             </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
         <td>14</td>
@@ -179,7 +179,7 @@
                 afin de voir la progression total des Tâches sur le projet.
             </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>15</td>
