@@ -25,7 +25,8 @@ import IndexIssueComponent from './components/issues/IndexIssueComponent.vue'
 import CreateIssueComponent from './components/issues/CreateIssueComponent.vue'
 import DifficultyManagement from './components/issues/DifficultyManagement.vue'
 import IndexSprintComponent from './components/sprints/IndexSprintComponent.vue';
-
+import IndexTaskComponent from './components/tasks/IndexTaskComponent.vue';
+import CreateTaskComponent from './components/tasks/CreateTaskComponent.vue'
 
 const routes = [
   {
@@ -49,9 +50,20 @@ const routes = [
       component: CreateIssueComponent
   },
   {
-      name: 'manage-difficulty',
-      path: '/manage-difficulty',
-      component: DifficultyManagement
+
+    name: 'tasks',
+    path: '/tasks',
+    component: IndexTaskComponent
+  },
+  {
+    name: 'createtasks',
+    path: '/create-task',
+    component: CreateTaskComponent
+  },
+  {
+    name: 'manage-difficulty',
+    path: '/manage-difficulty',
+    component: DifficultyManagement
   },
 ]
 

@@ -11,6 +11,9 @@
         <li class="nav-item">
           <router-link to="/issues" class="nav-link">Issues</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/tasks" class="nav-link">Tasks</router-link>
+        </li>
       </ul>
     </nav><br />
     <transition name="fade">
