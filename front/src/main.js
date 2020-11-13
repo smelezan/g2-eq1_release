@@ -24,7 +24,8 @@ import HomeComponent from './components/HomeComponent.vue';
 import IndexIssueComponent from './components/issues/IndexIssueComponent.vue'
 import CreateIssueComponent from './components/issues/CreateIssueComponent.vue'
 import IndexSprintComponent from './components/sprints/IndexSprintComponent.vue';
-
+import IndexTaskComponent from './components/tasks/IndexTaskComponent.vue';
+import CreateTaskComponent from './components/tasks/CreateTaskComponent.vue'
 
 const routes = [
   {
@@ -46,6 +47,16 @@ const routes = [
       name: 'createIssue',
       path: '/create-issue',
       component: CreateIssueComponent
+  },
+  {
+    name: 'tasks',
+    path: '/tasks',
+    component: IndexTaskComponent
+  },
+  {
+    name: 'createtasks',
+    path: '/create-task',
+    component: CreateTaskComponent
   },
 ]
 
