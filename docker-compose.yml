@@ -6,6 +6,8 @@ services:
         environment: 
             - VUE_APP_ISSUEADDRESS=localhost
             - VUE_APP_ISSUEPORT=4000
+            - VUE_APP_TASKADDRESS=localhost
+            - VUE_APP_TASKPORT=5000
         build: 
             context: ./front
             dockerfile: Dockerfile
@@ -38,6 +40,31 @@ services:
         container_name: issue_database
         ports:
           - 27017:27017
+        networks:
+          - cdp
+    
+    tasks:
+        container_name: task_server
+        environment: 
+            - MONGO_TASKADDRESS=task_database
+            - MONGO_TASKPORT=27018
+           
+        build: 
+            context: ./tasks-back
+            dockerfile: Dockerfile
+        ports:
+            - "5000:5000"
+        networks:
+            - cdp
+        depends_on:
+          - mongoTasks
+
+    mongoTasks:
+        image: mongo
+        container_name: task_database
+        command: mongod --port 27018
+        ports:
+          - 27018:27018
         networks:
           - cdp
     

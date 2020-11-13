@@ -32,7 +32,7 @@ const issueSchema =  mongoose.Schema({
         default: 'TO DO'
     },
     tasks:{
-        type: [Number],
+        type: [String],
         default: []
     },
     progression:{
