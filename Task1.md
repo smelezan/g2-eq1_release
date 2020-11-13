@@ -84,7 +84,7 @@
             </td>
             <td>8-20</td>
             <td>Dépendances</td>
-            <td>Coût</td>
+            <td>1</td>
             <td>Sébastien</td>
             <td>DONE</td>
         </tr>
@@ -102,8 +102,8 @@
                 </ul>
             </td>
             <td>4-6</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>4</td>
+            <td>1</td>
             <td>Emmanoé</td>
             <td>DOING</td>
         </tr>
@@ -119,8 +119,8 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>Aucune</td>
+            <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
@@ -144,8 +144,8 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>6</td>
+            <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
@@ -167,8 +167,8 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>Dépendances</td>
-            <td>Coût</td>
+            <td>Aucune</td>
+            <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
         </tr>
