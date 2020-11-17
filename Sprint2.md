@@ -18,6 +18,17 @@
             <td>TO DO</td>
         </tr>
         <tr>
+            <td>6</td>
+            <td>
+                US6 : En tant qu'Utilisateur<br>
+                Je souhaite à partir de la page des sprints<br>
+                avoir accès à un bouton "supprimer" à côté de chaque sprint <br>
+                afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
+            </td>
+            <td>2</td>
+            <td>TO DO</td>
+        </tr>
+        <tr>
             <td>11</td>
             <td>
                 US11 : En tant qu'utilisateur<br>
@@ -34,6 +45,63 @@
                 afin de leur associer une priorité.
             </td>
             <td>3</td>
+            <td>TO DO</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>
+                US13 : En tant qu'utilisateur<br>
+                Je souhaite avoir accès à une page depuis laquelle je peux voir l'ensemble de mes Tâches contenant un bouton "Ajouter" qui me redirige vers un formulaire avec les champs : 
+                <ul>
+                <li>Titre : Text</li>
+                <li>Description : Text</li>
+                </ul>
+                Et une liste des UserStory avec chacune une checkbox pour indiquer auxquelles correspond la Tâche et deux boutons, "Confirmer" qui crée la Tâche en générant un identifiant unique et "Annuler" qui me ramène à la page précédente<br>
+                afin de créer une Tâches.
+            </td>
+            <td>2</td>
+            <td>DOING</td>
+        </tr>
+        <tr>
+        <td>14</td>
+            <td>
+                US14: En tant qu'utilisateur<br>
+                Je souhaite à partir de la page des Tâches<br>
+                avoir accès à la liste des Tâches déjà créées.<br>
+                Dans cette liste, une Tâche sera représentée par carte composée de:
+                <ul>
+                <li>Son nom</li>
+                <li>Une couleur, verte si la tâche est fini et grise sinon</li>
+                <li>Un potentiel Icone Warning m'informant
+                    <ul>
+                    <li>D'un retard d'une de la Tâche ( par rapport à la date du sprint )
+                    <li>D'un manque d'information ( dévelopeur, durée )
+                    </ul>
+                </ul>
+                et sur laquelle serait visible un barre de progression indiquant l'avancement total des Tâches<br>
+                afin de voir la progression total des Tâches sur le projet.
+            </td>
+            <td>2</td>
+            <td>DOING</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>
+                US15 : En tant qu'utilisateur<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Choisir/Modifier le temps de travail" qui me fait apparaitre une valeur incrémentable et décrémentable de 0.5 correspondant au temps de travail en jour<br>
+                afin de choisir et modifier le temps de travail d'une Tâche.
+            </td>
+            <td>1</td>
+            <td>TO DO</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>
+                US16 : En tant qu'utilisateur<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Ajouter/Modifier le développeur" qui m'ouvre une fenêtre avec la liste de mes collaborateurs suivi d'une checkbox que je peux cocher pour choisir à qui attribuer la Tâche <br>
+                afin de répartir les Tâches à faire entre les différent membre de l'équipe de développement.
+            </td>
+            <td>2</td>
             <td>TO DO</td>
         </tr>
         <tr>
@@ -67,18 +135,24 @@
             <td>TO DO</td>
         </tr>
         <tr>
+            <td>20</td>
+            <td>
+                US20 : En tant qu'utilisateur<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Supprimer" qui me ferais apparaitre une fenêtre de confirmation, une fois mon envie de supprimer la Tâche confirmé, la Tâche sera supprimée et je serais redirigé sur une page avec l'ensemble des Tâches<br>
+                afin de pouvoir enlever les Tâches ajoutée par erreur.
+            </td>
+            <td>1</td>
+            <td>TO DO</td>
+        </tr>
+        <tr>
             <td>24</td>
                 <td>
                 US24 : En tant qu'utilisateur<br> 
-                Je souhaite pouvoir ajouter un test en cliquant sur le bouton "Gestion des tests" puis "ajouter" à partir de la page d'acceuil. Ce bouton me permettra de remplir quatre champs de caractères (500 max chacun) : 
-                <ul>  
-                    <li>Id(s) issu(e) liée(s)
-                    <li>Action réalisée
-                    <li>Id
-                    <li>Résultat attendu.
-                </ul>
+                Je souhaite pouvoir ajouter une suite de test en glissant un fichier spécifique. <br>
+                Une fois ce fichier confirmé, la liste des tests s'affichera sur la page, avec une pastille verte ou rouge à côté de chaque test <br>
+                Chaque test est cliquable pour nous afficher l'issue ou la tâche liée,description,son résultat.
                 Je pourrai alors enregistrer la saisie en cliquant sur le bouton "ok" ou annuler la saisie en cliquant sur le bouton "cancel"<br>
-                Afin de mettre en place un moyen d'identifier une anomalie de fonctionnenement lié au déroulement d'un cas d'utilisation.
+                Afin d'enregistrer mes tests dans l'application.
                 </td>
             <td>2</td>
             <td>TO DO</td>
@@ -123,19 +197,9 @@
         <tr>
             <td>28</td>
                 <td>
-                US28 : En tant qu'utilisateur<br> 
-                Je souhaite pouvoir modifier un test en cliquant sur sa description depuis la page Dashboard accessible en cliquant sur le bouton "Gestion des tests" puis "dashboard". Ce boutton me redirigera vers une page contenant l'option de modification d'un test. En sélectionnant "modifier", je pourrai modifier les trois champs concernant le test :
-                <ul>  
-                    <li>Action
-                    <li>Résultat attendu
-                    <li>État
-                </ul>  
-                Cette page implémentera deux bouttons "Valider" et "Annuler" qui respectivement me permettront de:
-                <ul>  
-                    <li>confirmer la modification du test
-                    <li>abandoner la modification du test
-                </ul>  
-                Afin de permettre l'évolution des tests.
+                    US28 : En tant qu'utilisateur<br> 
+                    Je souhaite pouvoir modifier un test en cliquant sur sa description depuis la page Dashboard accessible en cliquant sur le bouton "Gestion des tests" puis "dashboard". Ce boutton me redirigera vers une page contenant l'option de modification une suite de test. En sélectionnant "modifier", je pourrai redéposer mon fichier de test modifié
+                    Afin de permettre l'évolution des tests.
                 </td>
             <td>2</td>
             <td>TO DO</td>

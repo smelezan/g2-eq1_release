@@ -31,7 +31,27 @@ let mongoose = require('mongoose');
 app.listen(5000, function() {
   console.log('Task app listening on port 5000!');
 });
+app.post('/populate',function(req,res){
 
+  const issues = req.body.issues;
+  const Task = require('./models/Task');
+  const taskData= require('./data/task.json');
+
+  Task.find().remove();
+  for( let i =0; i < taskData.length; i++){
+    let issuesList = taskData[i].issues || [];
+    delete taskData[i].issues;
+    let newIssuesList = issuesList.map(title=> issues.find(issue=> issue.title === title)._id);
+    let task = new Task({
+      ...taskData[i],
+      issues: newIssuesList
+    });
+    task.save();
+    
+  }
+  res.redirect('/tasks');
+
+})
 app.use('/tasks/', taskRoutes);
 
 

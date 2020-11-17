@@ -355,15 +355,11 @@
       <td>24</td>
         <td>
           US24 : En tant qu'utilisateur<br> 
-          Je souhaite pouvoir ajouter un test en cliquant sur le bouton "Gestion des tests" puis "ajouter" à partir de la page d'acceuil. Ce bouton me permettra de remplir quatre champs de caractères (500 max chacun) : 
-          <ul>  
-            <li>Id(s) issu(e) liée(s)
-            <li>Action réalisée
-            <li>Id
-            <li>Résultat attendu.
-          </ul>
+          Je souhaite pouvoir ajouter une suite de test en glissant un fichier spécifique. <br>
+          Une fois ce fichier confirmé, la liste des tests s'affichera sur la page, avec une pastille verte ou rouge à côté de chaque test <br>
+          Chaque test est cliquable pour nous afficher l'issue ou la tâche liée,description,son résultat.
           Je pourrai alors enregistrer la saisie en cliquant sur le bouton "ok" ou annuler la saisie en cliquant sur le bouton "cancel"<br>
-          Afin de mettre en place un moyen d'identifier une anomalie de fonctionnenement lié au déroulement d'un cas d'utilisation.
+          Afin d'enregistrer mes tests dans l'application.
         </td>
       <td>2</td>
       <td>moyenne</td>
@@ -409,17 +405,7 @@
       <td>28</td>
         <td>
           US28 : En tant qu'utilisateur<br> 
-          Je souhaite pouvoir modifier un test en cliquant sur sa description depuis la page Dashboard accessible en cliquant sur le bouton "Gestion des tests" puis "dashboard". Ce boutton me redirigera vers une page contenant l'option de modification d'un test. En sélectionnant "modifier", je pourrai modifier les trois champs concernant le test :
-          <ul>  
-            <li>Action
-            <li>Résultat attendu
-            <li>État
-          </ul>  
-          Cette page implémentera deux bouttons "Valider" et "Annuler" qui respectivement me permettront de:
-          <ul>  
-            <li>confirmer la modification du test
-            <li>abandoner la modification du test
-          </ul>  
+          Je souhaite pouvoir modifier un test en cliquant sur sa description depuis la page Dashboard accessible en cliquant sur le bouton "Gestion des tests" puis "dashboard". Ce boutton me redirigera vers une page contenant l'option de modification une suite de test. En sélectionnant "modifier", je pourrai redéposer mon fichier de test modifié
           Afin de permettre l'évolution des tests.
         </td>
       <td>2</td>

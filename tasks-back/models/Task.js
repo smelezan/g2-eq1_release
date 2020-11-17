@@ -29,7 +29,8 @@ const taskSchema = mongoose.Schema({
     },
     issues:{
         type: [String],
-        required: false 
+        required: false,
+        default: []
     }
 });
 

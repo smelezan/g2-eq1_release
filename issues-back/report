@@ -1,0 +1,61 @@
+Example app listening on port 4000!
+
+
+  Issues
+    /GET issue
+(node:21284) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+Connexion à MongoDB réussie!!!!!! !
+      √ it should GET all issues
+    /POST issue
+      1) it should not POST an Issue without title field
+      √ it should POST a Issue
+    /GET /issue/:issue issue 
+      √ it should GET an issue by the given id
+    /PUT /issue/:issue issue 
+(node:21284) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+      √ it should UPDATE an issue given an id
+    /DELETE /issue/:issue issue 
+      √ it should DELETE an issue given an id
+    /PUT /issues/manageDifficulty 
+      2) it should update the difficulty field in each Issues
+
+
+  5 passing (493ms)
+  2 failing
+
+  1) Issues
+       /POST issue
+         it should not POST an Issue without title field:
+
+      Uncaught AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 401
+      + expected - actual
+
+      -401
+      +200
+      
+      at C:\Users\sebas\cours\Master2\conduite-de-projet\projet\g2-eq1_dev\issues-back\test\issue.js:44:37
+      at Test.Request.callback (node_modules\superagent\lib\node\index.js:716:12)
+      at C:\Users\sebas\cours\Master2\conduite-de-projet\projet\g2-eq1_dev\issues-back\node_modules\superagent\lib\node\index.js:916:18
+      at IncomingMessage.<anonymous> (node_modules\superagent\lib\node\parsers\json.js:19:7)
+      at endReadableNT (_stream_readable.js:1220:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+  2) Issues
+       /PUT /issues/manageDifficulty 
+         it should update the difficulty field in each Issues:
+
+      Uncaught AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 400
+      + expected - actual
+
+      -400
+      +200
+      
+      at C:\Users\sebas\cours\Master2\conduite-de-projet\projet\g2-eq1_dev\issues-back\test\issue.js:155:37
+      at Test.Request.callback (node_modules\superagent\lib\node\index.js:716:12)
+      at C:\Users\sebas\cours\Master2\conduite-de-projet\projet\g2-eq1_dev\issues-back\node_modules\superagent\lib\node\index.js:916:18
+      at IncomingMessage.<anonymous> (node_modules\superagent\lib\node\parsers\json.js:19:7)
+      at endReadableNT (_stream_readable.js:1220:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+
+
