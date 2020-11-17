@@ -295,7 +295,7 @@
             </ul>
             </td>
             <td>15,16</td>
-            <td>29</td>
+            <td>12</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To do</td>
@@ -307,7 +307,7 @@
             Qui va créer un popup pour confirmer la suppression et envoyer une reqête <code>DELETE /Tasks/:task</code> au serveur des tâches afin de la supprimer la base de données.
             </td>
             <td>20</td>
-            <td>32</td>
+            <td>15</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To do</td>
@@ -316,9 +316,10 @@
             <td>17</td>
             <td>
             Créer l'évènement onClick sur les bouton "Ajouter/Modifier un développeur" de la vue TaskComponent.vue<br>
+            Ce bouton vas faire apparaître un popup contenant, la liste de tous les développeurs du projet avec chacun une checkbox pour indiqué qui doit faire la tâche et deux boutons VALIDER et ANNULER
             </td>
             <td>16</td>
-            <td>32</td>
+            <td>15</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To do</td>
@@ -327,9 +328,45 @@
             <td>18</td>
             <td>
             Créer l'évènement onClick sur les bouton "Choisir/Modifier un temps de travail" de la vue TaskComponent.vue<br>
+            Ce bouton vas faire apparaître un popup contenant, un case avec la valeur 0, deux flèches UP et DOWN qui incrémente et décremente la valeur de 0.5 et deux boutons VALIDER et ANNULER
             </td>
             <td>15</td>
-            <td>32</td>
+            <td>15</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>
+            Créer un checkbox qui correspond à l'état de la tache, cocher indiquand quelle est fini et non cocher pour tout autre état, de plus un fois la case cocher/décocher, mettre à jour les barre de progression.
+            </td>
+            <td>17</td>
+            <td>15</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>
+            Créer l'évènement onClick sur les bouton "Ajouter/Modifier un UserStory" de la vue TaskComponent.vue<br>
+            Ce bouton vas faire apparaître un popup contenant, la liste de tous les UserStory du projet avec chacune une checkbox pour indiqué que la tâche correspond à l'UserStory et deux boutons VALIDER et ANNULER
+            </td>
+            <td>18</td>
+            <td>15</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>
+            Créer l'évènement onClick sur les bouton "Ajouter/Modifier une dépendance" de la vue TaskComponent.vue<br>
+            Ce bouton vas faire apparaître un popup contenant, la liste des tâches du projet avec chacune une checkbox pour indiqué que la tâche actuel dépend de la tâche dont la checkbox est coché et deux boutons VALIDER et ANNULER
+            </td>
+            <td>19</td>
+            <td>15</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To do</td>
