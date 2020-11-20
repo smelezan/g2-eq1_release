@@ -47,8 +47,6 @@
             sm="12"
             >
              <v-text-field
-                v-model="title"
-                :rules="rules"
                 counter="20"
                 label="Nom"
                 outlined
