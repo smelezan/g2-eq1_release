@@ -74,7 +74,7 @@ export default {
     };
   },
   created() {
-    this.axios.get(this.$proxy + "/issues").then((response) => {
+    this.axios.get(this.$proxyIssues + "/issues").then((response) => {
       let issues = response.data;
       this.sortIssues(issues);
     });
@@ -92,7 +92,7 @@ export default {
     applyChanges: function () {
       //Envoyer au serveur  d'issues  la liste.
       this.axios
-        .put(this.$proxy + "/issues/manageDifficulty", {
+        .put(this.$proxyIssues + "/issues/manageDifficulty", {
           difficultyList: this.difficultyList,
         })
         .then(() => {});
@@ -138,7 +138,7 @@ export default {
       });
     },
     cancelChanges: function () {
-      this.axios.get(this.$proxy + "/issues").then((response) => {
+      this.axios.get(this.$proxyIssues + "/issues").then((response) => {
         this.unassignedIssues = [];
         this.difficultyList = [];
         let issues = response.data;

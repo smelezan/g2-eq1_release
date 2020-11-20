@@ -24,7 +24,7 @@ export default {
         TaskPreviewComponent
     },
     created(){
-      this.axios.get(this.$proxy+'/tasks').then(response =>{
+      this.axios.get(this.$proxyTasks+'/tasks').then(response =>{
           this.tasks = response.data;
           window.console.log(this.tasks);
       });

@@ -39,3 +39,9 @@ exports.findOneTask=function(req, res,next) {
         .catch(error => res.status(400).json({error}));
 };
 
+exports.findByIssues = function (req, res,next){
+    console.log(req.params.issue);
+    Task.find({issues: {$elemMatch : {$eq: req.params.issue} }})
+        .then(tasks => res.status(200).json(tasks))
+        .catch(error => res.status(400).json({error}));
+}

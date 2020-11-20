@@ -60,7 +60,7 @@ export default {
   },
   created() {
     
-    this.axios.get(this.$proxy + "/issues").then((response) => {
+    this.axios.get(this.$proxyIssues + "/issues").then((response) => {
       this.issues = response.data;
       this.issueToShow=  (n,body=false)=>{
           if(body){

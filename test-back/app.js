@@ -28,9 +28,11 @@ mongoose.connect(
 .then(() => console.log('Successfully connected'))
 .catch(() => console.log('Connection to Mongodb failed'));
 
-app.listen(5000, function() {
-console.log('Test app listening on port 6000!');
+app.listen(5001, function() {
+console.log('Test app listening on port 5001!');
 });
+
+app.use('/tests/', testRoutes);
 
 
 module.exports  = app;

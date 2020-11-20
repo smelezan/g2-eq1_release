@@ -14,6 +14,9 @@
         <li class="nav-item">
           <router-link to="/tasks" class="nav-link">Tasks</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/tests" class="nav-link">Tests</router-link>
+        </li>
       </ul>
     </nav><br />
     <transition name="fade">

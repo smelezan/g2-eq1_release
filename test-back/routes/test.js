@@ -5,10 +5,11 @@ const router = express.Router();
 const testCtrl = require('../controllers/test');
 
 
-router.post('/',testCtrl.createTask);
-router.put('/:test',testCtrl.updateTask);
-router.delete('/:test',testCtrl.deleteTask);
-router.get('/:test',testCtrl.findOneTask);
-router.get('/',testCtrl.getAllTasks);
+router.post('/',testCtrl.createTest);
+router.put('/:test',testCtrl.updateTest);
+router.delete('/:test',testCtrl.deleteTest);
+router.get('/:test',testCtrl.findOneTest);
+router.post('/verifyTest',testCtrl.verifyTest);
+router.get('/',testCtrl.getAllTests);
 
 module.exports = router;

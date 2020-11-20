@@ -15,10 +15,16 @@ Vue.use(VueRouter);
 Vue.use(VueAxios,axios);
 Vue.config.productionTip = false
 
-let address = process.env.VUE_APP_ISSUEADDRESS || 'localhost';
-let port = process.env.VUE_APP_PORT || '4000';
+let issuesAddress = process.env.VUE_APP_ISSUEADDRESS || 'localhost';
+let tasksAddress = process.env.VUE_APP_TASKSADDRESS || 'localhost';
+let testsAddress = process.env.VUE_APP_TESTSADDRESS || 'localhost';
+let issuesPort = process.env.VUE_APP_ISSUEPORT || '4000';
+let tasksPort = process.env.VUE_APP_TASKPORT || '5000';
+let testsPort = process.env.VUE_APP_TESTPORT || '5001';
 
-Vue.prototype.$proxy = `http://${address}:${port}`;
+Vue.prototype.$proxyIssues = `http://${issuesAddress}:${issuesPort}`;
+Vue.prototype.$proxyTasks = `http://${tasksAddress}:${tasksPort}`;
+Vue.prototype.$proxyTests = `http://${testsAddress}:${testsPort}`;
 
 import HomeComponent from './components/HomeComponent.vue';
 import IndexIssueComponent from './components/issues/IndexIssueComponent.vue'
@@ -27,6 +33,7 @@ import DifficultyManagement from './components/issues/DifficultyManagement.vue'
 import IndexSprintComponent from './components/sprints/IndexSprintComponent.vue';
 import IndexTaskComponent from './components/tasks/IndexTaskComponent.vue';
 import CreateTaskComponent from './components/tasks/CreateTaskComponent.vue'
+import IndexTestComponent from './components/tests/IndexTestComponent.vue'
 
 const routes = [
   {
@@ -64,6 +71,11 @@ const routes = [
     name: 'manage-difficulty',
     path: '/manage-difficulty',
     component: DifficultyManagement
+  },
+  {
+    name: 'tests',
+    path: '/tests',
+    component: IndexTestComponent
   },
 ]
 

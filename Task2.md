@@ -371,5 +371,155 @@
             <td>Développeur</td>
             <td>To do</td>
         </tr>
+        <tr>
+            <td>22</td>
+            <td>
+            Créer la page IndexPriorityComponent.vue. </br>
+            Sur cette page il y a 
+            <ul>
+                <li>Un bouton sauvegarder</li>
+                <li>Un bouton annuler</li>
+            </ul>
+            Il y a 4 zones
+            <ul>
+                <li> Une comprenant les issues sans priorités </li>
+                <li> Une comprenant les issues avec difficulté faible </li>
+                <li> Une comprenant les issues avec difficulté moyenne </li>
+                <li> Une comprenant les issues avec difficulté forte </li>
+            </ul>
+            </td>
+            <td>11</td>
+            <td>Aucune</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>
+                Créer la route <code>POST /issues/managePriorities</code> sur le serveur d'issues. <br>
+                Cette route, à partir de la liste des priorités composé chacune d'une liste d'issues <br>
+                va enregistrer les issues en leur modifiant leur priorités dans la base de données.
+            </td>
+            <td>11</td>
+            <td>Aucune</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>
+            Créer l'évènement onCLick associé au bouton "Sauvegarder"<br>
+            Cet évènement fais un appel au serveur d'issues<br>
+            <code>POST /issues/managePriorities</code> en passant dans le body une liste d'objet ayant pour champs:
+            <ul>
+                <li>priority: definissant la priorité => LOW,MEDIUM,HIGH</li>
+                <li>issues: liste composée de l'ensemble des issues liées à cette priorité</li>
+            </ul>
+            Ce bouton nous renvoie à la liste des issues.
+            </td>
+            <td>11</td>
+            <td>22,23</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>
+            Créer l'évènement onCLick associé au bouton "Annuler"<br>
+            Cet évènement fais un appel au serveur d'issues<br>
+            <code>GET /issues</code> qui va récupérer la dernière sauvegarde des issues.<br>
+            Ce bouton rafraichis la page.
+            </td>
+            <td>11</td>
+            <td>22</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>
+            Créer la page "IndexTestComponent.vue"<br>
+            Sur cette page il y une zone pour déposer un document json.
+            Un logo ❔ 
+            Si un document a déjà été déposé et validé , une zone apparait comprenant un tableau
+            <ul>
+                <li> l'id du test</li> 
+                <li> la description du test</li> 
+                <li> l'issue ou la tâche liée </li> 
+                <li> la dernière exécution</li> 
+                <li> le nombre d'exécutions</li> 
+                <li> le résultat </li> 
+            </ul> 
+            </td>
+            <td>24</td>
+            <td>Aucune</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>
+            Créer la fonction parseFile<br>
+            Cette fonction prend en entrée un fichier <br>
+            et retourne une liste d'objets tests.
+            </td>
+            <td>24</td>
+            <td>Aucune</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>
+                Créer la fonction verifyTests<br>
+                Qui va faire appel à la route <code>POST /tests/verifyTests</code>
+                en passant au body l'ensemble des tests récupérés depuis le fichier. l'ensemble des issues et l'ensembles des tâches<br>
+                Elle récupéra alors les tests dans deux listes.
+                <ul>
+                    <li> Correct: listant tous les tests qui ont réussis à être mappés sur les issues/tâches</li>
+                    <li> wrong: listant tous les tests qui n'ont pas réussi à être mappés sur les issues/tâches</li>
+                </ul>
+                Cette fonction mettra à jour les données de Vuejs,<br> afin d'actualiser le tableau.
+            </td>
+            <td>24</td>
+            <td>26</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>
+                Créer la route <code>POST /tests/verifyTests</code>
+                Cette route prend en entrée un ensemble de tests, d'issues, et de tâches .
+                et va mapper les tests aux issues et aux tâches.
+                pour les mettre dans la base de donnée.
+            </td>
+            <td>24</td>
+            <td>Aucune</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td> 
+                Mapper la documentation utilisateur au bouton ❔.<br>
+                Ce bouton doit indiquer à l'utilisateur comment faire les tests.<br>
+                Il doit contenir les informations sur l'api utilisé ( mocha)<br>
+                Et la ligne de commande à utiliser
+            </td>
+            <td>24</td>
+            <td>26</td>
+            <td>1</td>
+            <td>Développeur</td>
+            <td>To do</td>
+        </tr>
     </tbody>
 </table>

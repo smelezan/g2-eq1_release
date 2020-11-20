@@ -1,0 +1,150 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-18T07:10:18.090Z",
+    "end": "2020-11-18T07:10:18.348Z",
+    "duration": 258
+  },
+  "suites": [
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "/GET issue",
+      "tests": [
+        {
+          "fullTitle": "/GET issue it should GET all issues",
+          "title": "it should GET all issues",
+          "duration": 40,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST issue",
+      "tests": [
+        {
+          "fullTitle": "/POST issue it should not POST an Issue without title field",
+          "title": "it should not POST an Issue without title field",
+          "duration": 46,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "/POST issue it should POST a Issue",
+          "title": "it should POST a Issue",
+          "duration": 20,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/GET /issue/:issue issue  it should GET an issue by the given id",
+          "title": "it should GET an issue by the given id",
+          "duration": 13,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /issue/:issue issue  it should UPDATE an issue given an id",
+          "title": "it should UPDATE an issue given an id",
+          "duration": 17,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+          "title": "it should DELETE an issue given an id",
+          "duration": 10,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /issues/manageDifficulty ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /issues/manageDifficulty  it should update the difficulty field in each Issues",
+          "title": "it should update the difficulty field in each Issues",
+          "duration": 32,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "/GET issue it should GET all issues",
+      "title": "it should GET all issues",
+      "duration": 40,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST issue it should not POST an Issue without title field",
+      "title": "it should not POST an Issue without title field",
+      "duration": 46,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST issue it should POST a Issue",
+      "title": "it should POST a Issue",
+      "duration": 20,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /issue/:issue issue  it should GET an issue by the given id",
+      "title": "it should GET an issue by the given id",
+      "duration": 13,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /issue/:issue issue  it should UPDATE an issue given an id",
+      "title": "it should UPDATE an issue given an id",
+      "duration": 17,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+      "title": "it should DELETE an issue given an id",
+      "duration": 10,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /issues/manageDifficulty  it should update the difficulty field in each Issues",
+      "title": "it should update the difficulty field in each Issues",
+      "duration": 32,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

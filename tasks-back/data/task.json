@@ -8,7 +8,8 @@
         "dod": "Description",
         "issues":[
             "Issue with difficulty 3"
-        ]
+        ],
+        "status":"DONE"
     },
     {
         "title":"troisième tache",

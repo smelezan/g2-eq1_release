@@ -46,7 +46,7 @@
     },
     methods: {
       addIssue(){
-          this.axios.post(this.$proxy+'/issues', this.issue).then(() => {
+          this.axios.post(this.$proxyIssues+'/issues', this.issue).then(() => {
             this.$router.push({name: 'issues'});
           });
       }

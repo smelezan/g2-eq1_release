@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 
 const testSchema = mongoose.Schema({
+    testGroup:{
+        type: String,
+        default:""
+    },
     type:{
         type:String,
-        required: true,
-        enum:['E2E','Regression','Unitaire']
+        enum:['E2E','Regression','Unitaire'],
+        default:'Unitaire'
     },
     testedDates:{
         type: [
@@ -16,10 +20,10 @@ const testSchema = mongoose.Schema({
                 result:{
                     type: String,
                     required: true,
-                    enum:['Success','Fail']
+                    enum:['passed','failure']
                 }
             }],
-        required: true
+        default:[{date:new Date(), result: 'failure'}]
     },
     dependance:{
         type: [String],
@@ -28,6 +32,7 @@ const testSchema = mongoose.Schema({
     description:{
         type: String
     }
+    
 });
 
 module.exports = mongoose.model('Test',testSchema);
