@@ -1,35 +1,24 @@
 <template>
-  <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/sprint" class="nav-link">Sprints</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/issues" class="nav-link">Issues</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/tasks" class="nav-link">Tasks</router-link>
-        </li>
-      </ul>
-    </nav><br />
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
-  </div>
+    <v-app>
+      <Navbar />
+      <AppBar />
+      <v-main style="padding: 0px 0px 0px 0px;">
+        <router-view></router-view>
+      </v-main>
+    </v-app>
 </template>
 
 <script>
-//import HomeComponent from './components/HomeComponent'
-
+import AppBar from '@/components/AppBar'
+import Navbar from '@/components/Navbar'
 export default {
   name: 'App',
-  
-}
+  components: {
+    AppBar,
+    Navbar
+  },
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style>
-</style>
