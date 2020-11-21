@@ -1,0 +1,33 @@
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  .wrap    { 
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }  
+  .wrap li {
+    background: gold;
+  }
+    
+  .flex-item {
+    padding: 5px;
+    width: 370px;
+    height: 220px;
+    margin: 10px;
+    
+    line-height: 100px;
+    color: rgb(39, 161, 155);
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+  }
