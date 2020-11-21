@@ -1,12 +1,11 @@
 <template>
-  <div class="row justify-content-center">
-      <div class="col-md-8">
+  <div class="row justify-content-center" >
+      <div class="col-md-8" style="margin-top: 300px;margin-left: 300px;">
           <div class="card card-default">
               <div class="card-header">Home Component</div>
 
               <div class="card-body">
-                  <button class="btn btn-primary" @click="populate"> Populate</button>
-
+                  <v-btn @click="populate">Populate  </v-btn>
               </div>
           </div>
       </div>

@@ -1,5 +1,5 @@
-let mongoAddress = process.env.MONGO_TASKADDRESS || "localhost";
-let mongoPORT = process.env.MONGO_TASKPORT || 27017;
+let mongoAddress = process.env.MONGO_TESTADDRESS || "localhost";
+let mongoPORT = process.env.MONGO_TESTPORT || 27017;
 
 
 

@@ -1,25 +1,38 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <input type="file" @change="onFileSelected">
-            <button @click="onUpload">Upload</button>
-            <button v-if="showSendServeButton" class="btn btn-primary" @click="sendToServe"> Send to serve</button>
+    <div class="v-container" style= "margin-left: 350px;margin-right: 300px; margin-top:100px ">
+        <div class="v-row">
+            <div class="v-col">
+                <div class="v-row">
+                    <v-file-input
+                        accept="application/JSON"
+                        label="File input"
+                        @change="onFileSelected"
+                    ></v-file-input>
+                </div>
+                <div class="v-row" v-if="showOnUploadButton">
+                    <v-btn @click="onUpload">upload</v-btn>
+                </div>
+                <div class="v-row" v-if="showSendServeButton">
+                    <v-btn  @click="sendToServe">Envoyer</v-btn>
+                </div>
+            </div>
         </div>
-        <div class="row" v-if="show || testsFromDatabases.length>0">
-            <div class="col">
+
+        <div class="v-row">
+            <div class="v-col">
                 
-                <div class="row" > 
-                    <div class="col">
+                <div class="v-row" > 
+                    <div class="v-col">
                         <p>nombre de tests Total: {{totalNumberOfTests}}</p>
                         <p>nombre de tests passés: {{numberOfTestsPassed}}</p>
                         <p>nombre de tests ratés: {{numberOfTestsFailed}}</p>
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <table class="table table-hover">
+                <div class="v-row">
+                    <div class="v-col">
+                        <div class="v-row">
+                            <v-simple-table v-if="testsFromDatabases.length>0">
                                 <thead>
                                     <tr>
                                     <th scope="col">Id</th>
@@ -29,7 +42,7 @@
                                     <th scope="col">résultat</th>
                                     </tr>
                                 </thead> 
-                                <tbody v-if="testsFromDatabases.length>0 && !processEnd">
+                                <tbody v-if="testsFromDatabases.length>0">
                                     <TestItemComponent 
                                         v-for="(test) in testsFromDatabases" 
                                         :key="test._id" 
@@ -40,9 +53,22 @@
                                         :type="test.type"
                                         :result="test.testedDates[test.testedDates.length-1].result" />
                                 </tbody>
-                                <tbody v-else-if="!processEnd">
-
-                                    <tr  v-for="(test,counter) in newTests" :key="counter">
+                            </v-simple-table>
+                            <div v-else>
+                                Aucun test dans la base de donnée.
+                            </div>
+                            <v-simple-table v-if="showSendServeButton" >
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Issue/Tâches Liés</th>
+                                    <th scope="col">dernière exécution</th>
+                                    <th scope="col">résultat</th>
+                                    </tr>
+                                </thead> 
+                                    <tbody v-if="!processEnd">
+                                    <tr v-for="(test,counter) in newTests" :key="counter">
                                         <td>{{counter}}</td>
                                         <td>{{test.description}}</td>
                                         <td>{{test.title}}</td>
@@ -61,9 +87,11 @@
                                         :type="test.type"
                                         :result="test.testedDates[test.testedDates.length-1].result" />
                                 </tbody>
-                                    
-                                
-                            </table>
+                            </v-simple-table>
+                            <div v-else>
+                                {{message}}
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -91,7 +119,9 @@ export default {
             newTests: [],
             finalTest:[],
             processEnd:false,
-            showSendServeButton:true
+            showOnUploadButton: false,
+            showSendServeButton:false,
+            message: "Aucun fichier n'a été passé"
         }
     },
     created(){
@@ -105,7 +135,9 @@ export default {
     },
     methods:{
         onFileSelected(event){
-            this.selectedFile = event.target.files[0];
+            console.log(event);
+            this.selectedFile= event;
+            this.showOnUploadButton= true;
         },
         setFile(){
             const reader = new FileReader();
@@ -119,8 +151,9 @@ export default {
             this.setFile()
             .then(jsonFile =>{
                 this.tests = JSON.parse(jsonFile);
-                this.show=true;
-                for(let suite of this.tests.suites){
+                
+                try {
+                    for(let suite of this.tests.suites){
                     let title = suite.title;
                     for(let test of suite.tests){
                         this.newTests.push({
@@ -130,9 +163,15 @@ export default {
                             err: test.err
                         });
                     }
+                    this.show=true;
+                    this.showSendServeButton = true;
                 }
+                } catch (error) {
+                    this.message = " ⚠⚠⚠ Le format du fichier n'est pas bon"
+                    console.log(error);
+                }
+                
             });
-            this.showSendServeButton = true;
         },
         sendToServe(){
             this.axios.get(this.$proxyIssues+'/issues/')
