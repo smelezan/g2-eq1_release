@@ -14,7 +14,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Task Definition of Done:</label>
-              <textarea class="form-control" v-model="task.description" rows="5"></textarea>
+              <textarea class="form-control" v-model="task.dod" rows="5"></textarea>
             </div>
           </div>
         </div>
@@ -22,38 +22,40 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Task Issue:</label>
-              <select id ="Issue Select">
-                <option value=""> -- Choose an Issue -- </option>
-                <option v-for="issue in issues" :key="issue._id" value="issue._id" >{{issue.title}}</option>
-              </select>
+              <div v-for="issue in issues" :key="issue._id" class="Checkbox" >
+                <input type="checkbox" />{{issue.title}}<br>
+              </div>
             </div>
           </div>
         </div>
         <div class="form-group">
           <button class="btn btn-primary">Créer</button>
         </div>
+        <span> <router-link to="/tasks"> <button class="btn btn-primary">Cancel</button> </router-link></span>
     </form>
   </div>
 </template>
 
 <script>
-    export default {
-        data(){
-        return {
-          task:{},
-          types: [
-              'Feature',
-              'Documentation'
-          ]
-        }
-    },
-    methods: {
+
+export default {
+  data() {
+    return {
+      issues: {},
+      task: {}
+    };
+  },
+  created() {
+      this.axios.get(this.$proxy + "/issues").then((response) => {
+        this.issues = response.data;
+    });
+  },
+  methods: {
       addTask(){
-        console.log(this.task)
-        //   this.axios.post(this.$proxy+'/issues', this.issue).then(() => {
-        //     this.$router.push({name: 'issues'});
-        //   });
+          this.axios.post("http://localhost:5000/tasks", this.task).then(() => {
+            this.$router.push({name: 'tasks'});
+          });
       }
-    }
   }
+};
 </script>
