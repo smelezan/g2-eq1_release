@@ -32,7 +32,7 @@ export default {
     modaleTask
   },
   created() {
-      this.axios.get("http://localhost:5000/tasks").then((response) => {
+      this.axios.get(this.$proxyTasks+'/tasks').then(response =>{
           this.tasks = response.data;
       });
   },

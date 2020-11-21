@@ -52,7 +52,7 @@ export default {
   },
   methods: {
       addTask(){
-          this.axios.post("http://localhost:5000/tasks", this.task).then(() => {
+          this.axios.post(this.$proxyTasks+'/tasks', this.issue).then(() => {
             this.$router.push({name: 'tasks'});
           });
       }

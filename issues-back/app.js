@@ -36,13 +36,24 @@ app.listen(4000, function() {
   console.log('Example app listening on port 4000!');
 });
 
-app.get('/populate', function(req,res){
+app.post('/populate', function(req,res){
+  mongoose.connection.db.dropDatabase();
   Issue.find().remove();
-  for( var i = 0; i < issueData.length; i++ ) {
-		new Issue( issueData[ i ] ).save();
-  }
-  res.redirect('/issues');
+  let promises = issueData.map(issue=> new Promise((resolve,reject) => {
+    new Issue(issue).save()
+      .then(() =>resolve() )
+      .catch((err) =>reject(error));
+  }));
+
+  Promise.all(promises)
+    .then(() => {
+      Issue.find()
+        .then(issues => res.status(200).json(issues))
+        .catch(error => res.status(400).json({error}));
+    });
+
 })
+
 
 app.use('/sprints/', sprintRoutes);
 app.use('/issues/', issueRoutes);

@@ -67,6 +67,30 @@ services:
           - 27018:27018
         networks:
           - cdp
+    tests:
+        container_name: test_server
+        environment: 
+            - MONGO_TESTADDRESS=test_database
+            - MONGO_TESTPORT=27019
+           
+        build: 
+            context: ./tests-back
+            dockerfile: Dockerfile
+        ports:
+            - "5001:5001"
+        networks:
+            - cdp
+        depends_on:
+          - mongoTest
+
+    mongoTest:
+        image: mongo
+        container_name: test_database
+        command: mongod --port 27019
+        ports:
+          - 27019:27019
+        networks:
+          - cdp
     
     
 networks:

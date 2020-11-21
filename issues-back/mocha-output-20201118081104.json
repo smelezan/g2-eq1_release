@@ -1,0 +1,291 @@
+{
+  "stats": {
+    "suites": 13,
+    "tests": 15,
+    "passes": 15,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-18T07:11:04.924Z",
+    "end": "2020-11-18T07:11:05.395Z",
+    "duration": 471
+  },
+  "suites": [
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "/GET issue",
+      "tests": [
+        {
+          "fullTitle": "/GET issue it should GET all issues",
+          "title": "it should GET all issues",
+          "duration": 30,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST issue",
+      "tests": [
+        {
+          "fullTitle": "/POST issue it should not POST an Issue without title field",
+          "title": "it should not POST an Issue without title field",
+          "duration": 43,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "/POST issue it should POST a Issue",
+          "title": "it should POST a Issue",
+          "duration": 63,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/GET /issue/:issue issue  it should GET an issue by the given id",
+          "title": "it should GET an issue by the given id",
+          "duration": 38,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /issue/:issue issue  it should UPDATE an issue given an id",
+          "title": "it should UPDATE an issue given an id",
+          "duration": 73,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+          "title": "it should DELETE an issue given an id",
+          "duration": 13,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /issues/manageDifficulty ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /issues/manageDifficulty  it should update the difficulty field in each Issues",
+          "title": "it should update the difficulty field in each Issues",
+          "duration": 30,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "# Hello World",
+      "tests": [
+        {
+          "fullTitle": "# Hello World ça doit afficher Hello",
+          "title": "ça doit afficher Hello",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "# Hello World ça doit afficher World",
+          "title": "ça doit afficher World",
+          "duration": 1,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "# Super title",
+      "tests": [
+        {
+          "fullTitle": "# Super title Un test générique",
+          "title": "Un test générique",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "# Issue with difficulty 3",
+      "tests": [
+        {
+          "fullTitle": "# Issue with difficulty 3 Test de la difficulté",
+          "title": "Test de la difficulté",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "# Issue with difficulty 3 Test de la facilité",
+          "title": "Test de la facilité",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "# Issue with difficulty 3 Test de la faci-difficulté",
+          "title": "Test de la faci-difficulté",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "~ Première tache",
+      "tests": [
+        {
+          "fullTitle": "~ Première tache Test de la première tâche",
+          "title": "Test de la première tâche",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "~ troisième tache",
+      "tests": [
+        {
+          "fullTitle": "~ troisième tache Test de la troisième tâche",
+          "title": "Test de la troisième tâche",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "/GET issue it should GET all issues",
+      "title": "it should GET all issues",
+      "duration": 30,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST issue it should not POST an Issue without title field",
+      "title": "it should not POST an Issue without title field",
+      "duration": 43,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST issue it should POST a Issue",
+      "title": "it should POST a Issue",
+      "duration": 63,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /issue/:issue issue  it should GET an issue by the given id",
+      "title": "it should GET an issue by the given id",
+      "duration": 38,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /issue/:issue issue  it should UPDATE an issue given an id",
+      "title": "it should UPDATE an issue given an id",
+      "duration": 73,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+      "title": "it should DELETE an issue given an id",
+      "duration": 13,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /issues/manageDifficulty  it should update the difficulty field in each Issues",
+      "title": "it should update the difficulty field in each Issues",
+      "duration": 30,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Hello World ça doit afficher Hello",
+      "title": "ça doit afficher Hello",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Hello World ça doit afficher World",
+      "title": "ça doit afficher World",
+      "duration": 1,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Super title Un test générique",
+      "title": "Un test générique",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Issue with difficulty 3 Test de la difficulté",
+      "title": "Test de la difficulté",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Issue with difficulty 3 Test de la facilité",
+      "title": "Test de la facilité",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Issue with difficulty 3 Test de la faci-difficulté",
+      "title": "Test de la faci-difficulté",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "~ Première tache Test de la première tâche",
+      "title": "Test de la première tâche",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "~ troisième tache Test de la troisième tâche",
+      "title": "Test de la troisième tâche",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

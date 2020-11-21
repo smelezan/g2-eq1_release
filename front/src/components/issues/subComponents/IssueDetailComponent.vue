@@ -71,7 +71,7 @@ export default {
                     title: this.newTitle,
                     description: this.newDescription,
                     };
-                this.axios.put(this.$proxy+'/issues/'+this._id, issue);
+                this.axios.put(this.$proxyIssues+'/issues/'+this._id, issue);
                 window.location.reload()
             },
             cancelIssue :()=>{

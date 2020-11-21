@@ -31,28 +31,41 @@ let mongoose = require('mongoose');
 app.listen(5000, function() {
   console.log('Task app listening on port 5000!');
 });
-app.post('/populate',function(req,res){
 
+
+
+app.post('/populate',function(req,res){
+  mongoose.connection.db.dropDatabase();
   const issues = req.body.issues;
+  
   const Task = require('./models/Task');
   const taskData= require('./data/task.json');
 
   Task.find().remove();
-  for( let i =0; i < taskData.length; i++){
-    let issuesList = taskData[i].issues || [];
-    delete taskData[i].issues;
+
+  let promises = taskData.map(taskD=> new Promise((resolve,reject) => {
+    let issuesList = taskD.issues || [];
+    delete taskD.issues;
     let newIssuesList = issuesList.map(title=> issues.find(issue=> issue.title === title)._id);
     let task = new Task({
-      ...taskData[i],
+      ...taskD,
       issues: newIssuesList
     });
-    task.save();
+    task.save()
+      .then(()=>resolve())
+      .catch((err)=>reject(err));
+  }));
+  
+  Promise.all(promises)
+    .then(()=>{
+      Task.find()
+        .then(tasks => res.status(200).json(tasks))
+        .catch(error => res.status(400).json({error}));
+  });
     
-  }
-  res.redirect('/tasks');
+});
 
-})
-app.use('/tasks/', taskRoutes);
+app.use('/tasks', taskRoutes);
 
 
 module.exports  = app;

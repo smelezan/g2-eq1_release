@@ -30,7 +30,7 @@ export default {
     },
     methods:{
         deleteIssue: function(){
-            this.axios.delete(this.$proxy+'/issues/'+this.idIssue)
+            this.axios.delete(this.$proxyIssues+'/issues/'+this.idIssue)
             .then(()=> window.location.reload())
         }
     }
