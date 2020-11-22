@@ -1,8 +1,22 @@
 <template>
-    <div class="list-group-item d-flex justify-content-between align-items-center">
+<v-card>
+    <v-card-text v-if="difficulty!=undefined">
+        <v-badge
+          color="blue"
+          :content="difficulty"
+        >
         {{title}}
-    <span class="badge badge-primary badge-pill">{{difficulty}}</span>
-    </div>
+        </v-badge>
+    </v-card-text>
+    <v-card-text v-else>
+        <v-badge
+          :color="color"
+        >
+        {{title}}
+        </v-badge>
+    </v-card-text>
+
+</v-card>
 </template>
 
 
@@ -13,11 +27,27 @@ export default {
     name: 'IssueSummary',
     props:{
         title:String,
-        difficulty: Number
+        difficulty: Number,
+        priority: String
     },
+    data(){
+        return {
+            
+        }
+        
+    },
+
     
     methods:{
         
+    },
+    computed:{
+        color(){
+            if(this.priority=="HIGH") return "red";
+            else if(this.priority=="MEDIUM") return "orange";
+            else if(this.priority=="LOW") return "yellow";
+            return "blue";
+        }
     }
 }
 </script>

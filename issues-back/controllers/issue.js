@@ -38,6 +38,30 @@ exports.findOneIssue=function(req, res,next) {
         .catch(error => res.status(400).json({error}));
 };
 
+exports.managePriority=function(req,res,next){
+    const priorityList = req.body.priorityList;
+    console.log(priorityList);
+    updatePriority= (issuesArray)=>{
+        return issuesArray.issues.map(issue=> new Promise((resolve,reject)=>{
+            Issue.findOneAndUpdate({_id:issue._id}, {priority:issuesArray.priority}, {upsert:true, useFindAndModify:true, new:true})
+                .then(result=>resolve(result))
+                .catch(error =>reject(error));
+        }));
+    }
+    let promises = priorityList.map(
+        issuesArray=> new Promise((resolve,reject)=>{
+            Promise.all(updatePriority(issuesArray))
+                .then(result=>resolve(result))
+                .catch(error =>reject(error));
+        })
+    );
+
+    Promise.all(promises)
+        .then(result=>res.status(201).json({result, message: "Updated"}))
+        .catch(error => res.status(401).json(error));
+
+}
+
 exports.manageDifficulty = function(req,res,next){
     const difficultyList = req.body.difficultyList;
     let globalPromise = [];

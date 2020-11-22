@@ -27,6 +27,11 @@ const routes = [
     path:'/populate',
     name:'Populate',
     component : ()=>import('../components/HomeComponent.vue')
+  },
+  {
+    path:'/managePriority',
+    name:'managePriority',
+    component: ()=>import('../components/issues/PriorityManagement.vue')
   }
 ]
 
