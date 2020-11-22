@@ -42,6 +42,11 @@ const routes = [
     path:'/create-task',
     name:'createTask',
     component : ()=>import('../components/tasks/CreateTaskComponent.vue')
+  },
+  {
+    path:'/managePriority',
+    name:'managePriority',
+    component: ()=>import('../components/issues/PriorityManagement.vue')
   }
 ]
 

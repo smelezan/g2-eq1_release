@@ -38,60 +38,109 @@ exports.findOneTest=function(req, res,next) {
         .catch(error => res.status(400).json({error}));
 };
 
-exports.verifyTest= function(req,res,next){
+
+exports.verifyTest = function(req,res,next){
     const tests = req.body.tests;
     const issues = req.body.issues;
     const tasks = req.body.tasks;
-    let promises = tests.map(test=>new Promise((resolve,reject)=>{ 
-        Test.findOne({description: test.description})
-            .then(response=>{
-                let testedDates = response.testedDates;
-                testedDates.push({date: new Date(), result:test.result});
-                response.update({testedDates:testedDates});
-                resolve(response);
-            })
-            .catch(() =>{
-                let currentDepend= [];
-                getTestDependances(test,issues,tasks)
-                .then(result => {
-                    currentDepend = result
-                    const currentTest = new Test({
-                        testGroup: test.testGroup,
-                        type: (currentDepend[0].type=="Task") ? "Unitaire":"E2E",
-                        testedDates: [{date:new Date(), result:test.result}],
-                        dependance: currentDepend[0].id,
-                        description: test.description,
-                    });
-                    currentTest.save()
-                        .then(()=> {
-                            resolve(currentTest)
-                        })
-                        .catch(err => reject(err));
-                    //console.log(currentTest);
+
+    let result = {
+        correct:[],
+        wrong:[]
+    }
+
+    let promises = tests.map(test=>
+        new Promise((resolve, reject)=>{
+            getTestDependances(test,issues,tasks)
+                .then(result=>{
+                    //console.log(result);
+                    resolve(result);
                 });
-            });
-    }));
+        })
+    );
+
     Promise.all(promises)
-    .then(response => {
-        //console.log(response);
-        res.status(200).json(response)
-    })
-    .catch(err=>console.log(err));
+        .then(results=>{
+            for( let i = 0; i < results.length; i++){
+                if(results[i].type==undefined){
+                    result.wrong.push(tests[i]);
+                }
+                else{
+                    result.correct.push({
+                        testGroup: "",
+                        description: tests[i].description,
+                        dependance: results[i].id,
+                        type: (results[i].type ==="Task")? "Unitaire":"E2E",
+                        testedDates:[{date: new Date(), result: tests[i].result}]
+                    })
+                }
+            }
+            
+            res.status(200).json(result);
+        })
+        .catch(err=>res.status(400).json({err, message:"Error in verification"}));
+
+
+}
+
+/**
+ * A réécrire
+ * @param {} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+exports.saveTest = function(req, res, next){
+    const tests = req.body.tests;
+    let promises = tests.map(test=>{
+        new Promise((resolve, reject)=>{
+            Test.findOne({description: test.description})
+                .then(result=>{
+                    let testedDates = result.testedDates;
+                    testedDates.push({date: new Date(), result: test.result});
+                    result.update({testedDates:testedDates});
+                    resolve(result);
+                })
+                .catch(()=>{
+                    new Test(test).save()
+                        .then(result=> resolve(result))
+                        .catch(err=> reject(err));
+                });            
+        });
+    });
+    Promise.all(promises)
+        .then(result => res.status(201).json(result))
+        .catch(err=> res.status(400).json({err, message:"Error in save"}));
+}
+
+/**
+ * 
+ * @param {list} test 
+ * @param {list} issues 
+ * @param {list} tasks 
+ * 
+ * @returns {type, id} si il y a une dépendance et {} sinon.
+ */
+async function getTestDependances(test,issues,tasks){
+    
+    let dependance=test.title;
+
+    const result = await findDependance(dependance, issues,tasks);
+
+    return result;
+
+
     
 }
 
 
 /**
- * A partir d'une liste d'issue et de taches, renvoie une liste des dépendances
+ * 
+ * @param {String} dependance 
+ * @param {List} issues 
+ * @param {List} tasks 
+ * 
+ * @returns {[{type, id }]} returns a list of object as a promise containing the type ( Issue or Task), and his id.
  */
-async function getTestDependances(test,issues,tasks){
-    
-    let dependances=test.title.split(",");
-
-    const result = await Promise.all(dependances.map(dependance=>findDependance(dependance,issues,tasks)));
-    return result;
-}
-
 const findDependance =(dependance,issues,tasks)=>{
     const issueMatch = new RegExp('^\\s*#\\s.*');
     const taskMatch = new RegExp('^\\s*~\\s');
@@ -104,7 +153,7 @@ const findDependance =(dependance,issues,tasks)=>{
                 resolve({type:"Issue", id:currentIssue._id});
             }
             else{
-                console.log("Undefined Issue");
+                resolve({});
             }
         }
         else if(taskMatch.test(dependance)){
@@ -114,7 +163,7 @@ const findDependance =(dependance,issues,tasks)=>{
                 resolve({type:"Task",id:currentTask._id});
             }
             else{
-                console.log("Undefined Task");
+                resolve({});
             }
                 
         }
