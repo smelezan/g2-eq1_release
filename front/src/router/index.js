@@ -27,6 +27,21 @@ const routes = [
     path:'/populate',
     name:'Populate',
     component : ()=>import('../components/HomeComponent.vue')
+  },
+  {
+    path:'/tasks',
+    name:'tasks',
+    component : ()=>import('../components/tasks/IndexTaskComponent.vue')
+  },
+  {
+    path:'/tasks/:id',
+    name:'task',
+    component : ()=>import('../components/tasks/TaskComponent.vue')
+  },
+  {
+    path:'/create-task',
+    name:'createTask',
+    component : ()=>import('../components/tasks/CreateTaskComponent.vue')
   }
 ]
 

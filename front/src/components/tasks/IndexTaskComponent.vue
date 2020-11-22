@@ -1,15 +1,18 @@
 <template>
-
-    <div class="container">
-        <h3>Index Task   <span> <router-link to="/create-task"> <button class="btn btn-primary">Ajouter une Task</button> </router-link></span></h3>   
-        <div class="row" v-for="task in tasks" :key="task._id">
-          <div class="col-8">
-            <TaskPreviewComponent :id ="task._id" :title="task.title" @delete-task="deleteTask"/>
+  <div class="row justify-content-center" >
+    <div class="col-md-8" style="margin-top: 100px;margin-left: 300px;">
+      <div class="container">
+          <h3>Index Task   <span> <router-link to="/create-task"> <button class="btn btn-primary">Ajouter une Task</button> </router-link></span></h3>   
+          <div class="row" v-for="task in tasks" :key="task._id">
+            <div class="col-8">
+              <TaskPreviewComponent :id ="task._id" :title="task.title" @delete-task="deleteTask"/>
+            </div>
           </div>
-        </div>
-        
-      <modaleTask :revele="revele" :toggleModale="toggleModale" :idTask="idTaskToDelete"/>
+          
+        <modaleTask :revele="revele" :toggleModale="toggleModale" :idTask="idTaskToDelete"/>
+      </div>
     </div>
+  </div>
 </template>
 
 

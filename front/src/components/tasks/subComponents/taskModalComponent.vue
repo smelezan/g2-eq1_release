@@ -30,7 +30,7 @@ export default {
     },
     methods:{
         deleteTask: function(){
-            this.axios.delete("http://localhost:5000/tasks/"+this.idTask)
+            this.axios.delete(this.$proxyTasks+'/tasks/'+this.idTask)
             .then(()=> window.location.reload())
         }
     }
