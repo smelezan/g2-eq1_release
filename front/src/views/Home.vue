@@ -93,7 +93,9 @@
       return {
         ProjectTile,
         dialog: false,
-        projects: [],
+        projects: [
+          {'project':{'name': 'Projet CDP'}}
+        ],
         inputValue: null
       }
     },

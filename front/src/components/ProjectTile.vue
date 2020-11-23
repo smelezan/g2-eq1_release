@@ -3,11 +3,12 @@
       style="padding: 0px 0px 7px 0px;"  
     >
     <template>
-    <v-card
+    <v-card 
       color="#FFFFFF"
       dark
       max-width="400"
       height="200"
+      :to="Project_Name"
     >
       <v-card-title>
         <v-icon
@@ -20,14 +21,14 @@
 
         <span class="title font-weight-light" style="color:grey">{{Project_Name}}</span>
       
-        <v-layout align-end justify-end>
+       <!--  <v-layout align-end justify-end>
           <v-icon
             color="yellow"
         >mdi-alert-outline</v-icon>
           <v-icon
             color="grey"
           >mdi-dots-vertical</v-icon>
-        </v-layout>
+        </v-layout> -->
             
       </v-card-title>
 
