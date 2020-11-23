@@ -4,13 +4,17 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col
-            v-for="n in nb_projects"
-            :key="n"
-            cols="4"
+          <v-col v-for="(project, i) in projects" :key="i"
+          cols="3"
           >
-            <v-card v-if="n==nb_projects" @click="increaseNbProjects()" height="200">
-              <v-layout justify-center style="height:100%">
+          <component :is="ProjectTile" :Project_Name="project.project.name">
+          </component>
+        </v-col>
+          <v-col
+          cols="3"
+          >
+            <v-card @click="increaseNbProjects()" >
+              <v-layout justify-center style="height:200px" >
 
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on, attrs }">
@@ -25,7 +29,6 @@
                 
               </v-layout>
             </v-card>
-            <v-card v-else-if="n>0" height="200"></v-card>
           </v-col>
         </v-row>
       </v-container>
@@ -47,6 +50,7 @@
             sm="12"
             >
              <v-text-field
+                v-model="inputValue"
                 counter="20"
                 label="Nom"
                 outlined
@@ -70,9 +74,10 @@
           <v-btn
             color="primary"
             text
-            @click="dialog = false"
+            @click="addProject($event), dialog = false"
+
           >
-            Submit
+            Valider
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -82,17 +87,22 @@
 </template>
 
 <script>
+  import ProjectTile from '@/components/ProjectTile'
   export default {
     data() {
       return {
-        nb_projects: 1,
+        ProjectTile,
         dialog: false,
+        projects: [],
+        inputValue: null
       }
     },
     methods: {
       increaseNbProjects: function() {
-        //this.nb_projects += 1
         this.dialog = !this.dialog
+      },
+      addProject: function() {
+        this.projects.push({'project':{'name': this.inputValue}})
       }
     }
     //
