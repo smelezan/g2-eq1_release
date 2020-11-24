@@ -4,7 +4,7 @@
         <v-main>
             <v-container>
                 <h1>Create An Issue !!!</h1>
-                <h2 style="color:grey">for {{this.$proxy}}</h2>
+                <h2 style="color:grey">for {{this.$proxyIssues}}</h2>
                 <form @submit.prevent="addIssue">
                   <div class="row">
                     <div class="col-md-6">
@@ -53,7 +53,7 @@
     methods: {
       addIssue(){
         console.log(this.$route.params.id)
-          this.axios.post(this.$proxy+'/issues', this.issue).then(() => {
+          this.axios.post(this.$proxyIssues+'/issues', this.issue).then(() => {
             this.$router.push({path: "/Project/"+this.$route.params.id});
           });
       }
