@@ -8,6 +8,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Task Title:</label>
+              <br>
               <input type="text" class="form-control" v-model="task.title">
             </div>
           </div>
@@ -16,6 +17,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Task Definition of Done:</label>
+                <br>
                 <textarea class="form-control" v-model="task.dod" rows="5"></textarea>
               </div>
             </div>
@@ -25,15 +27,14 @@
               <div class="form-group">
                 <label>Task Issue:</label>
                 <div v-for="issue in issues" :key="issue._id" class="Checkbox" >
-                  <input type="checkbox" />{{issue.title}}<br>
+                  <input type="checkbox" v-bind:id="issue.title" v-bind:value="issue._id" v-model="issuesId" />{{issue.title}}<br>
                 </div>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <button class="btn btn-primary">Créer</button>
-          </div>
-          <span> <router-link to="/tasks"> <button class="btn btn-primary">Cancel</button> </router-link></span>
+          <button class="btn btn-primary">Créer</button>
+          <br>
+          <router-link to="/tasks"> <button class="btn btn-primary">Annuler</button> </router-link>
       </form>
     </div>
   </div>
@@ -44,6 +45,7 @@
 export default {
   data() {
     return {
+      issuesId: [],
       issues: {},
       task: {}
     };
@@ -55,6 +57,7 @@ export default {
   },
   methods: {
       addTask(){
+          this.task.issues = this.issuesId;
           this.axios.post(this.$proxyTasks+'/tasks', this.task).then(() => {
             this.$router.push({name: 'tasks'});
           });
