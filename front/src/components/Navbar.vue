@@ -8,7 +8,7 @@
         style=" height: 99%; border-radius:20px; background: #FFFFFF;overflow:hidden">
         <v-img
             src="@/assets/applogo.png"
-            height="10%"
+            height="9%"
         ></v-img>
 
           <v-divider></v-divider>

@@ -2,8 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Project from '../views/Project.vue'
+import CreateIssueComponent from '../components/issues/CreateIssueComponent.vue'
+import IndexIssueComponent from '../components/issues/IndexIssueComponent.vue'
+
+let address = process.env.VUE_APP_ISSUEADDRESS || 'localhost';
+let port = process.env.VUE_APP_PORT || '4000';
 
 Vue.use(VueRouter)
+Vue.prototype.$proxy = `http://${address}:${port}`;
 
 const routes = [
   {
@@ -12,9 +18,19 @@ const routes = [
     component: Home
   },
   {
-    path: '/:id',
+    path: '/Project/:id',
     name: 'Project',
     component: Project
+  },
+  {
+    name: 'createIssue',
+    path: '/Project/:id/create-issue',
+    component: CreateIssueComponent
+  },
+  {
+    name: 'issues',
+    path:'/Project/:id/issues',
+    component: IndexIssueComponent
   },
   {
     path: '/about',

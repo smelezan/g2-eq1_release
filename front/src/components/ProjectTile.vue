@@ -8,7 +8,7 @@
       dark
       max-width="400"
       height="200"
-      :to="Project_Name"
+      :to="'Project/'+Project_Name"
     >
       <v-card-title>
         <v-icon
