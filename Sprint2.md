@@ -56,11 +56,11 @@
                 <li>Titre : Text</li>
                 <li>Description : Text</li>
                 </ul>
-                Et une liste des UserStory avec chacune une checkbox pour indiquer auxquelles correspond la Tâche et deux boutons, "Confirmer" qui crée la Tâche en générant un identifiant unique et "Annuler" qui me ramène à la page précédente<br>
+                Et une liste des Issues avec chacune une checkbox pour indiquer auxquelles correspond la Tâche et deux boutons, "Confirmer" qui crée la Tâche en générant un identifiant unique et "Annuler" qui me ramène à la page précédente<br>
                 afin de créer une Tâches.
             </td>
             <td>2</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
         <td>14</td>
@@ -77,6 +77,7 @@
                     <li>D'un retard d'une de la Tâche ( par rapport à la date du sprint )
                     <li>D'un manque d'information ( dévelopeur, durée )
                     </ul>
+                <li> un bouton pour supprimer la tâche
                 </ul>
                 et sur laquelle serait visible un barre de progression indiquant l'avancement total des Tâches<br>
                 afin de voir la progression total des Tâches sur le projet.
@@ -88,61 +89,61 @@
             <td>15</td>
             <td>
                 US15 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Choisir/Modifier le temps de travail" qui me fait apparaitre une valeur incrémentable et décrémentable de 0.5 correspondant au temps de travail en jour<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Modifier" qui me fait apparaitre une valeur incrémentable et décrémentable de 0.5 correspondant au temps de travail en jour<br>
                 afin de choisir et modifier le temps de travail d'une Tâche.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>16</td>
             <td>
                 US16 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Ajouter/Modifier le développeur" qui m'ouvre une fenêtre avec la liste de mes collaborateurs suivi d'une checkbox que je peux cocher pour choisir à qui attribuer la Tâche <br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Modifier" qui m'ouvre une fenêtre avec la liste de mes collaborateurs suivi d'une checkbox que je peux cocher pour choisir à qui attribuer la Tâche <br>
                 afin de répartir les Tâches à faire entre les différent membre de l'équipe de développement.
             </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>17</td>
             <td>
                 US17 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais une checkbox que je peux cocher afin d'indiquer que la Tâche est finie et qui mettrait automatiquement à jour le pourcentage de complétion total des Tâches de la page récapitulative<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Modifier" qui me fasse apparaître un liste déroulante avec la liste des états possible, de plus si la tâche est terminer alors cela met à jour la complétion total des Tâches de la page récapitulative<br>
                 afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>18</td>
             <td>
                 US18 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle serait présent un bouton "Modifier UserStory" qui ferait apparaitre la liste des UserStory avec des checkbox que je peux cocher pour indiquer que la Tâche réalise l'UserStory<br>
-                afin de pouvoir rajouter et supprimer des UserStory à mes Tâches.
+                Je souhaite avoir accès à une page par Tâche sur laquelle serait présent un bouton "Modifier" qui ferait apparaitre la liste des Issues avec des checkbox que je peux cocher pour indiquer que la Tâche réalise l'Issues<br>
+                afin de pouvoir rajouter et supprimer des Issues à mes Tâches.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>19</td>
             <td>
                 US19 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Modifier les dépendances" qui ferais apparaitre la liste des Tâches avec des checkbox que je peux cocher pour indiquer que la Tâche dépend d'une autre<br>
+                Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Modifier" qui ferais apparaitre la liste des Tâches avec des checkbox que je peux cocher pour indiquer que la Tâche dépend d'une autre<br>
                 afin de pouvoir modifier les dépendances entre tâche et facilité la génération d'une planification.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>20</td>
             <td>
                 US20 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Supprimer" qui me ferais apparaitre une fenêtre de confirmation, une fois mon envie de supprimer la Tâche confirmé, la Tâche sera supprimée et je serais redirigé sur une page avec l'ensemble des Tâches<br>
+                Je souhaite que le bouton présent sur la carte représentant une tâche depuis la vue global me fasse apparaître un popup me servant a confirmer que je souhaite supprimer la tâche<br>
                 afin de pouvoir enlever les Tâches ajoutée par erreur.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>24</td>
