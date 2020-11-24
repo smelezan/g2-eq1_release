@@ -16,7 +16,7 @@
     <div class="row mt-5">
       <div class="col-3">
         <div class="p-2 alert alert-secondary">
-          <h3>TO DO</h3>
+          <h3>Back Log</h3>
           <!-- Backlog draggable component. Pass arrBackLog to list prop -->
           <draggable
             class="list-group kanban-column"
@@ -26,9 +26,29 @@
             <div
               class="list-group-item"
               v-for="element in arrBackLog"
-              :key="element.name"
+              :key="element.title"
             >
-              {{ element.name }}
+              {{ element.title }}
+            </div>
+          </draggable>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="p-2 alert alert-secondary">
+          <h3>TO DO</h3>
+          <!-- To Do draggable component. Pass arrToDo to list prop -->
+          <draggable
+            class="list-group kanban-column"
+            :list="arrToDo"
+            group="tasks"
+          >
+            <div
+              class="list-group-item"
+              v-for="element in arrToDo"
+              :key="element.title"
+            >
+              {{ element.title }}
             </div>
           </draggable>
         </div>
@@ -46,9 +66,9 @@
             <div
               class="list-group-item"
               v-for="element in arrInProgress"
-              :key="element.name"
+              :key="element.title"
             >
-              {{ element.name }}
+              {{ element.title }}
             </div>
           </draggable>
         </div>
@@ -60,15 +80,15 @@
           <!-- Testing draggable component. Pass arrTested to list prop -->
           <draggable
             class="list-group kanban-column"
-            :list="arrTested"
+            :list="arrDone"
             group="tasks"
           >
             <div
               class="list-group-item"
-              v-for="element in arrTested"
-              :key="element.name"
+              v-for="element in arrDone"
+              :key="element.title"
             >
-              {{ element.name }}
+              {{ element.title }}
             </div>
           </draggable>
         </div>
@@ -92,17 +112,20 @@ export default {
     return {
       // for new tasks
       newTask: "",
+      issues: [],
       // 4 arrays to keep track of our 4 statuses
-      arrBackLog: [
-        { name: "Code Sign Up Page" },
-        { name: "Test Dashboard" },
-        { name: "Style Registration" },
-        { name: "Help with Designs" }
-      ],
+      arrBackLog: [],
+      arrToDo: [],
       arrInProgress: [],
-      arrTested: [],
       arrDone: []
     };
+  },
+  created() {
+    
+    this.axios.get(this.$proxyIssues + "/issues").then((response) => {
+      this.arrBackLog = response.data;
+      console.log(this.arrBackLog);
+    });
   },
   methods: {
     //add new tasks method

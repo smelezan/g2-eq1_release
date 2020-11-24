@@ -52,7 +52,6 @@
     },
     methods: {
       addIssue(){
-        console.log(this.$route.params.id)
           this.axios.post(this.$proxyIssues+'/issues', this.issue).then(() => {
             this.$router.push({path: "/Project/"+this.$route.params.id});
           });
