@@ -2,9 +2,7 @@
     <v-app id="inspire">
         <v-card>
         <v-main>
-            <v-container>
-                <h2 style="color:grey">{{params}}</h2>
-            </v-container>
+            <h2 style="color:grey">{{params}}</h2>
             <v-tabs
                 v-model="tab"
             >
@@ -15,13 +13,13 @@
                 {{ item.tab }}
             </v-tab>
             </v-tabs>
-            <span>
+            <!-- <span>
                 <router-link 
                     :to="`/Project/${params}/create-issue`"
                 >
                     <button class="btn btn-primary">Ajouter une Issue</button>
                 </router-link>
-            </span>
+            </span> -->
             <v-tabs-items v-model="tab">
                 <v-tab-item
                     v-for="item in items"
