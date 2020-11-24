@@ -1,15 +1,32 @@
+const Sprint = require('../models/Sprint');
+
 exports.getOneSprint = (req, res) => {
-  res.send('TO DO');
+  Sprint.find({ _id: req.params.sprint })
+    .then((sprint) => res.status(200).json(sprint))
+    .catch((err) => res.status(400).json(err));
 };
 
 exports.getAllSprints = (req, res) => {
-  res.send('TO DO');
+  Sprint.find()
+    .then((sprint) => res.status(200).json(sprint))
+    .catch((err) => res.status(400).json(err));
 };
 
 exports.deleteOneSprint = (req, res) => {
-  res.send('TO DO');
+  Sprint.deleteOne({ _id: req.params.sprint })
+    .then(() => res.status(200).json({ message: 'successfully deleted!' }))
+    .catch((err) => res.status(400).json({ err }));
 };
 
 exports.createSprint = (req, res) => {
-  res.send('TO DO');
+  delete req.body.id;
+  const sprint = new Sprint({
+    ...req.body,
+  });
+  sprint
+    .save()
+    .then(() =>
+      res.status(201).json({ message: 'Successfully created', sprint })
+    )
+    .catch((error) => res.status(401).json({ error }));
 };

@@ -14,7 +14,7 @@ exports.createIssue = function createIssue(req, res) {
 exports.updateIssue = function updateIssue(req, res) {
   Issue.findOneAndUpdate(
     { _id: req.params.issue },
-    { ...req.body, _id: req.params.issue },
+    { ...req.body, _id: req.params.issue }
   )
     .then(() => res.status(200).json({ message: 'Issue updated' }))
     .catch((error) => res.status(400).json({ error }));
@@ -48,11 +48,11 @@ exports.managePriority = function managePriority(req, res) {
           Issue.findOneAndUpdate(
             { _id: issue._id },
             { priority: issuesArray.priority },
-            { upsert: true, useFindAndModify: true, new: true },
+            { upsert: true, useFindAndModify: true, new: true }
           )
             .then((result) => resolve(result))
             .catch((error) => reject(error));
-        }),
+        })
     );
   const promises = priorityList.map(
     (issuesArray) =>
@@ -60,7 +60,7 @@ exports.managePriority = function managePriority(req, res) {
         Promise.all(updatePriority(issuesArray))
           .then((result) => resolve(result))
           .catch((error) => reject(error));
-      }),
+      })
   );
 
   Promise.all(promises)
@@ -78,11 +78,11 @@ exports.manageDifficulty = function manageDifficulty(req, res) {
           Issue.findOneAndUpdate(
             { _id: issue._id },
             { priority: issuesArray.difficulty },
-            { upsert: true, useFindAndModify: true, new: true },
+            { upsert: true, useFindAndModify: true, new: true }
           )
             .then((result) => resolve(result))
             .catch((error) => reject(error));
-        }),
+        })
     );
 
   const promises = difficultyList.map(
@@ -91,7 +91,7 @@ exports.manageDifficulty = function manageDifficulty(req, res) {
         Promise.all(updateDifficulty(issuesArray))
           .then((result) => resolve(result))
           .catch((error) => reject(error));
-      }),
+      })
   );
 
   Promise.all(promises)
