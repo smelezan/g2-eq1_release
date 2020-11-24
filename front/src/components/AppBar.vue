@@ -7,11 +7,9 @@
       rounded
       flat
     >
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
       <v-autocomplete
-      class="mx-auto rounded-xl"
+      prepend-icon="mdi-magnify"
+      class="rounded-xl"
       flat
       label="Rechercher ..."
       solo-inverted

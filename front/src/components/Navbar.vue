@@ -8,16 +8,15 @@
         style=" height: 99%; border-radius:20px; background: #FFFFFF;overflow:hidden">
         <v-img
             src="@/assets/applogo.png"
-            height="10%"
+            height="9%"
         ></v-img>
 
           <v-divider></v-divider>
 
-          <v-list dense>
+          <v-list dense nav>
             <v-list-item class="title"
               v-for="item in items"
               :key="item.title"
-              link
             >
               <v-list-item-icon>
                 <v-icon style="position:relative; top:-4px">{{ item.icon }}</v-icon>
@@ -26,12 +25,15 @@
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
 
                   <v-list-item 
-                    style="position:relative; left:-15px"
-                    v-for="(title,i) in item.subtitles"
+                    v-for="(item,i) in item.subtitles"
+                    :to="item.link" 
                     :key="i"
                     link
                   >
-                <v-list-item-title style="color:grey" v-text="title"></v-list-item-title>
+                <v-list-item-title 
+                  style="color:grey" 
+                  v-text="item.name"
+                  ></v-list-item-title>
               </v-list-item>
 
               </v-list-item-content>
@@ -49,7 +51,7 @@
       return {
         drawer: true,
         items: [
-          { title: 'Menu', icon: 'mdi-menu', subtitles: ["Home", "Mes tâches", "Notifications"] },
+          { title: 'Menu', icon: 'mdi-menu', subtitles: [{'name': 'Home','link': '/'},{'name': 'Mes tâches','link': '/tasks'},{'name': 'Notifications','link': '/notifications'}]},
           { title: 'Projets', icon: 'mdi-briefcase', subtitles: [] },
           { title: 'Gestion des tests', icon: 'mdi-test-tube',subtitles: [] },
         ],
