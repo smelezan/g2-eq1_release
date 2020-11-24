@@ -1,9 +1,6 @@
 <template>
     <v-app id="inspire">
         <v-card>
-        <v-main>
-            <v-container>
-  <div class="container mt-5">
     <div class="row">
       <div class="col form-inline">
         <b-form-input
@@ -77,10 +74,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-            </v-container>
-        </v-main>
         </v-card>
     </v-app>
 </template>
