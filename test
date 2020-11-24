@@ -4,3 +4,4 @@ type ( E2E, Regression, Unitaire)
 testedDates : [{date, result}]
 dependance: [issues]/[tasks]
 description
+

@@ -22,6 +22,7 @@
             class="list-group kanban-column"
             :list="arrBackLog"
             group="tasks"
+            @change="update"
           >
             <div
               class="list-group-item"
@@ -42,6 +43,7 @@
             class="list-group kanban-column"
             :list="arrToDo"
             group="tasks"
+            @change="update($event,'TO DO')"
           >
             <div
               class="list-group-item"
@@ -62,6 +64,7 @@
             class="list-group kanban-column"
             :list="arrInProgress"
             group="tasks"
+            @change="update($event,'DOING')"
           >
             <div
               class="list-group-item"
@@ -82,6 +85,7 @@
             class="list-group kanban-column"
             :list="arrDone"
             group="tasks"
+            @change="update($event,'DONE')"
           >
             <div
               class="list-group-item"
@@ -123,18 +127,39 @@ export default {
   created() {
     
     this.axios.get(this.$proxyIssues + "/issues").then((response) => {
-      this.arrBackLog = response.data;
-      console.log(this.arrBackLog);
+      this.sortIssues(response.data);
     });
   },
   methods: {
     //add new tasks method
     add: function() {
+      console.log("ADD");
       if (this.newTask) {
         this.arrBackLog.push({ name: this.newTask });
         this.newTask = "";
       }
+    },
+    log: function(event){
+      console.log(event);
+    },
+
+    sortIssues: function(issues){
+      for(const issue of issues){
+        if (issue.status=="TO DO") this.arrToDo.push(issue);
+        else if (issue.status=="DOING") this.arrInProgress.push(issue);
+        else if (issue.status=="DONE") this.arrDone.push(issue);
+      }
+    },
+
+    update: function(event,status){
+      if(event.added!=undefined){
+        let issue = event.added.element;
+        console.log(`L'issue:${issue.title} -> ${status}`);
+        issue.status = status;
+        this.axios.put(`${this.$proxyIssues}/issues/${issue._id}`, issue);
+      }
     }
+
   }
 };
 </script>
