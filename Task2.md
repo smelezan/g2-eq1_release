@@ -42,8 +42,8 @@
             <td>13-20</td>
             <td>Aucune</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>3</td>
@@ -67,8 +67,8 @@
             <td>13-20</td>
             <td>6</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>4</td>
@@ -90,8 +90,8 @@
             <td>13-20</td>
             <td>Aucune</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>5</td>
