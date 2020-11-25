@@ -45,7 +45,7 @@
                 afin de leur associer une priorité.
             </td>
             <td>3</td>
-            <td>TO DO</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>13</td>
@@ -113,7 +113,7 @@
                 afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
             </td>
             <td>1</td>
-            <td>DOING</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>18</td>
@@ -156,7 +156,7 @@
                 Afin d'enregistrer mes tests dans l'application.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>25</td>
@@ -173,7 +173,7 @@
                 Afin d'avoir un suivi des tests.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>Doing</td>
             </tr>
         <tr>
             <td>26</td>
@@ -183,7 +183,7 @@
                 Afin de savoir quels sont les cas d'utilisation associées à un test.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>27</td>
@@ -193,7 +193,7 @@
                     Afin de savoir si les tests sont à jours.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>28</td>
@@ -203,7 +203,7 @@
                     Afin de permettre l'évolution des tests.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>Doing</td>
         </tr>
         <tr>
             <td>29</td>
@@ -213,7 +213,7 @@
                 Afin de supprimer un test de ma liste de tests.
                 </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>Doing</td>
         </tr>
     </tbody>
 </table>

@@ -23,10 +23,10 @@
                 </ul>
             </td>
             <td>4-6</td>
-            <td>4</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Emmanoé</td>
-            <td>DOING</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>2</td>
@@ -65,7 +65,7 @@
                 </ul>
             </td>
             <td>13-20</td>
-            <td>6</td>
+            <td>2</td>
             <td>1</td>
             <td>Sébastien</td>
             <td>DONE</td>
@@ -78,7 +78,6 @@
                 Chaque Task est composée:
                 <ul>
                     <li> D'un id : _id</li>
-                    <li> D'une liste d'id qui lie à une issue : IssueIds</li>
                     <li> D'un titre : title</li>
                     <li> D'une description: description</li>
                     <li> D'un coût: cost </li>
@@ -111,10 +110,10 @@
                 </ul>
             </td>
             <td>4-6</td>
-            <td>2</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Emmanoé</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>6</td>
@@ -129,10 +128,10 @@
                 </ul>
             </td>
             <td>4-6</td>
-            <td>4</td>
+            <td>Aucune</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To Do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>7</td>
@@ -148,7 +147,7 @@
             Une fois validé, le front fait un appel au back via la route <code>POST /sprints/:sprint</code>, crée un nouveau sprint dans la base et l'utilisateur est redirigé sur IndexSprint.vue où un nouveau tableau se crée à droite du dernier tableau intitulé Sprint#X avec X le numéro du sprint qui s'incrémente automatiquement.
             </td>
             <td>4</td>
-            <td>1</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
@@ -161,7 +160,7 @@
             Ainsi qu'un bouton "Appliquer" en bas à droite de la page ,un bouton "Annuler" aussi en bas à droite, et un bouton "Supprimer" à côté de chaque tableau <br>
             </td>
             <td>5,6</td>
-            <td>1</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
@@ -178,7 +177,7 @@
             Chaque sprint contient une liste d'issue.
             </td>
             <td>5</td>
-            <td>1</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
@@ -194,7 +193,7 @@
             Afin de récupérer les précédentes positions.
             </td>
             <td>5</td>
-            <td>1</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
@@ -209,7 +208,7 @@
             qui va supprimer de la base de données le sprint et les issues associées à ce sprint se retrouveront dans le tableau "Non assignées"
             </td>
             <td>6</td>
-            <td>1</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To Do</td>
@@ -236,7 +235,7 @@
             </ul>
             </td>
             <td>14</td>
-            <td>22</td>
+            <td>Aucune</td>
             <td>1</td>
             <td>Alexis</td>
             <td>DOING</td>
@@ -258,7 +257,7 @@
             Cette fonction appelle la route <code>POST /tasks</code> en passant un objet tâche remplie grâce au formulaire.
             </td>
             <td>13,14</td>
-            <td>29</td>
+            <td>12</td>
             <td>1</td>
             <td>Alexis</td>
             <td>DONE</td>
@@ -269,7 +268,7 @@
             Créer la fonction <code>getTotalProgession</code> qui récupère la liste des tâches et calcule le pourcentage de tâches complétées. <br>
             </td>
             <td>14</td>
-            <td>29</td>
+            <td>12</td>
             <td>1</td>
             <td>Développeur</td>
             <td>To do</td>
@@ -393,8 +392,8 @@
             <td>11</td>
             <td>Aucune</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>23</td>
@@ -406,8 +405,8 @@
             <td>11</td>
             <td>Aucune</td>
             <td>1</td>
-            <td>Développeur</td>
-            <td>To do</td>
+            <td>Sébastien</td>
+            <td>Done</td>
         </tr>
         <tr>
             <td>24</td>
