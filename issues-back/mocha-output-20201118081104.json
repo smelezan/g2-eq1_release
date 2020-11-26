@@ -12,11 +12,7 @@
   "suites": [
     {
       "title": "Issues",
-      "tests": [
-        {
-          "fullTitle": "Issues",
-        }
-      ]
+      "tests": []
     },
     {
       "title": "/GET issue",
@@ -99,11 +95,7 @@
     },
     {
       "title": "Issues",
-      "tests": [
-        {
-          "fullTitle": "Issues",
-        }
-      ]
+      "tests": []
     },
     {
       "title": "# Hello World",
