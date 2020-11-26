@@ -23,7 +23,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/Project/:id",
+    path: "/Project/:id/", 
     name: "Project",
     component: Project,
   },
@@ -47,9 +47,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/tests",
+    path: "/Project/:id/Tests/:active_tab",
     name: "Test",
-    component: () => import("../components/tests/IndexTestComponent.vue"),
+    component: Project,
   },
   {
     path: "/issuesRaw",

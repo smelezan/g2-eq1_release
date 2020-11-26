@@ -4,7 +4,7 @@
         <v-main>
             <h2 style="color:grey">{{params}}</h2>
             <v-tabs
-                v-model="tab"
+                v-model="active_tab"
             >
               <v-tab
                 v-for="item in items"
@@ -13,20 +13,32 @@
                 {{ item.tab }}
             </v-tab>
             </v-tabs>
-            <span>
+<!--             <span>
                 <router-link 
                     :to="`/Project/${params}/create-issue`"
                 >
                     <button class="btn btn-primary">Ajouter une Issue</button>
                 </router-link>
-            </span> 
-            <v-tabs-items v-model="tab">
+            </span>  -->
+            <v-tabs-items v-model="active_tab">
                 <v-tab-item
                     v-for="item in items"
                     :key="item.tab"
                 >
-                    <v-card  v-if="item.type=='Kanban'" flat>
-                        <component :is=KanbanBoard :Kanban_Name="item.tab">
+                    <v-card  v-if="item.tab=='Issues'" flat>
+                        <component :is=IssuesKanbanBoard :Kanban_Name="item.tab">
+                        </component>
+                    </v-card>
+                    <v-card  v-if="item.tab=='Sprints'" flat>
+                        <component :is=SprintsKanbanBoard :Kanban_Name="item.tab">
+                        </component>
+                    </v-card>
+                    <v-card  v-if="item.tab=='Tâches'" flat>
+                        <component :is=TasksKanbanBoard :Kanban_Name="item.tab">
+                        </component>
+                    </v-card>
+                    <v-card  v-if="item.type=='Dashboard'" flat>
+                        <component :is=DashBoard>
                         </component>
                     </v-card>
                 </v-tab-item>
@@ -37,11 +49,21 @@
 </template>
 
 <script>
-    import KanbanBoard from '@/components/KanbanBoard'
+    import IssuesKanbanBoard from '@/components/KanbanBoard'
+    import SprintsKanbanBoard from '@/components/KanbanBoard'
+    import TasksKanbanBoard from '@/components/KanbanBoard'
+
+
+    import DashBoard from '@/components/DashBoard'
+
     export default {
         data: function() {
             return{
-                KanbanBoard,
+                active_tab: 3,
+                IssuesKanbanBoard,
+                SprintsKanbanBoard,
+                TasksKanbanBoard,
+                DashBoard,
                 params: '',
                  tab: null,
                 items: [
@@ -49,13 +71,15 @@
                 { tab: 'Issues', type: 'Kanban' },
                 { tab: 'Tâches', type: 'Kanban' },
                 { tab: 'Releases', type: '' },
-                { tab: 'Tests', type: '' },
+                { tab: 'Tests', type: 'Dashboard', active_tab: '4' },
                 { tab: 'Documentations', type: '' },
                 ],
             }
         },
         mounted: function() {
             this.params = this.$route.params.id
+            this.active_tab = parseInt(this.$route.params.active_tab)
+
         }
 
     }

@@ -16,6 +16,7 @@
           <v-list dense nav>
             <v-list-item class="title"
               v-for="item in items"
+              :to="item.link"
               :key="item.title"
             >
               <v-list-item-icon>
@@ -53,7 +54,7 @@
         items: [
           { title: 'Menu', icon: 'mdi-menu', subtitles: [{'name': 'Home','link': '/'},{'name': 'Mes tâches','link': '/tasks'},{'name': 'Notifications','link': '/notifications'}]},
           { title: 'Projets', icon: 'mdi-briefcase', subtitles: [] },
-          { title: 'Gestion des tests', icon: 'mdi-test-tube',subtitles: [] },
+          { title: 'Gestion des tests', icon: 'mdi-test-tube',subtitles: [], link: '/Project/Projet CDP/Tests/4'},
         ],
         mini: false,
       }
