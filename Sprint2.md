@@ -15,7 +15,7 @@
                 Afin de déplacer ( drag and drop ) les Issues de tableau en tableau en fonction de nos intentions.
             </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>6</td>
@@ -26,7 +26,7 @@
                 afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
             </td>
             <td>2</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>11</td>
@@ -45,7 +45,7 @@
                 afin de leur associer une priorité.
             </td>
             <td>3</td>
-            <td>Doing</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>13</td>
@@ -113,7 +113,7 @@
                 afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
             </td>
             <td>1</td>
-            <td>Done</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>18</td>
@@ -156,7 +156,7 @@
                 Afin d'enregistrer mes tests dans l'application.
                 </td>
             <td>2</td>
-            <td>Doing</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>25</td>
@@ -173,7 +173,7 @@
                 Afin d'avoir un suivi des tests.
                 </td>
             <td>2</td>
-            <td>Doing</td>
+            <td>DONE</td>
             </tr>
         <tr>
             <td>26</td>
@@ -183,7 +183,7 @@
                 Afin de savoir quels sont les cas d'utilisation associées à un test.
                 </td>
             <td>2</td>
-            <td>Doing</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>27</td>
@@ -193,7 +193,7 @@
                     Afin de savoir si les tests sont à jours.
                 </td>
             <td>2</td>
-            <td>Doing</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>28</td>
@@ -203,7 +203,7 @@
                     Afin de permettre l'évolution des tests.
                 </td>
             <td>2</td>
-            <td>Doing</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>29</td>
@@ -213,7 +213,7 @@
                 Afin de supprimer un test de ma liste de tests.
                 </td>
             <td>2</td>
-            <td>Doing</td>
+            <td>DONE</td>
         </tr>
     </tbody>
 </table>

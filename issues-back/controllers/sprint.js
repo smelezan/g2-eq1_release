@@ -1,9 +1,9 @@
 const Sprint = require('../models/Sprint');
 
 exports.getOneSprint = (req, res) => {
-  Sprint.find({ _id: req.params.sprint })
+  Sprint.findOne({ _id: req.params.sprint })
     .then((sprint) => res.status(200).json(sprint))
-    .catch((err) => res.status(400).json(err));
+    .catch((error) => res.status(400).json(error));
 };
 
 exports.getAllSprints = (req, res) => {

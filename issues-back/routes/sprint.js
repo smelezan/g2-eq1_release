@@ -9,7 +9,7 @@ router.post('/', sprintCtrl.createSprint);
 
 router.get('/:sprint', sprintCtrl.getOneSprint);
 
-router.post('/:sprint', sprintCtrl.deleteOneSprint);
+router.delete('/:sprint', sprintCtrl.deleteOneSprint);
 
 router.get('/', sprintCtrl.getAllSprints);
 
