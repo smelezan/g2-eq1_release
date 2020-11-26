@@ -2,6 +2,9 @@
   <div class="row justify-content-center" >
     <div class="col-md-8" style="margin-top: 100px;margin-left: 300px;">
       <div class="container">
+        <div class="progress-bar">
+          <v-progress-linear v-model="progress" color="green"></v-progress-linear>
+        </div>
         <h3>Index Task :  <span> <router-link to="/create-task"> <button class="btn btn-primary">Ajouter une Task</button> </router-link></span></h3>   
         <div class="row" v-for="task in tasks" :key="task._id">
           <div class="col-8">
@@ -20,6 +23,9 @@ export default {
   data(){
       return{
           tasks:[],
+          total:0,
+          done:0,
+          progress:0
       }
   },
   components: {
@@ -28,6 +34,13 @@ export default {
   created() {
       this.axios.get(this.$proxyTasks+'/tasks').then(response =>{
           this.tasks = response.data;
+          this.tasks.forEach(task => {
+            if(task.status == "DONE"){
+              this.done++;
+            }
+            this.total++;
+          });
+          this.progress = (this.done/this.total)*100;
       });
   },
 }

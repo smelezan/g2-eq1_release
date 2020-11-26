@@ -238,7 +238,7 @@
             <td>Aucune</td>
             <td>1</td>
             <td>Alexis</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>13</td>

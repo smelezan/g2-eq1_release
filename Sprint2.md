@@ -83,7 +83,7 @@
                 afin de voir la progression total des Tâches sur le projet.
             </td>
             <td>2</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>15</td>
