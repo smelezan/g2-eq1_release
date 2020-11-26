@@ -1,5 +1,7 @@
 <template>
-    <div class="v-container" style= "margin-left: 350px;margin-right: 300px; margin-top:100px ">
+    <v-app id="inspire">
+        <v-card>
+        <v-main>
         <div class="v-row">
             <div class="v-col">
                 <div class="v-row">
@@ -101,7 +103,9 @@
                 </div>
             </div>
         </div>
-    </div>
+        </v-main>
+    </v-card>
+    </v-app>
 </template>
 
 

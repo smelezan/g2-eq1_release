@@ -23,7 +23,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/Project/:id/", 
+    path: "/Project/:id/",
     name: "Project",
     component: Project,
   },
@@ -95,6 +95,11 @@ const routes = [
     path: "/sprints",
     name: "sprints",
     component: () => import("../components/sprints/IndexSprintComponent.vue"),
+  },
+  {
+    path: "/tests",
+    name: "tests",
+    component: () => import("../components/tests/IndexTestComponent.vue"),
   },
 ];
 

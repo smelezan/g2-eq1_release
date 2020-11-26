@@ -3,7 +3,7 @@
         <td>{{testId}}</td>
         <td>{{description}}</td>
         <td>
-            <router-link to="/issues">
+            <router-link to="/issuesRaw">
                 {{title}}
             </router-link>
         </td>
