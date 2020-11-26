@@ -57,6 +57,28 @@
             <td>TO DO</td>
         </tr>
         <tr>
+            <td>5</td>
+            <td>
+                US5 : En tant qu'Utilisateur<br>
+                Je souhaite à partir de la page des sprints<br>
+                avoir accès à un tableau listant toutes les Issues qui n'appartiennent à aucun sprint. Et les autres sprints déjà ajoutés sous forme de tableaux listant les Issues qui leurs sont associés.<br>
+                Afin de déplacer ( drag and drop ) les Issues de tableau en tableau en fonction de nos intentions.
+            </td>
+            <td>2</td>
+            <td>DOING</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>
+                US6 : En tant qu'Utilisateur<br>
+                Je souhaite à partir de la page des sprints<br>
+                avoir accès à un bouton "supprimer" à côté de chaque sprint <br>
+                afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
+            </td>
+            <td>2</td>
+            <td>DOING</td>
+        </tr>
+        <tr>
             <td>21</td>
             <td>
                 US21 : En tant qu'utilisateur<br>
@@ -77,42 +99,30 @@
             <td>TO DO</td>
         </tr>
         <tr>
-            <td>22</td>
-            <td>
-                US22 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès depuis la page des Tâches, à un onglet Diagramme de Pert dans lequel il y aurait un diagramme se mettant à jour automatiquement en fonction des dépendances entre les tâches <br>
-                afin d'aider le développeur à plannifier.
-            </td>
-            <td>3</td>
-            <td>TO DO</td>
+            <td>28</td>
+                <td>
+                    US28 : En tant qu'utilisateur<br> 
+                    Je souhaite pouvoir modifier un test en cliquant sur sa description depuis la page Dashboard accessible en cliquant sur le bouton "Gestion des tests" puis "dashboard". Ce boutton me redirigera vers une page contenant l'option de modification une suite de test. En sélectionnant "modifier", je pourrai redéposer mon fichier de test modifié
+                    Afin de permettre l'évolution des tests.
+                </td>
+            <td>2</td>
+            <td>DOING</td>
         </tr>
         <tr>
-            <td>23</td>
+        <td>30</td>
             <td>
-                US23: En tant qu'utilisateur <br> 
-                Je souhaite avoir accès depuis l'onglet du projet à un onglet "burndown chart" <br>
-                Dans lequel nous verrons un graphique de type "burndown chart" se mettant à jour automatiquement, en fonction du nombre d'issues terminées. <br>
-                Afin de garder une trace de l'avancement du projet.
+              US30 : En tant qu'utilisateur<br> 
+              Je souhaite pouvoir être informé des warnings sur une issue ou sur une tâche. <br>
+              Ces warnings sont:
+              <ul>
+                <li> Une information manquante
+                <li> ....
+              </ul>
+              Afin de me tenir informer de l'avancement du projet.
             </td>
-            <td>3</td>
-            <td>TO DO</td>
+          <td>3</td>
+          <td>TO DO</td>
         </tr>
-            <td>30</td>
-            <td>
-            US30 : En tant qu'utilisateur<br> 
-            Je souhaite être notifié par le biais d'une icône se trouvant sur la barre d'option lorsqu'un des évènement suivant à lieu :
-            <ul>
-                <li> la fin d'un sprint
-                <li> la priorité d'une Issue change
-                <li> la mise en place d'une planification
-                <li> on m'ajoute à une Tâche
-                <li> la remise d'une release
-            </ul>
-            Cette notification me permettra, en cliquant dessus, de visualiser sur une nouvelle page web le détail de l'évènement.<br>
-            Afin de me tenir informer de l'avancement du projet.
-            </td>
-        <td>2</td>
-        <td>TO DO</td>
         </tr>
         <tr>
             <td>31</td>
@@ -120,9 +130,9 @@
                 US31 : En tant qu'utilisateur<br>
                 Je souhaite avoir depuis la page des release un bouton "Ajouter une release" qui m'afficher une liste défilante avec :
                 <ul>
-                <li> Majeur
-                <li> Mineur
-                <li> Patch
+                  <li> Majeur
+                  <li> Mineur
+                  <li> Patch
                 </ul>
                 et va me demander mon archive, le README.md correspondant, un nom de Release et qui une fois les éléments déposer va générer la liste des différences avec la dernière release et l'identifiant de la release ( par incrémentation ) avant d'ensuite l'ajouté au récapitulatif<br>
                 Afin d'ajouter une release.
@@ -220,3 +230,5 @@
     </tr>
     </tbody>
 </table>
+
+Total: 21

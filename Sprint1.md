@@ -20,7 +20,7 @@
                 afin d'y ajouter des Issues.
             </td>
             <td>1</td>
-            <td>Done</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>7</td>
@@ -45,7 +45,7 @@
                 </ul>
             </td>
             <td>2</td>
-            <td>Done</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>8</td>
@@ -63,7 +63,7 @@
                 </ul>
             </td>
             <td>1</td>
-            <td>Done</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>9</td>
@@ -83,7 +83,7 @@
                 Pour enfin nous ramener à la nouvelle liste des issues. 
             </td>
             <td>1</td>
-            <td>Done</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>10</td>
@@ -109,7 +109,7 @@
                 afin de leur associer une difficulté en utilisant la suite de fibonacci. <br>
             </td>
             <td>3</td> 
-            <td>Done</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>12</td>
@@ -120,7 +120,7 @@
                 afin de l'enlever de ma liste des Issues.
             </td>
             <td>1</td>
-            <td>Done</td>
+            <td>DONE</td>
         </tr>   
     </tbody>
 </table>

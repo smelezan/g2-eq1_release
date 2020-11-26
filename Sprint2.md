@@ -7,28 +7,6 @@
             <th>Avancement</th>
         </tr>
         <tr>
-            <td>5</td>
-            <td>
-                US5 : En tant qu'Utilisateur<br>
-                Je souhaite à partir de la page des sprints<br>
-                avoir accès à un tableau listant toutes les Issues qui n'appartiennent à aucun sprint. Et les autres sprints déjà ajoutés sous forme de tableaux listant les Issues qui leurs sont associés.<br>
-                Afin de déplacer ( drag and drop ) les Issues de tableau en tableau en fonction de nos intentions.
-            </td>
-            <td>2</td>
-            <td>DOING</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>
-                US6 : En tant qu'Utilisateur<br>
-                Je souhaite à partir de la page des sprints<br>
-                avoir accès à un bouton "supprimer" à côté de chaque sprint <br>
-                afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
-            </td>
-            <td>2</td>
-            <td>DOING</td>
-        </tr>
-        <tr>
             <td>11</td>
             <td>
                 US11 : En tant qu'utilisateur<br>
@@ -194,16 +172,6 @@
                 </td>
             <td>2</td>
             <td>DONE</td>
-        </tr>
-        <tr>
-            <td>28</td>
-                <td>
-                    US28 : En tant qu'utilisateur<br> 
-                    Je souhaite pouvoir modifier un test en cliquant sur sa description depuis la page Dashboard accessible en cliquant sur le bouton "Gestion des tests" puis "dashboard". Ce boutton me redirigera vers une page contenant l'option de modification une suite de test. En sélectionnant "modifier", je pourrai redéposer mon fichier de test modifié
-                    Afin de permettre l'évolution des tests.
-                </td>
-            <td>2</td>
-            <td>DOING</td>
         </tr>
         <tr>
             <td>29</td>

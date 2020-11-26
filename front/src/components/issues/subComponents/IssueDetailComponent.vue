@@ -71,7 +71,8 @@ export default {
             type: String
         },
         difficulty: {
-            type: Number
+            type: Number,
+            default: 0
         },
         priority:{
             type: String,

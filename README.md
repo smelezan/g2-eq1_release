@@ -140,19 +140,19 @@
     <tr>
     <td>9</td>
       <td>
-        US9 : En tant qu'utilisateur<br>
-        Je souhaite à partir de la page qui liste les Issues<br>  
-        pouvoir cliquer sur une issue<br> 
-        Afin d'accéder à un récapitulatif avec certains champs modifiables:
-        <ul>
-          <li>Champ nom (modifiable)</li>
-          <li>Champ description (modifiable)</li>
-          <li>Difficulté (non modifiable)</li>
-          <li>Priorité ( non modifiable)</li>
-          <li>Sprint dans lequel il apparait ( non modifiable)</li>
-          <li>Ainsi qu'à un bouton "sauvegarder les changements" qui à partir des champs modifiables va mettre à jour l'issue.</li>
-        </ul>
-        Pour enfin nous ramener à la nouvelle liste des issues. 
+       US9 : En tant qu'utilisateur<br>
+      Je souhaite à partir de la page qui liste les Issues<br>  
+      pouvoir cliquer sur une issue<br> 
+      Afin d'accéder à un récapitulatif avec certains champs modifiables:
+      <ul>
+      <li>Champ nom (modifiable)</li>
+      <li>Champ description (modifiable)</li>
+      <li>Difficulté (non modifiable)</li>
+      <li>Priorité ( non modifiable)</li>
+      <li>Sprint dans lequel il apparait ( non modifiable)</li>
+      <li>Ainsi qu'à un bouton "sauvegarder les changements" qui à partir des champs modifiables va mettre à jour l'issue.</li>
+      </ul>
+      Pour enfin nous ramener à la nouvelle liste des issues. 
       </td>
       <td>1</td>
       <td>élevée</td>
@@ -216,15 +216,15 @@
     <tr>
     <td>13</td>
       <td>
-        US13 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page depuis laquelle je peux voir l'ensemble de mes Tâches contenant un bouton "Ajouter" qui me redirige vers un formulaire avec les champs : 
-        <ul>
-          <li>Titre : Text</li>
-          <li>Description : Text</li>
-        </ul>
-        Et une liste des UserStory avec chacune une checkbox pour indiquer auxquelles correspond la Tâche et deux boutons, "Confirmer" qui crée la Tâche en générant un identifiant unique et "Annuler" qui me ramène à la page précédente<br>
-        afin de créer une Tâches.
-      </td>
+      US13 : En tant qu'utilisateur<br>
+      Je souhaite avoir accès à une page depuis laquelle je peux voir l'ensemble de mes Tâches contenant un bouton "Ajouter" qui me redirige vers un formulaire avec les champs : 
+      <ul>
+      <li>Titre : Text</li>
+      <li>Description : Text</li>
+      </ul>
+      Et une liste des Issues avec chacune une checkbox pour indiquer auxquelles correspond la Tâche et deux boutons, "Confirmer" qui crée la Tâche en générant un identifiant unique et "Annuler" qui me ramène à la page précédente<br>
+      afin de créer une Tâches.
+            </td>
       <td>2</td>
       <td>élevée</td>
     </tr>
@@ -236,14 +236,15 @@
         avoir accès à la liste des Tâches déjà créées.<br>
         Dans cette liste, une Tâche sera représentée par carte composée de:
         <ul>
-          <li>Son nom</li>
-          <li>Une couleur, verte si la tâche est fini et grise sinon</li>
-          <li>Un potentiel Icone Warning m'informant
+        <li>Son nom</li>
+        <li>Une couleur, verte si la tâche est fini et grise sinon</li>
+        <li>Un potentiel Icone Warning m'informant
             <ul>
-              <li>D'un retard d'une de la Tâche ( par rapport à la date du sprint )
-              <li>D'un manque d'information ( dévelopeur, durée )
+            <li>D'un retard d'une de la Tâche ( par rapport à la date du sprint )
+            <li>D'un manque d'information ( dévelopeur, durée )
             </ul>
-          </ul>
+        <li> un bouton pour supprimer la tâche
+        </ul>
         et sur laquelle serait visible un barre de progression indiquant l'avancement total des Tâches<br>
         afin de voir la progression total des Tâches sur le projet.
       </td>
@@ -254,7 +255,7 @@
       <td>15</td>
       <td>
         US15 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Choisir/Modifier le temps de travail" qui me fait apparaitre une valeur incrémentable et décrémentable de 0.5 correspondant au temps de travail en jour<br>
+        Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Modifier" qui me fait apparaitre une valeur incrémentable et décrémentable de 0.5 correspondant au temps de travail en jour<br>
         afin de choisir et modifier le temps de travail d'une Tâche.
       </td>
       <td>1</td>
@@ -264,7 +265,7 @@
       <td>16</td>
       <td>
         US16 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Ajouter/Modifier le développeur" qui m'ouvre une fenêtre avec la liste de mes collaborateurs suivi d'une checkbox que je peux cocher pour choisir à qui attribuer la Tâche <br>
+        Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Modifier" qui m'ouvre une fenêtre avec la liste de mes collaborateurs suivi d'une checkbox que je peux cocher pour choisir à qui attribuer la Tâche <br>
         afin de répartir les Tâches à faire entre les différent membre de l'équipe de développement.
       </td>
       <td>2</td>
@@ -273,9 +274,9 @@
     <tr>
       <td>17</td>
       <td>
-        US17 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais une checkbox que je peux cocher afin d'indiquer que la Tâche est finie et qui mettrait automatiquement à jour le pourcentage de complétion total des Tâches de la page récapitulative<br>
-        afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
+         US17 : En tant qu'utilisateur<br>
+          Je souhaite avoir accès à une page par Tâche sur laquelle j'aurais un bouton "Modifier" qui me fasse apparaître un liste déroulante avec la liste des états possible, de plus si la tâche est terminer alors cela met à jour la complétion total des Tâches de la page récapitulative<br>
+          afin d'informer à mes collaborateurs de l'avancement d'une Tâche.
       </td>
       <td>1</td>
       <td>élevée</td>
@@ -284,8 +285,8 @@
       <td>18</td>
       <td>
         US18 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page par Tâche sur laquelle serait présent un bouton "Modifier UserStory" qui ferait apparaitre la liste des UserStory avec des checkbox que je peux cocher pour indiquer que la Tâche réalise l'UserStory<br>
-        afin de pouvoir rajouter et supprimer des UserStory à mes Tâches.
+        Je souhaite avoir accès à une page par Tâche sur laquelle serait présent un bouton "Modifier" qui ferait apparaitre la liste des Issues avec des checkbox que je peux cocher pour indiquer que la Tâche réalise l'Issues<br>
+        afin de pouvoir rajouter et supprimer des Issues à mes Tâches.
       </td>
       <td>1</td>
       <td>élevée</td>
@@ -294,7 +295,7 @@
       <td>19</td>
       <td>
         US19 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Modifier les dépendances" qui ferais apparaitre la liste des Tâches avec des checkbox que je peux cocher pour indiquer que la Tâche dépend d'une autre<br>
+        Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Modifier" qui ferais apparaitre la liste des Tâches avec des checkbox que je peux cocher pour indiquer que la Tâche dépend d'une autre<br>
         afin de pouvoir modifier les dépendances entre tâche et facilité la génération d'une planification.
       </td>
       <td>1</td>
@@ -303,8 +304,8 @@
     <tr>
       <td>20</td>
       <td>
-        US20 : En tant qu'utilisateur<br>
-        Je souhaite avoir accès à une page par Tâche sur laquelle serais présent un bouton "Supprimer" qui me ferais apparaitre une fenêtre de confirmation, une fois mon envie de supprimer la Tâche confirmé, la Tâche sera supprimée et je serais redirigé sur une page avec l'ensemble des Tâches<br>
+        UUS20 : En tant qu'utilisateur<br>
+        Je souhaite que le bouton présent sur la carte représentant une tâche depuis la vue global me fasse apparaître un popup me servant a confirmer que je souhaite supprimer la tâche<br>
         afin de pouvoir enlever les Tâches ajoutée par erreur.
       </td>
       <td>1</td>
@@ -421,20 +422,18 @@
       <td>2</td>
       <td>moyenne</td>
     </tr>
+    <tr>
     <td>30</td>
-        <td>
-          US30 : En tant qu'utilisateur<br> 
-          Je souhaite être notifié par le biais d'une icône se trouvant sur la barre d'option lorsqu'un des évènement suivant à lieu :
-          <ul>
-            <li> la fin d'un sprint
-            <li> la priorité d'une Issue change
-            <li> la mise en place d'une planification
-            <li> on m'ajoute à une Tâche
-            <li> la remise d'une release
-          </ul>
-          Cette notification me permettra, en cliquant dessus, de visualiser sur une nouvelle page web le détail de l'évènement.<br>
-          Afin de me tenir informer de l'avancement du projet.
-        </td>
+       <td>
+        US30 : En tant qu'utilisateur<br> 
+        Je souhaite pouvoir être informé des warnings sur une issue ou sur une tâche. <br>
+        Ces warnings sont:
+        <ul>
+          <li> Une information manquante
+          <li> ....
+        </ul>
+        Afin de me tenir informer de l'avancement du projet.
+      </td>
       <td>2</td>
       <td>faible</td>
     </tr>

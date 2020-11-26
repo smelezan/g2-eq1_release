@@ -18,11 +18,16 @@
               <v-btn>Gérer la difficulté</v-btn>
             </router-link>
           </span>
+          <span>
+            <router-link to="/managePriority">
+              <v-btn>Gérer la priorité</v-btn>
+            </router-link>
+          </span>
         </h3>
 
         <v-row v-for="(issue,index) in issues" :key="issue._id">
           <v-col cols="8" @click.stop="issueToShow(index)">
-            <IssuePreviewComponent :id ="issue._id" :title="issue.title" :progression="issue.progression" @delete-issue="deleteIssue" />
+            <IssuePreviewComponent :id ="issue._id" :title="issue.title" :progression="issue.progression"/>
           </v-col>
         </v-row>
       </v-col>
@@ -31,7 +36,6 @@
           <IssueDetailComponent v-bind="currentIssue"/>
       </v-col>
       
-    <modale :revele="revele" :toggleModale="toggleModale" :idIssue="idIssueToDelete"/>
     </v-row>
     
   </v-container>
@@ -41,7 +45,6 @@
 <script>
 import IssuePreviewComponent from "./subComponents/IssuePreviewComponent";
 import IssueDetailComponent from "./subComponents/IssueDetailComponent";
-import modale from "./modalComponent";
 export default {
   data() {
     return {
@@ -50,16 +53,12 @@ export default {
       currentIssue: {},
       issueToShow:{},
       revele:false,
-      deleteIssue: (payload) =>{
-          this.toggleModale(payload);
-      },
       idIssueToDelete: ""
     };
   },
   components: {
     IssuePreviewComponent,
-    IssueDetailComponent,
-    modale
+    IssueDetailComponent
   },
   created() {
     
@@ -79,13 +78,6 @@ export default {
       };
     });
   },
-  methods :{
-      toggleModale : function(payload=undefined){
-          this.revele = !this.revele;
-          if(payload!==undefined){
-              this.idIssueToDelete = payload.id;
-          }
-      }
-  }
+
 };
 </script>
