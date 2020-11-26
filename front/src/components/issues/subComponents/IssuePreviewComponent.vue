@@ -1,20 +1,25 @@
 <template>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{title}}   <span class= "text-right">⚠</span></h5>
-        <div class="progress text-right ">
-            <div class="progress-bar" role="progressbar" :style="'width: '+progress+'%'" :aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <button class="btn btn-danger" @click.stop="deleteIssue"> Supprimer</button>
-      </div>
-    </div>
+    <v-card>
+        <v-card-title>{{title}}   <span class= "text-right">⚠</span></v-card-title>
+        <v-card-text>
+            <v-progress-linear :value="progress"/> 
+        </v-card-text>
+        <v-card-actions >
+          <DeleteButtonComponent :id='id'/>
+        </v-card-actions>
+        
+    </v-card>
 </template>
 
 
 
 <script>
+import DeleteButtonComponent from './DeleteButtonComponent';
 export default {
     name: "IssuePreviewComponent",
+    components:{
+      DeleteButtonComponent
+    },
     props:{
         id: String,
         title: String,

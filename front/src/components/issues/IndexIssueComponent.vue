@@ -1,37 +1,40 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
+  <v-container style="
+    margin-top: 200px;
+    margin-left: 300px;
+">
+    <v-row>
         
-      <div class="col-8" @click.stop="issueToShow(0,true)">
+      <v-col cols="8" @click.stop="issueToShow(0,true)">
         <h3>
           Index Issue
           <span>
             <router-link to="/create-issue">
-              <button class="btn btn-primary">Ajouter une Issue</button>
+              <v-btn >Ajouter une Issue</v-btn>
             </router-link>
           </span>
           <span>
             <router-link to="/manage-difficulty">
-              <button class="btn btn-primary">Gérer la difficulté</button>
+              <v-btn>Gérer la difficulté</v-btn>
             </router-link>
           </span>
         </h3>
 
-        <div class="row" v-for="(issue,index) in issues" :key="issue._id">
-          <div class="col-8" @click.stop="issueToShow(index)">
+        <v-row v-for="(issue,index) in issues" :key="issue._id">
+          <v-col cols="8" @click.stop="issueToShow(index)">
             <IssuePreviewComponent :id ="issue._id" :title="issue.title" :progression="issue.progression" @delete-issue="deleteIssue" />
-          </div>
-        </div>
-      </div>
+          </v-col>
+        </v-row>
+      </v-col>
 
-      <div class="col-4" v-if="show">
+      <v-col cols="4" v-if="show">
           <IssueDetailComponent v-bind="currentIssue"/>
-      </div>
+      </v-col>
       
     <modale :revele="revele" :toggleModale="toggleModale" :idIssue="idIssueToDelete"/>
-    </div>
+    </v-row>
     
-  </div>
+  </v-container>
 </template>
 
 
@@ -71,7 +74,6 @@ export default {
           else{
               this.show= true;
               this.currentIssue=this.issues[n];
-                console.log(this.currentIssue);
               return this.issues[n];
           } 
       };

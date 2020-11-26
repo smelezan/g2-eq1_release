@@ -1,7 +1,10 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-3">
+  <v-container style="
+    margin-top: 200px;
+    margin-left: 300px;
+">
+    <v-row>
+      <v-col cols="3">
         <h3 align="center">Non assignés</h3>
         <draggable
           v-model="unassignedIssues"
@@ -13,10 +16,10 @@
             <issueSummary :title="issue.title" :difficulty="0" />
           </div>
         </draggable>
-      </div>
+      </v-col>
 
-      <div
-        class="col-3"
+      <v-col
+        cols="3"
         v-for="difficulty in difficultyList"
         :key="difficulty.id"
       >
@@ -36,20 +39,20 @@
             </div>
           </draggable>
         </div>
-      </div>
-      <div class="col-3">
-        <button @click="addDifficulty" class="btn btn-primary">
+      </v-col>
+      <v-col cols="3">
+        <v-btn  @click="addDifficulty">
           Ajouter une difficulté
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-end">
-      <div class="col" align="right">
-        <button class="btn btn-primary" @click="applyChanges">Appliquer</button>
-        <button class="btn btn-primary" @click="cancelChanges">Annuler</button>
-      </div>
-    </div>
-  </div>
+        </v-btn>
+      </v-col>
+    </v-row>
+    <v-row justify="right">
+      <v-col align-right>
+        <v-btn @click="applyChanges" color="success">Appliquer</v-btn>
+        <v-btn @click="cancelChanges" color="error">Annuler</v-btn>
+      </v-col >
+    </v-row>
+  </v-container>
 </template>
 <script>
 import draggable from "vuedraggable";

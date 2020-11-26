@@ -8,12 +8,15 @@
         {{title}}
         </v-badge>
     </v-card-text>
-    <v-card-text v-else>
+    <v-card-text v-if="priority!== undefined">
         <v-badge
           :color="color"
         >
         {{title}}
         </v-badge>
+    </v-card-text>
+    <v-card-text v-else>
+        {{title}}
     </v-card-text>
 
 </v-card>

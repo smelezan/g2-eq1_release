@@ -52,29 +52,49 @@ const routes = [
     component: () => import("../components/tests/IndexTestComponent.vue"),
   },
   {
+    path: "/issuesRaw",
+    name: "issuesRaw",
+    component: () => import("../components/issues/IndexIssueComponent.vue"),
+  },
+  {
+    path: "/manage-difficulty",
+    name: "manage-difficulty",
+    component: () => import("../components/issues/DifficultyManagement.vue"),
+  },
+  {
+    path: "/create-issue",
+    name: "create-issue",
+    component: () => import("../components/issues/CreateIssueComponent.vue"),
+  },
+  {
     path: "/populate",
     name: "Populate",
     component: () => import("../components/HomeComponent.vue"),
   },
   {
-    path:'/tasks',
-    name:'tasks',
-    component : ()=>import('../components/tasks/IndexTaskComponent.vue')
+    path: "/tasks",
+    name: "tasks",
+    component: () => import("../components/tasks/IndexTaskComponent.vue"),
   },
   {
-    path:'/tasks/:id',
-    name:'task',
-    component : ()=>import('../components/tasks/TaskComponent.vue')
+    path: "/tasks/:id",
+    name: "task",
+    component: () => import("../components/tasks/TaskComponent.vue"),
   },
   {
-    path:'/create-task',
-    name:'createTask',
-    component : ()=>import('../components/tasks/CreateTaskComponent.vue')
+    path: "/create-task",
+    name: "createTask",
+    component: () => import("../components/tasks/CreateTaskComponent.vue"),
   },
   {
     path: "/managePriority",
     name: "managePriority",
     component: () => import("../components/issues/PriorityManagement.vue"),
+  },
+  {
+    path: "/sprints",
+    name: "sprints",
+    component: () => import("../components/sprints/IndexSprintComponent.vue"),
   },
 ];
 
