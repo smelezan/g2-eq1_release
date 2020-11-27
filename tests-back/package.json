@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start":"node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app",
+    "test": "mocha --exit"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.10.14",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1",
+    "mocha-spec-json-output-reporter": "^1.1.7"
   }
 }
