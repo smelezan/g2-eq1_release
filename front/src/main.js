@@ -8,6 +8,7 @@ import { BootstrapVue } from "bootstrap-vue";
 Vue.prototype.axios = axios;
 // Install BootstrapVue
 Vue.use(BootstrapVue);
+Vue.use(require("vue-moment"));
 
 Vue.config.productionTip = false;
 
