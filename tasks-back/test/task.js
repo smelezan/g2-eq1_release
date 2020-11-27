@@ -55,7 +55,7 @@ describe('Tasks', () => {
     it('it should POST a Task', (done) => {
       const task = {
         title: 'Test Task',
-        description: 'Test Description',
+        dod: 'Test Description',
       };
       chai
         .request(app)
@@ -64,19 +64,21 @@ describe('Tasks', () => {
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a('object');
-          res.body.should.have.a.property('message').eql('Créé avec succès');
+          res.body.should.have.a
+            .property('message')
+            .eql('Successfully created');
           res.body.task.should.have.property('title');
-          res.body.task.should.have.property('description');
+          res.body.task.should.have.property('dod');
           done();
         });
     });
   });
 
   describe('/GET /task/:task task ', () => {
-    it('it should GET an task by the given id', (done) => {
+    it('it should GET a task by the given id', (done) => {
       const task = new Task({
         title: 'New Task',
-        description: 'New description',
+        dod: 'New description',
       });
       task.save((err, taskSaved) => {
         chai
@@ -87,7 +89,7 @@ describe('Tasks', () => {
             res.should.have.status(200);
             res.body.should.be.a('object');
             res.body.should.have.property('title');
-            res.body.should.have.property('description');
+            res.body.should.have.property('dod');
             res.body.should.have.property('_id').eql(taskSaved.id);
             done();
           });
@@ -99,13 +101,13 @@ describe('Tasks', () => {
     it('it should UPDATE an task given an id', (done) => {
       const task = new Task({
         title: 'New Task',
-        description: 'New description',
+        dod: 'New description',
       });
       task.save((err, taskSaved) => {
         chai
           .request(app)
-          .put(`/tasks/${taskSaved.id}`)
-          .send({ title: 'New Task', description: 'Nouvelle description' })
+          .put(`/tasks/${taskSaved._id}`)
+          .send({ title: 'New Task', dod: 'Nouvelle description' })
           .end((_, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -119,7 +121,7 @@ describe('Tasks', () => {
     it('it should DELETE an task given an id', (done) => {
       const task = new Task({
         title: 'New Task',
-        description: 'New description',
+        dod: 'New description',
       });
       task.save((err, taskSaved) => {
         chai
