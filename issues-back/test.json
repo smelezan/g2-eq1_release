@@ -1,0 +1,159 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-18T07:13:23.283Z",
+    "end": "2020-11-18T07:13:23.357Z",
+    "duration": 74
+  },
+  "suites": [
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "# Hello World",
+      "tests": [
+        {
+          "fullTitle": "# Hello World ça doit afficher Hello",
+          "title": "ça doit afficher Hello",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "# Hello World ça doit afficher World",
+          "title": "ça doit afficher World",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "# Super title",
+      "tests": [
+        {
+          "fullTitle": "# Super title Un test générique",
+          "title": "Un test générique",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "# Issue with difficulty 3",
+      "tests": [
+        {
+          "fullTitle": "# Issue with difficulty 3 Test de la difficulté",
+          "title": "Test de la difficulté",
+          "duration": 1,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "# Issue with difficulty 3 Test de la facilité",
+          "title": "Test de la facilité",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "# Issue with difficulty 3 Test de la faci-difficulté",
+          "title": "Test de la faci-difficulté",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "~ Première tache",
+      "tests": [
+        {
+          "fullTitle": "~ Première tache Test de la première tâche",
+          "title": "Test de la première tâche",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "~ troisième tache",
+      "tests": [
+        {
+          "fullTitle": "~ troisième tache Test de la troisième tâche",
+          "title": "Test de la troisième tâche",
+          "duration": 0,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "# Hello World ça doit afficher Hello",
+      "title": "ça doit afficher Hello",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Hello World ça doit afficher World",
+      "title": "ça doit afficher World",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Super title Un test générique",
+      "title": "Un test générique",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Issue with difficulty 3 Test de la difficulté",
+      "title": "Test de la difficulté",
+      "duration": 1,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Issue with difficulty 3 Test de la facilité",
+      "title": "Test de la facilité",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "# Issue with difficulty 3 Test de la faci-difficulté",
+      "title": "Test de la faci-difficulté",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "~ Première tache Test de la première tâche",
+      "title": "Test de la première tâche",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "~ troisième tache Test de la troisième tâche",
+      "title": "Test de la troisième tâche",
+      "duration": 0,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

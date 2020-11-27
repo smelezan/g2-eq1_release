@@ -1,0 +1,24 @@
+[
+	{
+		"title": "Hello World",
+        "description":" Hello world",
+        "type": "feature"
+	},
+	{
+		"title": "Issue with difficulty 1",
+        "description":" the difficulty set to 1",
+        "type": "feature",
+        "difficulty": 1
+	},
+	{
+		"title": "Issue with difficulty 3",
+        "description":" the difficulty set to 3",
+        "type": "feature",
+        "difficulty":3
+	},
+	{
+		"title": "Super title",
+        "description":" Super description",
+        "type": "feature"
+	}
+]

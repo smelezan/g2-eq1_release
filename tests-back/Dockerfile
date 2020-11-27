@@ -1,0 +1,13 @@
+FROM node
+
+RUN mkdir -p /usr/src/testsBack
+WORKDIR /usr/src/testsBack
+
+COPY package.json /usr/src/testsBack/
+
+RUN npm install
+
+COPY . /usr/src/testsBack
+
+EXPOSE 5001
+CMD ["npm", "start"]

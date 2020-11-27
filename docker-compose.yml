@@ -1,0 +1,98 @@
+version: '3.8'
+services:
+
+    front:
+        container_name: front
+        environment: 
+            - VUE_APP_ISSUEADDRESS=localhost
+            - VUE_APP_ISSUEPORT=4000
+            - VUE_APP_TASKADDRESS=localhost
+            - VUE_APP_TASKPORT=5000
+        build: 
+            context: ./front
+            dockerfile: Dockerfile
+        ports: 
+            - "8081:8080"
+        networks: 
+            - cdp
+        depends_on: 
+            - issues
+        volumes:
+            - ./front/src:/app/src
+        
+    issues:
+        container_name: issue_server
+        environment: 
+            - MONGO_ISSUEADDRESS=issue_database
+           
+        build: 
+            context: ./issues-back
+            dockerfile: Dockerfile
+        ports:
+            - "4000:4000"
+        networks:
+            - cdp
+        depends_on:
+          - mongoIssues
+
+    mongoIssues:
+        image: mongo
+        container_name: issue_database
+        ports:
+          - 27017:27017
+        networks:
+          - cdp
+    
+    tasks:
+        container_name: task_server
+        environment: 
+            - MONGO_TASKADDRESS=task_database
+            - MONGO_TASKPORT=27018
+           
+        build: 
+            context: ./tasks-back
+            dockerfile: Dockerfile
+        ports:
+            - "5000:5000"
+        networks:
+            - cdp
+        depends_on:
+          - mongoTasks
+
+    mongoTasks:
+        image: mongo
+        container_name: task_database
+        command: mongod --port 27018
+        ports:
+          - 27018:27018
+        networks:
+          - cdp
+    tests:
+        container_name: test_server
+        environment: 
+            - MONGO_TESTADDRESS=test_database
+            - MONGO_TESTPORT=27019
+           
+        build: 
+            context: ./tests-back
+            dockerfile: Dockerfile
+        ports:
+            - "5001:5001"
+        networks:
+            - cdp
+        depends_on:
+          - mongoTest
+
+    mongoTest:
+        image: mongo
+        container_name: test_database
+        command: mongod --port 27019
+        ports:
+          - 27019:27019
+        networks:
+          - cdp
+    
+    
+networks:
+    cdp:
+        driver: bridge
