@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app",
     "test": "mocha --exit",
-    "test2": "mocha -R mocha-spec-json-output-reporter",
+    "test2": "mocha -R mocha-spec-json-output-reporter --exit",
     "build": "mocha -R spec test/*.js > report 2>&1"
   },
   "keywords": [],

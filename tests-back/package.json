@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "test2": "mocha -R mocha-spec-json-output-reporter --exit"
   },
   "keywords": [],
   "author": "",
