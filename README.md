@@ -1,4 +1,4 @@
-Backlog : Liste des besoins que couvrent le logiciel
+Backlog : Liste les besoins que doit couvrir le logiciel
 <br/>
 =======
 <table>
