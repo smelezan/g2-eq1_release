@@ -1,3 +1,6 @@
+Backlog : Liste les besoins que doit couvrir le logiciel
+=======
+<br/>
 <table>
   <tbody>
     <tr>
@@ -543,3 +546,8 @@
     </tr>
   </tbody>
 </table>
+<br/>
+
+Release :
+==========
+Ici vous trouverez les notes de [releases](https://github.com/smelezan/g2-eq1_release/blob/main/releaseNote.md).
