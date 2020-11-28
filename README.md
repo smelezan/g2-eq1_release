@@ -1,3 +1,6 @@
+Backlog : Liste des besoins que couvrent le logiciel
+<br/>
+=======
 <table>
   <tbody>
     <tr>
@@ -543,3 +546,12 @@
     </tr>
   </tbody>
 </table>
+<br/>
+
+Sprints
+======
+Ici vous trouverez les différents Sprints : [Sprint1](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint1.md), [Sprint2](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint2.md)
+
+Release
+=======
+[Ici](https://github.com/smelezan/g2-eq1_release) vous trouverez la liste des fichiers nécessaires à l'installation et l'exécution du logiciel.
