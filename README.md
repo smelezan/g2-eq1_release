@@ -548,10 +548,10 @@ Backlog : Liste des besoins que couvrent le logiciel
 </table>
 <br/>
 
-Sprints
+Sprints : Regroupent les issues réalisées
 ======
-Ici vous trouverez les différents Sprints : [Sprint1](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint1.md), [Sprint2](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint2.md)
+Ici vous trouverez les différents Sprints : [Sprint1](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint1.md), [Sprint2](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint2.md).
 
-Release
+Releases : Regroupent les fichiers nécessaires à l'installation et l'exécution du logiciel
 =======
-[Ici](https://github.com/smelezan/g2-eq1_release) vous trouverez la liste des fichiers nécessaires à l'installation et l'exécution du logiciel.
+Ici vous trouverez les différentes [releases](https://github.com/smelezan/g2-eq1_release).
