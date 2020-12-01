@@ -1,195 +1,116 @@
 <template>
-    <v-app id="inspire">
-        <v-card>
-    <div class="row">
-      <div class="col form-inline">
-        <b-form-input
-          id="input-2"
-          v-model="newTask"
-          required
-          :placeholder="Kanban_Name"
-          @keyup.enter="add"
-        ></b-form-input>
-        <b-button @click="add" variant="primary" class="ml-3">Ajouter</b-button>
-      </div>
+  <div>
+    <div class="row mt-5">
+      <v-col md="5">
+      <h3>Issues non Assignés</h3>
+        <v-row>
+              <draggable
+                class="list-group"
+                :list="unasignedIssues"
+                group="issues"
+                @change="log($event, 1)"
+              >
+                <div v-for="issue in unasignedIssues" :key="issue">
+                  <IssueItemComponent :id="issue" />
+                </div>
+              </draggable>
+            </v-row>
+      </v-col>
     </div>
     <div class="row mt-5">
-      <div class="col-3">
-        <div class="p-2 alert alert-secondary">
-          <div style="display: flex;">
-            <h3>Back Log</h3>
-            <v-spacer></v-spacer>
-            <v-list-item-icon>
-                <v-icon style="top:-15px;">more_horiz</v-icon>
-            </v-list-item-icon>
-          </div>
-          <!-- Backlog draggable component. Pass arrBackLog to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="arrBackLog"
-            group="tasks"
-            @change="update"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrBackLog"
-              :key="element._id"
-            >
-              Sprint Id : {{ element._id }}
-            </div>
-          </draggable>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="p-2 alert alert-secondary">
-          <div style="display: flex;">
-            <h3>TO DO</h3>
-            <v-spacer></v-spacer>
-            <v-list-item-icon>
-                <v-icon style="top:-15px;">more_horiz</v-icon>
-            </v-list-item-icon>
-          </div>
-          <!-- To Do draggable component. Pass arrToDo to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="arrToDo"
-            group="tasks"
-            @change="update($event,'TO DO')"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrToDo"
-              :key="element._id"
-            >
-              Sprint Id : {{ element._id }}
-            </div>
-          </draggable>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="p-2 alert alert-primary">
-          <div style="display: flex;">
-            <h3>DOING</h3>
-            <v-spacer></v-spacer>
-            <v-list-item-icon>
-                <v-icon style="top:-15px;">more_horiz</v-icon>
-            </v-list-item-icon>
-          </div>
-          <!-- In Progress draggable component. Pass arrInProgress to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="arrInProgress"
-            group="tasks"
-            @change="update($event,'DOING')"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrInProgress"
-              :key="element._id"
-            >
-              Sprint Id : {{ element._id }}
-            </div>
-          </draggable>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="p-2 alert alert-warning">
-          <div style="display: flex;">
-            <h3>DONE</h3>
-            <v-spacer></v-spacer>
-            <v-list-item-icon>
-                <v-icon style="top:-15px;">more_horiz</v-icon>
-            </v-list-item-icon>
-          </div>
-          <!-- Testing draggable component. Pass arrTested to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="arrDone"
-            group="tasks"
-            @change="update($event,'DONE')"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrDone"
-              :key="element._id"
-            >
-              Sprint Id : {{ element._id }}
-            </div>
-          </draggable>
-        </div>
-      </div>
+        <v-col v-for="(item, i) in list" :key="i">
+            <component :is=Board :board_name="list[i]"></component>
+        </v-col>
     </div>
-        </v-card>
-    </v-app>
+  </div>
 </template>
 
 <script>
-//import draggable
+import Board from "./SprintsBoard";
 import draggable from "vuedraggable";
+import IssueItemComponent from "./sprints/subComponents/IssueItemComponent";
+import moment from "moment";
+import AddSprintModaleComponent from "./sprints/subComponents/AddSprintModaleComponent";
 export default {
-  name: "kanban-board",
-  props: ['Kanban_Name'],
   components: {
-    //import draggable as a component
-    draggable
+    IssueItemComponent,
+    draggable,
+    AddSprintModaleComponent,
   },
   data() {
     return {
-      // for new tasks
-      newTask: "",
-      issues: [],
-      // 4 arrays to keep track of our 4 statuses
-      arrBackLog: [],
-      arrToDo: [],
-      arrInProgress: [],
-      arrDone: []
+        list: [
+          {name:'BackLog',number:'0',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
+          {name:'To Do',number:'1',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
+          {name:'Doing',number:'2',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
+          {name:'Done',number:'3',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}
+          ],
+        Board,
+        sprint: false,
+        issues: [],
+        sprints: [],
+        unasignedIssues: [],
     };
   },
+    methods: {
+    log(event, id) {
+      console.log(event);
+      console.log(id);
+    },
+    sortIssues(issues) {
+      this.unasignedIssues = [];
+      for (const issue of issues) {
+        let issueFound = false;
+        for (const sprint of this.sprints) {
+          issueFound = sprint.issues.some((issueOfSprint) => {
+            return issueOfSprint === issue._id;
+          });
+          if (issueFound) break;
+        }
+        if (!issueFound) {
+          this.unasignedIssues.push(issue._id);
+        }
+      }
+    },
+    sortSprints() {
+      this.sprints.sort(function (a, b) {
+        console.log(moment(a.startDate).isBefore(b.startDate));
+        return moment(a.startDate).isBefore(b.startDate) ? -1 : 1;
+      });
+    },
+    dateParser(date) {
+      return moment(date).format("DD MM YYYY");
+    },
+    updateSprints() {
+      this.axios.put(this.$proxyIssues + "/sprints/reatribute", {
+        sprints: this.sprints,
+      });
+    },
+    cancelModification() {
+      this.axios.get(this.$proxyIssues + "/sprints").then((response) => {
+        this.sprints = response.data;
+        this.axios.get(this.$proxyIssues + "/issues").then((response) => {
+          this.issues = response.data;
+          this.sortIssues(this.issues);
+          this.sortSprints();
+        });
+      });
+    },
+    deleteSprint(id) {
+      this.axios.delete(this.$proxyIssues + "/sprints/" + id).then(() => {
+        this.cancelModification();
+      });
+    },
+  },
   created() {
-    
     this.axios.get(this.$proxyIssues + "/sprints").then((response) => {
-      this.sortIssues(response.data);
-      console.log(response.data)
+      this.sprints = response.data;
+      this.axios.get(this.$proxyIssues + "/issues").then((response) => {
+        this.issues = response.data;
+        this.sortIssues(this.issues);
+        this.sortSprints();
+      });
     });
   },
-  methods: {
-    //add new tasks method
-    add: function() {
-      console.log("ADD");
-      if (this.newTask) {
-        this.arrBackLog.push({ name: this.newTask });
-        this.newTask = "";
-      }
-    },
-    log: function(event){
-      console.log(event);
-    },
-
-    sortIssues: function(issues){
-      for(const issue of issues){
-        this.arrBackLog.push(issue);
-      }
-    },
-
-    update: function(event,status){
-      if(event.added!=undefined){
-        let issue = event.added.element;
-        console.log(`L'issue:${issue.title} -> ${status}`);
-        issue.status = status;
-        this.axios.put(`${this.$proxyIssues}/issues/${issue._id}`, issue);
-      }
-    }
-
-  }
 };
 </script>
-
-<style>
-/* light stylings for the kanban columns */
-.kanban-column {
-  min-height: 300px;
-}
-</style>
