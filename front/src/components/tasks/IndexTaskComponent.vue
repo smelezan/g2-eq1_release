@@ -39,6 +39,7 @@ export default {
       this.axios.get(this.$proxyTasks+'/tasks').then(response =>{
           this.tasks = response.data;
           this.tasks.forEach(task => {
+            console.log(task);
             if(task.status == "DONE"){
               this.done++;
             }

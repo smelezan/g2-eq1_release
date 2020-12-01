@@ -5,39 +5,54 @@
                 <h3>Task</h3>
                 <form>
                     <div class="data">
-                        <label for="Title">Titre : {{ task.title }}</label>
+                        <label for="title">Titre :</label>
+                        <br>
+                        <v-text-field outline readonly v-model="task.title"></v-text-field>
                     </div>
                     <br>
                     <div class="data">
                         <label for="Description">Definition of Done : </label>
                         <br>
-                        <v-textarea readonly=true v-model="task.dod"> </v-textarea>
+                        <v-textarea outline readonly v-model="task.dod"> </v-textarea>
                     </div>
                     <br>
                     <div class="data">
-                        <label for="cost">Coût : {{ task.cost }}</label>
+                        <label for="cout">Coût :</label>
+                        <br>
+                        <v-text-field outline readonly v-model="task.cost"></v-text-field>
                     </div>
                     <br>
                     <div class="data">
-                        <label for="Dev">Développeurs : {{ task.developer }}</label>
-                    </div>
-                    <br>
-                    <div class="data">
-                        <label for="Dep">Task dep : </label>
-                        <div v-for="dep in taskTasks" :key="dep._id">
-                            {{dep.title}}
-                        </div>
+                        <label for="szv">Développeurs :</label>
+                        <br>
+                        <v-text-field outline readonly v-model="task.developer"></v-text-field>
                     </div>
                     <br>
                     <div class="data">
                         <label for="Issue">Task Issues : </label>
-                        <div v-for="issue in taskIssues" :key="issue._id">
-                            {{issue.title}}
+                        <div class="row">
+                            <div v-for="issue in taskIssues" :key="issue._id">
+                                <v-card class="col">
+                                    {{issue.title}}
+                                </v-card>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <label for="Dep">Task dep : </label>
+                        <div class="row">
+                            <div v-for="dep in taskTasks" :key="dep._id">
+                                <v-card class="col">
+                                    {{dep.title}}
+                                </v-card>
+                            </div>
                         </div>
                     </div>
                     <br>
                     <div class="data">
-                        <label for="Status">Status : {{ task.status }}</label>
+                        <label for="Status">Status :</label>
+                        <br>
+                        <v-text-field outline readonly v-model="task.status"></v-text-field>
                     </div>
                 </form>
                 <v-dialog v-model="dialog" persistent max-width="600px">
@@ -62,9 +77,9 @@
                                         </v-textarea>
                                     </v-col>
                                     <v-col cols="12">
-                                        <button v-on:click.prevent="decrement"> Decrease </button>
+                                        <v-btn v-on:click.prevent="decrement" color=blue> Decrease </v-btn>
                                         {{newCost}}
-                                        <button v-on:click.prevent="increment">Increase</button>
+                                        <v-btn v-on:click.prevent="increment" color=blue>Increase</v-btn>
                                     </v-col>
                                     <v-col cols="12">
                                         <label for="inputState">Développeurs :</label>

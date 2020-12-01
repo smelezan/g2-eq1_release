@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-      <v-btn class="btn btn-primary" to="/tasks" @click="addTask()" color="blue">Créer</v-btn>
+      <v-btn class="btn btn-primary" @click="addTask()" color="blue">Créer</v-btn>
       <v-btn class="btn btn-primary" to="/tasks" color="red">Annuler</v-btn>
     </div>
   </div>
@@ -48,6 +48,7 @@ export default {
   methods: {
       addTask(){
           this.task.issues = this.issuesId;
+          console.log(this.task);
           this.axios.post(this.$proxyTasks+'/tasks', this.task).then(() => {
             this.$router.push({name: 'tasks'});
           });
