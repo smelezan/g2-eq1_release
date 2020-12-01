@@ -1,14 +1,35 @@
 <template>
-        <div class="col-3">
+        <div>
                 <div class="p-2 alert alert-secondary">
                 <div style="display: flex;">
                     <h3 ref="board_name">{{board_name.name}}</h3>
                     <h3 hidden ref="board_number">{{board_name.number}}</h3>
                     <h3 hidden ref="board_route">{{board_name.route}}</h3>
+                    <h3 hidden ref="board_action">{{board_name.action}}</h3>
+                    <h3 hidden ref="proxy">{{board_name.proxy}}</h3>
                     <v-spacer></v-spacer>
-                    <v-list-item-icon>
-                        <v-icon style="top:-15px;">more_horiz</v-icon>
-                    </v-list-item-icon>
+          <v-menu bottom left>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                light
+                icon
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon>mdi-dots-horizontal</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+                :to="board_action"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
                 </div>
                 <!-- Backlog draggable component. Pass arrBackLog to list prop -->
                 <draggable
@@ -44,6 +65,9 @@ export default {
   data() {
     return {
         Board,
+        items: [
+        { title: 'ajouter', action: '/1' },
+      ],
       // for new tasks
       newTask: "",
       issues: [],
@@ -55,13 +79,18 @@ export default {
       board: [[],[],[],[]],
       board_number:0,
       board_route:'',
+      board_action:'',
+      proxy:'',
     };
   },
   mounted: function() {
             this.board_number = this.$refs.board_number.innerText;
             this.board_route = this.$refs.board_route.innerText;
+            this.board_action = this.$refs.board_action.innerText;
+            this.proxy = this.$refs.proxy.innerText;
+            console.log(this.proxy);
             
-            const URL = `${this.$proxyTasks}${this.board_route}`;
+            const URL = `${this.proxy}${this.board_route}`;
             this.axios.get(URL).then((response) => {
               this.sortIssues(response.data);
             })
