@@ -2,26 +2,16 @@
   <div>
     <div class="row mt-5">
       <v-col md="5">
-      <h3>Issues non assignés</h3>
+      <h3>Issues non assignés :</h3>
       </v-col>
     </div>
-    <div 
-      class="container-fluid" 
-      style="display: flex; overflow-x: auto;"
-      >
-      <v-row>
-        <draggable 
-          class="row"
-          :list="unasignedIssues"
-          group="issues"
-          @change="log($event, 1)"
-        >
-          <div class="col" v-for="issue in unasignedIssues" :key="issue">
+
+      <div class="wrapper" >
+          <div class="item" v-for="issue in unasignedIssues" :key="issue">
             <IssueItemComponent :id="issue" />
           </div>
-        </draggable>
-      </v-row>
-    </div>
+      </div>
+
     <div class="row mt-5">
         <v-col v-for="(item, i) in list" :key="i">
             <component :is=Board :board_name="list[i]"></component>
@@ -45,7 +35,7 @@ export default {
   data() {
     return {
         list: [
-          {name:'',number:'0',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
+          {name:'Sprints :',number:'0',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
           ],
         Board,
         sprint: false,
@@ -116,3 +106,27 @@ export default {
   },
 };
 </script>
+
+<style>
+  .wrapper {
+    max-height: 120px;
+    border: 0px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .wrapper::-webkit-scrollbar{
+    width: 0;
+  }
+
+  .wrapper .item{
+    border-radius: 10%;
+    min-width: 350px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    background-color: #F0F8FF;
+    margin-right: 10px;
+  }
+
+</style>

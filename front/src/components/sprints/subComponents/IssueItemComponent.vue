@@ -1,9 +1,5 @@
 <template>
-  <v-card>
-    <v-card-text>
-      {{ issue.title }}
-    </v-card-text>
-  </v-card>
+<div class="item">{{ issue.title }}</div>
 </template>
 
 
