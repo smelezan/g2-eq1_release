@@ -33,38 +33,11 @@
             <div class="v-row">
               <div class="v-col">
                 <div class="v-row">
-                  <v-simple-table v-if="testsFromDatabases.length > 0">
-                    <thead>
-                      <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Issue/Tâches Liés</th>
-                        <th scope="col">dernière exécution</th>
-                        <th scope="col">résultat</th>
-                      </tr>
-                    </thead>
-                    <tbody v-if="testsFromDatabases.length > 0">
-                      <TestItemComponent
-                        v-for="test in testsFromDatabases"
-                        :key="test._id"
-                        :testId="test._id"
-                        :id="test.dependance[0]"
-                        :description="test.description"
-                        :date="
-                          test.testedDates[test.testedDates.length - 1].date
-                        "
-                        :type="test.type"
-                        :result="
-                          test.testedDates[test.testedDates.length - 1].result
-                        "
-                      />
-                    </tbody>
-                  </v-simple-table>
-                  <div v-else>Aucun test dans la base de donnée.</div>
                   <div v-if="showSendServeButton">
                     <v-simple-table>
                       <thead>
                         <tr>
+                          <th scope="col">linked</th>
                           <th scope="col">Id</th>
                           <th scope="col">Description</th>
                           <th scope="col">Issue/Tâches Liés</th>
@@ -74,6 +47,7 @@
                       </thead>
                       <tbody v-if="!processEnd">
                         <tr v-for="(test, counter) in newTests" :key="counter">
+                          <td></td>
                           <td>{{ counter }}</td>
                           <td>{{ test.description }}</td>
                           <td>{{ test.title }}</td>
@@ -81,6 +55,7 @@
                           <td>{{ test.result }}</td>
                         </tr>
                       </tbody>
+
                       <tbody v-else-if="processEnd">
                         <TestItemComponent
                           v-for="(test, counter) in serverResponse.correct"
@@ -96,9 +71,19 @@
                             test.testedDates[test.testedDates.length - 1].result
                           "
                         />
+                        <TestItemComponent
+                          v-for="(test, counter) in serverResponse.wrong"
+                          :key="counter + serverResponse.correct.length"
+                          :testId="
+                            (counter + serverResponse.correct.length).toString()
+                          "
+                          :description="test.description"
+                          :date="new Date().toString()"
+                          :tmptitle="test.title"
+                          :result="test.result"
+                        />
                       </tbody>
                     </v-simple-table>
-
                     <v-btn @click="saveTests" v-if="processEnd">
                       Save tests</v-btn
                     >
@@ -141,19 +126,7 @@ export default {
       serverResponse: {},
     };
   },
-  created() {
-    this.axios.get(this.$proxyTests + "/tests/").then((response) => {
-      this.testsFromDatabases = response.data;
-      console.log(this.testsFromDatabases);
-      this.totalNumberOfTests = this.testsFromDatabases.length;
-      console.log(this.testsFromDatabases[0].testedDates[0]);
-      this.testsFromDatabases.forEach((test) =>
-        test.testedDates[test.testedDates.length - 1].result == "passed"
-          ? this.numberOfTestsPassed++
-          : this.numberOfTestsFailed++
-      );
-    });
-  },
+  created() {},
   methods: {
     onFileSelected(event) {
       console.log(event);
@@ -197,6 +170,7 @@ export default {
         let issues = response.data;
         this.axios.get(this.$proxyTasks + "/tasks").then((response) => {
           let tasks = response.data;
+
           this.axios
             .post(this.$proxyTests + "/tests/verifyTest", {
               tests: this.newTests,
@@ -204,6 +178,7 @@ export default {
               tasks: tasks,
             })
             .then((response) => {
+              console.log("Send");
               this.serverResponse = response.data;
               this.processEnd = true;
             });
@@ -211,11 +186,15 @@ export default {
       });
     },
     saveTests() {
+      let tests = [
+        ...this.serverResponse.correct,
+        ...this.serverResponse.wrong,
+      ];
       this.axios
         .post(this.$proxyTests + "/tests/saveAllTests", {
-          tests: this.serverResponse.correct,
+          tests: tests,
         })
-        .then((response) => console.log(response.data));
+        .then(() => this.$router.push("/Project/Projet%20CDP/"));
     },
   },
 };
