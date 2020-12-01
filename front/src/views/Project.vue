@@ -4,6 +4,7 @@
         <v-main>
             <h2 style="color:grey">{{params}}</h2>
             <v-tabs
+                 color="green"
                 v-model="active_tab"
             >
               <v-tab
