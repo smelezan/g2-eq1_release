@@ -2,20 +2,22 @@
   <div>
     <div class="row mt-5">
       <v-col md="5">
-      <h3>Issues non Assignés</h3>
-        <v-row>
-              <draggable
-                class="list-group"
-                :list="unasignedIssues"
-                group="issues"
-                @change="log($event, 1)"
-              >
-                <div v-for="issue in unasignedIssues" :key="issue">
-                  <IssueItemComponent :id="issue" />
-                </div>
-              </draggable>
-            </v-row>
+      <h3>Issues non assignés</h3>
       </v-col>
+    </div>
+    <div class="row mt-5">
+      <v-row>
+        <draggable 
+          class="row"
+          :list="unasignedIssues"
+          group="issues"
+          @change="log($event, 1)"
+        >
+          <div v-for="issue in unasignedIssues" :key="issue">
+            <IssueItemComponent :id="issue" />
+          </div>
+        </draggable>
+      </v-row>
     </div>
     <div class="row mt-5">
         <v-col v-for="(item, i) in list" :key="i">
@@ -40,10 +42,7 @@ export default {
   data() {
     return {
         list: [
-          {name:'BackLog',number:'0',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
-          {name:'To Do',number:'1',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
-          {name:'Doing',number:'2',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
-          {name:'Done',number:'3',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}
+          {name:'',number:'0',route:'/sprints',action:'/create-issue', proxy:this.$proxyIssues}, 
           ],
         Board,
         sprint: false,

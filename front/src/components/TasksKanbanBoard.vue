@@ -11,8 +11,7 @@ import Board from "./Board";
 export default {
   data() {
     return {
-        list: [{name:'BackLog',number:'0',route:'/tasks',action:'/create-task', proxy:this.$proxyTasks}, 
-        {name:'To Do',number:'1',route:'/tasks',action:'/create-task', proxy:this.$proxyTasks}, 
+        list: [{name:'To Do',number:'0',route:'/tasks',action:'/create-task', proxy:this.$proxyTasks}, 
         {name:'Doing',number:'2',route:'/tasks',action:'/create-task', proxy:this.$proxyTasks}, 
         {name:'Done',number:'3',route:'/tasks',action:'/create-task', proxy:this.$proxyTasks}],
         Board,
