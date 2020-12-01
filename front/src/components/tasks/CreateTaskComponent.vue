@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-content-center" >
     <div class="col-md-8" style="margin-top: 100px;margin-left: 300px;">
-      <h1>Création de tache</h1>
+      <h1>Création de tâche</h1>
       <div class="row">
         <div class="col-md-6">
           <label>Titre:</label>
@@ -16,7 +16,7 @@
           <v-textarea class="form-control" v-model="task.dod" label="Definition of Done" rows="5"></v-textarea>
         </div>
       </div>
-      <label>Task Issue:</label>
+      <label>Liste des Issues:</label>
         <div class="row">
           <div v-for="issue in issues" :key="issue._id">
             <div class="col">
