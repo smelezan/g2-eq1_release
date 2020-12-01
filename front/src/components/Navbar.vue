@@ -26,6 +26,7 @@
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
 
                   <v-list-item 
+                    style="color:green"
                     v-for="(item,i) in item.subtitles"
                     :to="item.link" 
                     :key="i"
@@ -53,7 +54,7 @@
         drawer: true,
         items: [
           { title: 'Menu', icon: 'mdi-menu', subtitles: [{'name': 'Home','link': '/'},{'name': 'Mes tâches','link': '/tasks'},{'name': 'Notifications','link': '/notifications'}]},
-          { title: 'Projets', icon: 'mdi-briefcase', subtitles: [] },
+          { title: 'Projets', icon: 'mdi-briefcase', subtitles: [{'name': 'Projet CDP','link': '/Project/Projet CDP/'}] },
           { title: 'Gestion des tests', icon: 'mdi-test-tube',subtitles: [], link: '/Project/Projet CDP/Tests/4'},
         ],
         mini: false,
