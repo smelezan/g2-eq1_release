@@ -3,6 +3,11 @@
         <v-card>
     <div class="row">
       <div class="col form-inline">
+        <router-link 
+                    :to="`/Project/${params}/create-issue`"
+                >
+                    <button class="btn btn-primary">Ajouter une Issue</button>
+                </router-link>
         <b-form-input
           id="input-2"
           v-model="newTask"
@@ -16,7 +21,13 @@
     <div class="row mt-5">
       <div class="col-3">
         <div class="p-2 alert alert-secondary">
-          <h3>Back Log</h3>
+          <div style="display: flex;">
+            <h3>Back Log</h3>
+            <v-spacer></v-spacer>
+            <v-list-item-icon>
+                <v-icon style="top:-15px;">more_horiz</v-icon>
+            </v-list-item-icon>
+          </div>
           <!-- Backlog draggable component. Pass arrBackLog to list prop -->
           <draggable
             class="list-group kanban-column"
@@ -37,7 +48,13 @@
 
       <div class="col-3">
         <div class="p-2 alert alert-secondary">
-          <h3>TO DO</h3>
+          <div style="display: flex;">
+            <h3>TO DO</h3>
+            <v-spacer></v-spacer>
+            <v-list-item-icon>
+                <v-icon style="top:-15px;">more_horiz</v-icon>
+            </v-list-item-icon>
+          </div>
           <!-- To Do draggable component. Pass arrToDo to list prop -->
           <draggable
             class="list-group kanban-column"
@@ -58,7 +75,13 @@
 
       <div class="col-3">
         <div class="p-2 alert alert-primary">
-          <h3>DOING</h3>
+          <div style="display: flex;">
+            <h3>DOING</h3>
+            <v-spacer></v-spacer>
+            <v-list-item-icon>
+                <v-icon style="top:-15px;">more_horiz</v-icon>
+            </v-list-item-icon>
+          </div>
           <!-- In Progress draggable component. Pass arrInProgress to list prop -->
           <draggable
             class="list-group kanban-column"
@@ -79,7 +102,13 @@
 
       <div class="col-3">
         <div class="p-2 alert alert-warning">
-          <h3>DONE</h3>
+          <div style="display: flex;">
+            <h3>DONE</h3>
+            <v-spacer></v-spacer>
+            <v-list-item-icon>
+                <v-icon style="top:-15px;">more_horiz</v-icon>
+            </v-list-item-icon>
+          </div>
           <!-- Testing draggable component. Pass arrTested to list prop -->
           <draggable
             class="list-group kanban-column"

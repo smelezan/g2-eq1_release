@@ -13,13 +13,13 @@
                 {{ item.tab }}
             </v-tab>
             </v-tabs>
-<!--             <span>
+            <span>
                 <router-link 
                     :to="`/Project/${params}/create-issue`"
                 >
                     <button class="btn btn-primary">Ajouter une Issue</button>
                 </router-link>
-            </span>  -->
+            </span>  
             <v-tabs-items v-model="active_tab">
                 <v-tab-item
                     v-for="item in items"
@@ -49,9 +49,9 @@
 </template>
 
 <script>
-    import IssuesKanbanBoard from '@/components/KanbanBoard'
-    import SprintsKanbanBoard from '@/components/KanbanBoard'
-    import TasksKanbanBoard from '@/components/KanbanBoard'
+    import IssuesKanbanBoard from '@/components/IssuesKanbanBoard'
+    import SprintsKanbanBoard from '@/components/SprintsKanbanBoard'
+    import TasksKanbanBoard from '@/components/TasksKanbanBoard'
 
 
     import DashBoard from '@/components/DashBoard'
