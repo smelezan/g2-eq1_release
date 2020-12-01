@@ -60,12 +60,11 @@ export default {
       // for new tasks
       newTask: "",
       issues: [],
-      // 4 arrays to keep track of our 4 statuses
-      // arrBackLog: [],
+      // 3 arrays to keep track of our 3 statuses
       // arrToDo: [],
       // arrInProgress: [],
       // arrDone: [],
-      board: [[], [], [], []],
+      board: [[], [], []],
       board_number: 0,
       board_route: "",
       board_action: "",
@@ -83,6 +82,7 @@ export default {
     this.axios.get(URL).then((response) => {
       this.sortIssues(response.data);
     });
+    console.log(this.board);
   },
   methods: {
     //add new tasks method
@@ -99,11 +99,13 @@ export default {
     },
 
     sortIssues: function (issues) {
-      //console.log(issues);
+      console.log(issues);
       for (const issue of issues) {
-        if (issue.status == "TO DO") this.board[1].push(issue);
-        else if (issue.status == "DOING") this.board[2].push(issue);
-        else if (issue.status == "DONE") this.board[3].push(issue);
+        if (issue.status == "TO DO") {
+          //console.log(issue);
+          this.board[0].push(issue);
+        } else if (issue.status == "DOING") this.board[1].push(issue);
+        else if (issue.status == "DONE") this.board[2].push(issue);
         else this.board[0].push(issue);
       }
     },

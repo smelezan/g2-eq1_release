@@ -21,14 +21,14 @@ export default {
         },
         {
           name: "Doing",
-          number: "2",
+          number: "1",
           route: "/issues",
           action: "/create-issue",
           proxy: this.$proxyIssues,
         },
         {
           name: "Done",
-          number: "3",
+          number: "2",
           route: "/issues",
           action: "/create-issue",
           proxy: this.$proxyIssues,
