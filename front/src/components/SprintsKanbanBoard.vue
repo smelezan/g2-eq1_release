@@ -5,7 +5,10 @@
       <h3>Issues non assignés</h3>
       </v-col>
     </div>
-    <div class="row mt-5">
+    <div 
+      class="container-fluid" 
+      style="display: flex; overflow-x: auto;"
+      >
       <v-row>
         <draggable 
           class="row"
@@ -13,7 +16,7 @@
           group="issues"
           @change="log($event, 1)"
         >
-          <div v-for="issue in unasignedIssues" :key="issue">
+          <div class="col" v-for="issue in unasignedIssues" :key="issue">
             <IssueItemComponent :id="issue" />
           </div>
         </draggable>

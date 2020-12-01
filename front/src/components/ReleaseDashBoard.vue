@@ -192,9 +192,6 @@
       },
     },
 
-    created () {
-      this.initialize()
-    },
 
     methods: {
       initialize () {
