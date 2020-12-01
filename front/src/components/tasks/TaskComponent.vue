@@ -9,7 +9,9 @@
                     </div>
                     <br>
                     <div class="data">
-                        <label for="Description">Description : {{ task.dod }}</label>
+                        <label for="Description">Definition of Done : </label>
+                        <br>
+                        <v-textarea readonly=true v-model="task.dod"> </v-textarea>
                     </div>
                     <br>
                     <div class="data">
@@ -56,8 +58,8 @@
                                         </v-text-field>
                                     </v-col>
                                     <v-col cols="12">
-                                        <v-text-field label="Description" v-model="newDesc" >
-                                        </v-text-field>
+                                        <v-textarea label="Definition of Done" v-model="newDesc" >
+                                        </v-textarea>
                                     </v-col>
                                     <v-col cols="12">
                                         <button v-on:click.prevent="decrement"> Decrease </button>
@@ -109,7 +111,7 @@
                         </v-card-actions>
                     </v-card>
                 </v-dialog>
-                <span> <router-link to="/tasks"> <button class="btn btn-primary">Retour</button> </router-link></span>
+                <span> <v-btn class="btn btn-primary"  to="/tasks">Retour</v-btn></span>
             </div>
         </div>
     </div>
