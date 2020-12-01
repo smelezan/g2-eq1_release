@@ -9,7 +9,7 @@
           </v-card>
         </div>
         <br>
-        <h3>Index Task : <span> <v-btn class="btn btn-primary" to="/create-task" >Ajouter une Task</v-btn> </span> </h3>
+        <h3>Liste de tâche : <span> <v-btn class="btn btn-primary" to="/create-task" >Ajouter une Task</v-btn> </span> </h3>
         <div class="row" v-for="task in tasks" :key="task._id">
           <div class="col-8">
             <TaskPreviewComponent :id ="task._id" :title="task.title" :status="task.status"/>

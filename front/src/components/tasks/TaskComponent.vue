@@ -2,12 +2,9 @@
     <div class="row justify-content-center" >
         <div class="col-md-8" style="margin-top: 100px;margin-left: 300px;">
             <div class="main">
-                <h3>Task</h3>
                 <form>
                     <div class="data">
-                        <label for="title">Titre :</label>
-                        <br>
-                        <v-text-field outline readonly v-model="task.title"></v-text-field>
+                        <label for="title">Titre : {{task.title}}</label>
                     </div>
                     <br>
                     <div class="data">
@@ -17,19 +14,15 @@
                     </div>
                     <br>
                     <div class="data">
-                        <label for="cout">Coût :</label>
-                        <br>
-                        <v-text-field outline readonly v-model="task.cost"></v-text-field>
+                        <label for="cout">Coût : {{task.cost}}</label>
                     </div>
                     <br>
                     <div class="data">
-                        <label for="szv">Développeurs :</label>
-                        <br>
-                        <v-text-field outline readonly v-model="task.developer"></v-text-field>
+                        <label for="dev">Développeurs : {{task.developer}}</label>
                     </div>
                     <br>
                     <div class="data">
-                        <label for="Issue">Task Issues : </label>
+                        <label for="Issue">Dépendances Issues : </label>
                         <div class="row">
                             <div v-for="issue in taskIssues" :key="issue._id">
                                 <v-card class="col">
@@ -38,8 +31,9 @@
                             </div>
                         </div>
                     </div>
+                    <br>
                     <div class="data">
-                        <label for="Dep">Task dep : </label>
+                        <label for="Dep">Dépendances tâches : </label>
                         <div class="row">
                             <div v-for="dep in taskTasks" :key="dep._id">
                                 <v-card class="col">
@@ -50,15 +44,14 @@
                     </div>
                     <br>
                     <div class="data">
-                        <label for="Status">Status :</label>
-                        <br>
-                        <v-text-field outline readonly v-model="task.status"></v-text-field>
+                        <label for="Status">Status : {{task.status}}</label>
                     </div>
+                <br>
                 </form>
                 <v-dialog v-model="dialog" persistent max-width="600px">
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn color="primary" dark v-bind="attrs" v-on="on">
-                            Change Data
+                            Modifier
                         </v-btn>
                     </template>
                     <v-card>
@@ -77,9 +70,14 @@
                                         </v-textarea>
                                     </v-col>
                                     <v-col cols="12">
-                                        <v-btn v-on:click.prevent="decrement" color=blue> Decrease </v-btn>
-                                        {{newCost}}
-                                        <v-btn v-on:click.prevent="increment" color=blue>Increase</v-btn>
+                                        <div class="row">
+                                        <label >Coût : </label>
+                                        <label >{{newCost}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <v-btn v-on:click.prevent="decrement" color=blue> Diminuer </v-btn>
+                                            <v-btn v-on:click.prevent="increment" color=blue>Augmenter</v-btn>
+                                        </div>
                                     </v-col>
                                     <v-col cols="12">
                                         <label for="inputState">Développeurs :</label>
@@ -91,13 +89,13 @@
                                         </select>
                                     </v-col>
                                     <v-col cols="12">
-                                       Issues :
+                                       Dépendances Issues :
                                         <div v-for="issue in issues" :key="issue._id" class="Checkbox" >
                                             <input type="checkbox" v-bind:id="issue.title" v-bind:value="issue._id" v-model="newIssuesId" />{{issue.title}}<br>
                                         </div>
                                     </v-col>
                                     <v-col cols="12">
-                                        Dépendances :
+                                        Dépendances tâches :
                                         <div v-for="dep in tasks" :key="dep._id" class="Checkbox" >
                                             <div v-if="dep._id != id">
                                                 <input type="checkbox" v-bind:id="dep.title" v-bind:value="dep._id" v-model="newTasksId" />{{dep.title}}<br>
