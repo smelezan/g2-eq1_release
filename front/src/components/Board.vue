@@ -54,18 +54,19 @@ export default {
       // arrDone: [],
       board: [[],[],[],[]],
       board_number:0,
+      board_route:'',
     };
   },
-  created() {
-    
-    this.axios.get(this.$proxyTasks+'/tasks').then((response) => {
-        this.sortIssues(response.data);
-        //console.log(this.$refs.board_name.innerText);
-        //this.board[this.$refs.board_name.innerText].push("coucou");
-        this.board_number = this.$refs.board_number.innerText;
-        console.log(this.$refs.board_route.innerText);
-    });
-  },
+  mounted: function() {
+            this.board_number = this.$refs.board_number.innerText;
+            this.board_route = this.$refs.board_route.innerText;
+            
+            const URL = `${this.$proxyTasks}${this.board_route}`;
+            this.axios.get(URL).then((response) => {
+              this.sortIssues(response.data);
+            })
+          },
+
   methods: {
     //add new tasks method
     add: function() {
