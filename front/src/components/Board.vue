@@ -35,6 +35,39 @@
           :key="element._id"
         >
           {{ element.title }}
+        <v-dialog
+              v-model="dialog"
+              persistent
+              max-width="290"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn light icon v-bind="attrs" v-on="on">
+                      <v-icon>mdi-trash-can</v-icon>
+                    </v-btn>
+              </template>
+              <v-card>
+                <v-card-title class="headline">
+                  Souhaitez-vous supprimer cet élément ?
+                </v-card-title>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    color="green darken-1"
+                    text
+                    @click="dialog = false"
+                  >
+                    Annuler
+                  </v-btn>
+                  <v-btn
+                    color="green darken-1"
+                    text
+                    @click="dialog = false, removeItem(element)"
+                  >
+                    Confirmer
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
         </div>
       </draggable>
     </div>
@@ -55,15 +88,13 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       Board,
       items: [{ title: "ajouter", action: "/1" }],
       // for new tasks
       newTask: "",
       issues: [],
-      // 3 arrays to keep track of our 3 statuses
-      // arrToDo: [],
-      // arrInProgress: [],
-      // arrDone: [],
+      
       board: [[], [], []],
       board_number: 0,
       board_route: "",
@@ -76,13 +107,19 @@ export default {
     this.board_route = this.$refs.board_route.innerText;
     this.board_action = this.$refs.board_action.innerText;
     this.proxy = this.$refs.proxy.innerText;
+    console.log(this.proxy);
 
     const URL = `${this.proxy}${this.board_route}`;
     this.axios.get(URL).then((response) => {
       this.sortIssues(response.data);
     });
+    console.log(this.board);
   },
   methods: {
+    removeItem: function(element) {
+      const URL = `${this.proxy}${this.board_route}`;
+      this.axios.delete(URL+"/"+element._id).then(()=> window.location.reload());
+    },
     //add new tasks method
     add: function () {
       console.log("ADD");

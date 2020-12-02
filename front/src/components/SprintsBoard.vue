@@ -84,7 +84,40 @@
           v-for="element in board[board_number]"
           :key="element._id"
         >
-          Sprint : {{ element._id }}
+          {{ element.name }}
+            <v-dialog
+              v-model="dialog"
+              persistent
+              max-width="290"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn light icon v-bind="attrs" v-on="on">
+                      <v-icon>mdi-trash-can</v-icon>
+                    </v-btn>
+              </template>
+              <v-card>
+                <v-card-title class="headline">
+                  Souhaitez-vous supprimer cet élément ?
+                </v-card-title>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    color="green darken-1"
+                    text
+                    @click="dialog = false"
+                  >
+                    Annuler
+                  </v-btn>
+                  <v-btn
+                    color="green darken-1"
+                    text
+                    @click="dialog = false, removeItem(element)"
+                  >
+                    Confirmer
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
         </div>
       </draggable>
     </div>
@@ -141,11 +174,15 @@ export default {
     const URL = `${this.proxy}${this.board_route}`;
     this.axios.get(URL).then((response) => {
       this.sortIssues(response.data);
+      console.log(response)
     });
   },
 
   methods: {
     //add new tasks method
+    removeItem: function(element) {
+      this.axios.delete(this.$proxyIssues+"/sprints/"+element._id).then(()=> window.location.reload());
+    },
     add: function () {
       console.log("ADD");
       if (this.newTask) {
