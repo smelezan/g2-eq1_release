@@ -1,8 +1,5 @@
 <template>
-  <v-container style="
-    margin-top: 300px;
-    margin-left: 300px;
-">
+  <v-container style="margin-top: 300px; margin-left: 300px">
     <v-row>
       <v-col>
         <h3 align="center">Non assignés</h3>
@@ -12,16 +9,13 @@
           @start="drag = true"
           @end="drag = false"
         >
-        <div v-for="issue in unassignedIssues" :key="issue.id">
-            <issueSummary :title="issue.title" :priority="issue.priority"  />
-        </div>
+          <div v-for="issue in unassignedIssues" :key="issue.id">
+            <issueSummary :title="issue.title" :priority="issue.priority" />
+          </div>
         </draggable>
       </v-col>
 
-    <v-col
-        v-for="priority in prioritiesList"
-        :key="priority.priority"
-    >
+      <v-col v-for="priority in prioritiesList" :key="priority.priority">
         <h3 align="center">{{ priority.priority }}</h3>
         <div>
           <draggable
@@ -42,8 +36,8 @@
     </v-row>
     <v-row>
       <v-col align="right">
-        <v-btn @click="applyChanges" color="primary" >Appliquer</v-btn>
-        <v-btn @click="cancelChanges" color="error" >Annuler</v-btn>
+        <v-btn @click="applyChanges" color="primary">Appliquer</v-btn>
+        <v-btn @click="cancelChanges" color="error">Annuler</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -105,32 +99,30 @@ export default {
           issue.priority == ""
         ) {
           this.unassignedIssues.push(issue);
-        } 
-        else {
-
-            let priority = this.prioritiesList.find(
-                (element) => element.priority === issue.priority
-            );
-            priority.issues.push(issue);
+        } else {
+          let priority = this.prioritiesList.find(
+            (element) => element.priority === issue.priority
+          );
+          priority.issues.push(issue);
         }
       }
     },
     cancelChanges: function () {
       this.axios.get(this.$proxyIssues + "/issues").then((response) => {
         this.unassignedIssues = [];
-        this.prioritiesList= [
-            {
-                priority: "HIGH",
-                issues: [],
-            },
-            {
-                priority: "MEDIUM",
-                issues: [],
-            },
-            {
-                priority: "LOW",
-                issues: [],
-            },
+        this.prioritiesList = [
+          {
+            priority: "HIGH",
+            issues: [],
+          },
+          {
+            priority: "MEDIUM",
+            issues: [],
+          },
+          {
+            priority: "LOW",
+            issues: [],
+          },
         ];
         let issues = response.data;
         this.sortIssues(issues);
@@ -138,5 +130,4 @@ export default {
     },
   },
 };
-
 </script>
