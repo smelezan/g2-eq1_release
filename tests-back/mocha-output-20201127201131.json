@@ -1,0 +1,117 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-27T19:11:31.154Z",
+    "end": "2020-11-27T19:11:31.313Z",
+    "duration": 159
+  },
+  "suites": [
+    {
+      "title": "Tests",
+      "tests": []
+    },
+    {
+      "title": "/GET tests",
+      "tests": [
+        {
+          "fullTitle": "/GET tests it should GET all tests",
+          "title": "it should GET all tests",
+          "duration": 35,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST test",
+      "tests": [
+        {
+          "fullTitle": "/POST test it should POST a Test anyway",
+          "title": "it should POST a Test anyway",
+          "duration": 39,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /test/:test  ",
+      "tests": [
+        {
+          "fullTitle": "/GET /test/:test   it should GET a test by the given id",
+          "title": "it should GET a test by the given id",
+          "duration": 14,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /test/:test ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /test/:test  it should UPDATE an test given an id",
+          "title": "it should UPDATE an test given an id",
+          "duration": 12,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+          "title": "it should DELETE an issue given an id",
+          "duration": 11,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "/GET tests it should GET all tests",
+      "title": "it should GET all tests",
+      "duration": 35,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST test it should POST a Test anyway",
+      "title": "it should POST a Test anyway",
+      "duration": 39,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /test/:test   it should GET a test by the given id",
+      "title": "it should GET a test by the given id",
+      "duration": 14,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /test/:test  it should UPDATE an test given an id",
+      "title": "it should UPDATE an test given an id",
+      "duration": 12,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+      "title": "it should DELETE an issue given an id",
+      "duration": 11,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "stats": {
+    "suites": 12,
+    "tests": 12,
+    "passes": 12,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-27T19:11:23.526Z",
+    "end": "2020-11-27T19:11:23.922Z",
+    "duration": 396
+  },
+  "suites": [
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "/GET issue",
+      "tests": [
+        {
+          "fullTitle": "/GET issue it should GET all issues",
+          "title": "it should GET all issues",
+          "duration": 32,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST issue",
+      "tests": [
+        {
+          "fullTitle": "/POST issue it should not POST an Issue without title field",
+          "title": "it should not POST an Issue without title field",
+          "duration": 41,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "/POST issue it should POST a Issue",
+          "title": "it should POST a Issue",
+          "duration": 21,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/GET /issue/:issue issue  it should GET an issue by the given id",
+          "title": "it should GET an issue by the given id",
+          "duration": 19,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /issue/:issue issue  it should UPDATE an issue given an id",
+          "title": "it should UPDATE an issue given an id",
+          "duration": 26,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /issue/:issue issue ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+          "title": "it should DELETE an issue given an id",
+          "duration": 13,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /issues/manageDifficulty ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /issues/manageDifficulty  it should update the difficulty field in each Issues",
+          "title": "it should update the difficulty field in each Issues",
+          "duration": 48,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Sprints",
+      "tests": []
+    },
+    {
+      "title": "/GET sprint",
+      "tests": [
+        {
+          "fullTitle": "/GET sprint it should GET all sprints",
+          "title": "it should GET all sprints",
+          "duration": 10,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST Sprint",
+      "tests": [
+        {
+          "fullTitle": "/POST Sprint it should not POST sprint without startDate field",
+          "title": "it should not POST sprint without startDate field",
+          "duration": 15,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "/POST Sprint it should POST a Sprint",
+          "title": "it should POST a Sprint",
+          "duration": 14,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /sprint/:sprint sprint ",
+      "tests": [
+        {
+          "fullTitle": "/GET /sprint/:sprint sprint  it should GET a sprint by the given id",
+          "title": "it should GET a sprint by the given id",
+          "duration": 14,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /sprint/:sprint sprint ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /sprint/:sprint sprint  it should DELETE a sprint given an id",
+          "title": "it should DELETE a sprint given an id",
+          "duration": 13,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "/GET issue it should GET all issues",
+      "title": "it should GET all issues",
+      "duration": 32,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST issue it should not POST an Issue without title field",
+      "title": "it should not POST an Issue without title field",
+      "duration": 41,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST issue it should POST a Issue",
+      "title": "it should POST a Issue",
+      "duration": 21,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /issue/:issue issue  it should GET an issue by the given id",
+      "title": "it should GET an issue by the given id",
+      "duration": 19,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /issue/:issue issue  it should UPDATE an issue given an id",
+      "title": "it should UPDATE an issue given an id",
+      "duration": 26,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /issue/:issue issue  it should DELETE an issue given an id",
+      "title": "it should DELETE an issue given an id",
+      "duration": 13,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /issues/manageDifficulty  it should update the difficulty field in each Issues",
+      "title": "it should update the difficulty field in each Issues",
+      "duration": 48,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET sprint it should GET all sprints",
+      "title": "it should GET all sprints",
+      "duration": 10,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST Sprint it should not POST sprint without startDate field",
+      "title": "it should not POST sprint without startDate field",
+      "duration": 15,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST Sprint it should POST a Sprint",
+      "title": "it should POST a Sprint",
+      "duration": 14,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /sprint/:sprint sprint  it should GET a sprint by the given id",
+      "title": "it should GET a sprint by the given id",
+      "duration": 14,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /sprint/:sprint sprint  it should DELETE a sprint given an id",
+      "title": "it should DELETE a sprint given an id",
+      "duration": 13,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

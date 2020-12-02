@@ -77,7 +77,7 @@ exports.manageDifficulty = function manageDifficulty(req, res) {
         new Promise((resolve, reject) => {
           Issue.findOneAndUpdate(
             { _id: issue._id },
-            { priority: issuesArray.difficulty },
+            { difficulty: issuesArray.difficulty },
             { upsert: true, useFindAndModify: true, new: true }
           )
             .then((result) => resolve(result))

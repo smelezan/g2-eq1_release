@@ -4,6 +4,7 @@
         <v-main>
             <h2 style="color:grey">{{params}}</h2>
             <v-tabs
+                 color="green"
                 v-model="active_tab"
             >
               <v-tab
@@ -13,13 +14,13 @@
                 {{ item.tab }}
             </v-tab>
             </v-tabs>
-<!--             <span>
+            <!-- <span>
                 <router-link 
                     :to="`/Project/${params}/create-issue`"
                 >
                     <button class="btn btn-primary">Ajouter une Issue</button>
                 </router-link>
-            </span>  -->
+            </span>   -->
             <v-tabs-items v-model="active_tab">
                 <v-tab-item
                     v-for="item in items"
@@ -37,8 +38,16 @@
                         <component :is=TasksKanbanBoard :Kanban_Name="item.tab">
                         </component>
                     </v-card>
+                    <v-card  v-if="item.type=='ReleaseDashBoard'" flat>
+                        <component :is=ReleaseDashBoard>
+                        </component>
+                    </v-card>
                     <v-card  v-if="item.type=='Dashboard'" flat>
                         <component :is=DashBoard>
+                        </component>
+                    </v-card>
+                    <v-card  v-if="item.type=='DocumentationDashBoard'" flat>
+                        <component :is=DocumentationDashBoard>
                         </component>
                     </v-card>
                 </v-tab-item>
@@ -49,12 +58,12 @@
 </template>
 
 <script>
-    import IssuesKanbanBoard from '@/components/KanbanBoard'
-    import SprintsKanbanBoard from '@/components/KanbanBoard'
-    import TasksKanbanBoard from '@/components/KanbanBoard'
-
-
+    import IssuesKanbanBoard from '@/components/IssuesKanbanBoard'
+    import SprintsKanbanBoard from '@/components/SprintsKanbanBoard'
+    import TasksKanbanBoard from '@/components/TasksKanbanBoard'
     import DashBoard from '@/components/DashBoard'
+    import ReleaseDashBoard from '@/components/ReleaseDashBoard'
+    import DocumentationDashBoard from '@/components/DocumentationDashBoard'
 
     export default {
         data: function() {
@@ -63,6 +72,8 @@
                 IssuesKanbanBoard,
                 SprintsKanbanBoard,
                 TasksKanbanBoard,
+                ReleaseDashBoard,
+                DocumentationDashBoard,                
                 DashBoard,
                 params: '',
                  tab: null,
@@ -70,9 +81,9 @@
                 { tab: 'Sprints', type: 'Kanban' },
                 { tab: 'Issues', type: 'Kanban' },
                 { tab: 'Tâches', type: 'Kanban' },
-                { tab: 'Releases', type: '' },
+                { tab: 'Releases', type: 'ReleaseDashBoard' },
                 { tab: 'Tests', type: 'Dashboard', active_tab: '4' },
-                { tab: 'Documentations', type: '' },
+                { tab: 'Documentations', type: 'DocumentationDashBoard' },
                 ],
             }
         },

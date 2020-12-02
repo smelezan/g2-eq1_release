@@ -14,6 +14,13 @@
           <v-row>
             <v-col cols="12" sm="6">
               <v-date-picker v-model="dates" range></v-date-picker>
+              <v-text-field
+                v-model="name"
+                label="Nom"
+                outlined
+                :placeholder="name"
+              >
+              </v-text-field>
             </v-col>
             <v-col cols="12" sm="6">
               <v-text-field
@@ -33,6 +40,7 @@
                 :rules="[rules.overlay]"
               ></v-text-field>
             </v-col>
+            <v-col> </v-col>
           </v-row>
         </v-container>
       </v-card-text>
@@ -68,6 +76,7 @@ export default {
         moment().format("YYYY-MM-DD"),
         moment().add(3, "days").format("YYYY-MM-DD"),
       ],
+      name: "Sprint",
       overlay: false,
       rules: {
         overlay: () => "Vous ne pouvez pas superposer des sprints",
@@ -75,14 +84,12 @@ export default {
     };
   },
   methods: {
-    viewUpdate(e) {
-      console.log(e);
-    },
     createSprint: function () {
       this.axios
         .post(this.$proxyIssues + "/sprints/", {
           startDate: new Date(this.dates[0]),
           endDate: new Date(this.dates[1]),
+          name: this.name,
         })
         .then(() => window.location.reload())
         .catch(() => {
