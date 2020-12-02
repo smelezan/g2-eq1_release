@@ -33,6 +33,13 @@
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-text-field
+                        v-model="name"
+                        label="Nom"
+                        outlined
+                        :placeholder="name"
+                      >
+                      </v-text-field>
+                      <v-text-field
                         v-model="dateRangeText"
                         label="Date range"
                         prepend-icon="event"
@@ -122,6 +129,7 @@ export default {
       board_route: "",
       board_action: "",
       proxy: "",
+      name: "Sprint",
     };
   },
   mounted: function () {
@@ -151,6 +159,7 @@ export default {
         .post(this.$proxyIssues + "/sprints/", {
           startDate: new Date(this.dates[0]),
           endDate: new Date(this.dates[1]),
+          name: this.name,
         })
         .then(() => window.location.reload())
         .catch(() => {
