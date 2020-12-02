@@ -53,7 +53,7 @@
       return {
         drawer: true,
         items: [
-          { title: 'Menu', icon: 'mdi-menu', subtitles: [{'name': 'Home','link': '/'},{'name': 'Mes tâches','link': '/tasks'},{'name': 'Notifications','link': '/notifications'}]},
+          { title: 'Menu', icon: 'mdi-menu', subtitles: [{'name': 'Home','link': '/'},{'name': 'Mes sprints','link': '/sprints'},{'name': 'Mes issues','link': '/issuesRaw'},{'name': 'Mes tâches','link': '/tasks'},{'name': 'Ajouter des tests','link': '/tests'}]},
           { title: 'Projets', icon: 'mdi-briefcase', subtitles: [{'name': 'Projet CDP','link': '/Project/Projet CDP/'}] },
           { title: 'Gestion des tests', icon: 'mdi-test-tube',subtitles: [], link: '/Project/Projet CDP/Tests/4'},
         ],
