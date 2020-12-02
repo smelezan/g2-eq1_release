@@ -35,4 +35,8 @@ app.listen(5001, function () {
 
 app.use("/tests/", testRoutes);
 
+app.post("/populate", (req, res) => {
+  mongoose.connection.db.dropDatabase();
+});
+
 module.exports = app;
