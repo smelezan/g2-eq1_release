@@ -67,9 +67,9 @@
             mdi-alert
           </v-icon>
         </h3>
-        <draggable class="list-group" :list="myArray" group="tasks">
-          <ul style="background:LemonChiffon" class="sortable" :id="element.id" v-for="element in myArray" :key="element.name">
-            <li>US:{{element.id}}</li>
+        <draggable class="list-group" :list="unasignedIssues" group="tasks">
+          <ul style="background:LemonChiffon" class="sortable" :id="element.name" v-for="element in unasignedIssues" :key="element.name">
+            <li>{{element.title}}</li>
           </ul>
         </draggable>
       </div>
@@ -123,7 +123,7 @@ export default {
           if (issueFound) break;
         }
         if (!issueFound) {
-          this.unasignedIssues.push(issue._id);
+          this.unasignedIssues.push(issue);
         }
       }
     },

@@ -34,8 +34,8 @@
           v-for="element in board[board_number]"
           :key="element._id"
         >
-        <div class="wrapper" >
-          <div class="item" >
+        <div >
+          <div class="issue-card" >
           {{ element.title }}
         <v-dialog
               v-model="dialog"
