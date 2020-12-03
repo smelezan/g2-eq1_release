@@ -57,18 +57,24 @@
     </v-expansion-panels>
   
   <div class="col">
-    <div class="row">
-      <div class="p-2 alert alert-warning">
-        <h3>Issues non assignés</h3>
+      <div >
+        <h3>
+          Issues non assignés
+          <v-icon 
+            right
+            style="color:orange"
+          >
+            mdi-alert
+          </v-icon>
+        </h3>
         <draggable class="list-group" :list="myArray" group="tasks">
-          <ul class="sortable" :id="element.id" v-for="element in myArray" :key="element.name">
+          <ul style="background:LemonChiffon" class="sortable" :id="element.id" v-for="element in myArray" :key="element.name">
             <li>US:{{element.id}}</li>
           </ul>
         </draggable>
       </div>
     </div>
 
-  </div>
   </div>
 </template>
 
