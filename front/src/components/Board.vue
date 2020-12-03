@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="p-2 alert alert-secondary">
+    <div class="p-2 alert alert-secondary col-8">
       <div style="display: flex">
         <h3 ref="board_name">{{ board_name.name }}</h3>
         <h3 hidden ref="board_number">{{ board_name.number }}</h3>
@@ -35,16 +35,33 @@
           :key="element._id"
         >
         <div >
-          <div class="issue-card" >
-          {{ element.title }}
+          <div class="issue-card" style="position: relative;">
+            <v-tooltip bottom>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-icon class="stateIcon"
+                      v-if="element.status!='DONE'"
+                      v-bind="attrs"
+                      v-on="on"
+                    >mdi-progress-alert</v-icon>
+                    <v-icon class="stateIcon"
+                      v-else
+                      v-bind="attrs"
+                      v-on="on"
+                    >mdi-alert-circle-check-outline</v-icon>
+                  </template>
+                  <span v-if="element.status!='DONE'">issue ouverte</span>
+                  <span v-else>issue fermée</span>
+                </v-tooltip>
+          <p id="issueTitle">{{ element.title }}</p>
         <v-dialog
               v-model="dialog"
               persistent
               max-width="290"
             >
               <template v-slot:activator="{ on, attrs }">
-                <v-btn light icon v-bind="attrs" v-on="on">
-                      <v-icon>mdi-trash-can</v-icon>
+                <v-btn class="icon" light icon v-bind="attrs" v-on="on">
+                      <v-icon
+                      >mdi-trash-can</v-icon>
                     </v-btn>
               </template>
               <v-card>
@@ -159,3 +176,40 @@ export default {
   },
 };
 </script>
+
+<style>
+  .issue-card {
+    background: rgba(199, 203, 209, 0.26);
+    height: 130px;
+    margin-top: 10px;
+    border-radius: 0.5cm;
+    text-overflow: ellipsis;
+    /* border: 2px solid green; */
+  }
+  #issueTitle {
+    height: 100px;
+    /* border: 2px solid red; */
+    overflow: hidden;
+    transform: scale(0.8);
+    position: relative;
+    bottom: 10px;
+    font-family :Arial, Helvetica, sans-serif;
+    font-size: 17px;
+  }
+  .kanban-column {
+    min-height: 300px;
+  }
+  .icon {
+    /* border:2px solid blue;  */
+    position:absolute; 
+    bottom: 90px; 
+    right: 0px
+  }
+  .stateIcon {
+    /* border: 2px solid magenta; */
+    position:absolute; 
+    top: 4%; 
+    left: 0px;
+    transform: scale(0.7)
+  }
+</style>
