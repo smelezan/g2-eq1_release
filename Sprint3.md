@@ -31,7 +31,6 @@
                 Je souhaite à partir de la page d'un projet avoir accès:
                 <ul>
                 <li>au nom du projet</li>
-                <li>à la liste des collaborateurs</li>
                 <li>à l'onglet des sprints</li>
                 <li>à l'onglet des issues</li>
                 <li>à l'onglet des Tâches</li>
@@ -79,26 +78,6 @@
             <td>DOING</td>
         </tr>
         <tr>
-            <td>21</td>
-            <td>
-                US21 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès depuis la page des Tâches, à un onglet plannification dans lequel il y aurait un tableau modifiable de la forme suivante:
-                <ul>
-                <li> En x: Les jours </li>   
-                <li> En y: Les développeurs </li>   
-                <li> Dans les cases internes: l'id d'une tâche </li>   
-                </ul>
-                En cliquant sur l'une des cases internes: 
-                <ul> 
-                <li> Si la case est vide: une liste des tâches attribuables apparaît </li>
-                <li> Si la case est pleine: une description de la tâche associée à la case est affichée, donnant le titre et la description de cette tâche, ainsi que d'un bouton modifier la tâche qui affichera un menu déroulant listant les tâches attribuableso </li>
-                </ul>
-                afin d'organiser la charge de travail entre les développeurs.
-            </td>
-            <td>2</td>
-            <td>TO DO</td>
-        </tr>
-        <tr>
             <td>28</td>
                 <td>
                     US28 : En tant qu'utilisateur<br> 
@@ -107,21 +86,6 @@
                 </td>
             <td>2</td>
             <td>DOING</td>
-        </tr>
-        <tr>
-        <td>30</td>
-            <td>
-              US30 : En tant qu'utilisateur<br> 
-              Je souhaite pouvoir être informé des warnings sur une issue ou sur une tâche. <br>
-              Ces warnings sont:
-              <ul>
-                <li> Une information manquante
-                <li> ....
-              </ul>
-              Afin de me tenir informer de l'avancement du projet.
-            </td>
-          <td>3</td>
-          <td>TO DO</td>
         </tr>
         </tr>
         <tr>
@@ -231,4 +195,4 @@
     </tbody>
 </table>
 
-Total: 21
+Total: 16
