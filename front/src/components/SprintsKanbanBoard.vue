@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Sprints</h1>
-      <v-expansion-panels
+<!--       <v-expansion-panels
         v-model="panel"
         multiple
       >
@@ -18,39 +18,69 @@
                 <transition-group type="transition" name="flip-list">
                   <ul class="sortable" :id="element.id" v-for="element in myArray" :key="element.id">
                   <li>US:{{element.id}}</li>
-                  <!-- <p> {{element.name}}</p> -->
+                   <p> {{element.name}}</p> 
                   </ul>
                 </transition-group>
               </draggable>
             </div>
           </v-expansion-panel-content>
         </v-expansion-panel>
-      </v-expansion-panels>
+      </v-expansion-panels> 
 
     <div class="row mt-5">
       <v-col md="5">
       <h3>Issues non assignés :</h3>
       </v-col>
+    </div> -->
+
+    <v-expansion-panels
+        v-model="panel"
+        multiple
+      >
+        <v-expansion-panel
+          v-for="(sprint) in sprints"
+          :key="sprint.name"
+        >
+          <v-expansion-panel-header>
+            <h2 class="sprint-name"> {{sprint.name}}</h2>
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+
+            <draggable class="list-group sprint-table" :list="sprint.issues" group="tasks">
+              <ul class="sortable" :id="element.id" v-for="element in sprint.issues" :key="element.name">
+                  <li>US:{{element.id}}</li>
+              </ul>
+            </draggable>
+
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+    </v-expansion-panels>
+  
+  <div class="col">
+    <div class="row">
+      <div class="p-2 alert alert-warning">
+        <h3>Issues non assignés</h3>
+        <draggable class="list-group" :list="myArray" group="tasks">
+          <ul class="sortable" :id="element.id" v-for="element in myArray" :key="element.name">
+            <li>US:{{element.id}}</li>
+          </ul>
+        </draggable>
+      </div>
     </div>
 
-      <div class="wrapper" >
-          <div class="item" v-for="issue in unasignedIssues" :key="issue">
-            <IssueItemComponent :id="issue" />
-          </div>
-      </div>
+  </div>
   </div>
 </template>
 
 <script>
-import IssueItemComponent from "./sprints/subComponents/IssueItemComponent";
 import draggable from 'vuedraggable'
 export default {
   components: {
-    IssueItemComponent,
     draggable,
   },
   data() {
     return {
+        sprints: [{name:'',issues:[{name: '', id:''}]}],
         unasignedIssues: [],
         myArray: [
           {name: " En tant qu'Utilisateur, Je souhaite à partir de la page des sprints pouvoir cliquer sur ajouter un sprint qui m'affichera un formulaire sous forme de popup composé des champs: Date de début Date de fin une fois confirmé, un tableau vide est créé. afin d'y ajouter des Issues.", id:4},
@@ -60,6 +90,8 @@ export default {
           {name: " En tant qu'utilisateur Je souhaite à partir de la page de liste des Issues pouvoir cliquer sur Gérer la difficulté des Issues Afin d'accéder à la page de gestion des Issues qui sera composée de plusieurs colonnes: La première contenant toutes les issues dont la difficulté n'est pas attribuée. Pour le reste des colonnes: Toutes les issues de la même colonne auront la même difficulté. Les issues dans une colonnes seront toujours plus difficiles que celles de la colonne qui se trouve à leur gauche.", id:10},
           {name: " En tant qu'utilisateur Je souhaite à partir de l'onglet Issues Pouvoir cliquer sur le bouton supprimer à côté de l'Issue sélectionné afin de l'enlever de ma liste des Issues.", id:5},
         ],
+        arrOne: [],
+        arrTwo: [],
         oldIndex:'',
         newIndex: ''
     }
@@ -104,13 +136,13 @@ export default {
 </script>
 
 <style>
-  .wrapper {
+/*   .wrapper {
     max-height: 120px;
     border: 0px solid #ddd;
     display: flex;
     overflow-x: auto;
   }
-
+ */
   .wrapper::-webkit-scrollbar{
     width: 0;
   }
@@ -131,8 +163,8 @@ export default {
     padding: 0.5em;
   }
   .sprint-table {
-    background: rgba(211, 211, 211, 0.219);
-    width: 95%;
+    background: rgba(211, 211, 211, 0.521);
+    width: 100%;
   }
 
   .sortable {
@@ -141,7 +173,7 @@ export default {
     padding: 1em;
     cursor: move;
     margin-bottom: 2px;
-    margin-top: 2px;
+    margin-top: 3px;
     border-radius: 0.5cm;
   }
 
