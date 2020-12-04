@@ -9,7 +9,24 @@
           :key="sprint.name"
         >
           <v-expansion-panel-header>
-            {{sprint.name}}
+            <v-row no-gutters>
+              <v-col cols="4">{{sprint.name}}</v-col>
+              <v-col
+                cols="8"
+                class="text--secondary"
+              >
+                <v-fade-transition leave-absolute>
+                      <v-progress-linear
+                        v-model="value"
+                        :buffer-value="bufferValue"
+                        color="red"
+                        style="width:50%"
+                      ></v-progress-linear>
+                </v-fade-transition>
+              <th style="position:absolute; bottom: 10%; right:68%; top:25%">{{sprint.startDate}}</th>
+              <th style="position:absolute; bottom: 10%; left:68%; top:25%">{{sprint.endDate}}</th>
+              </v-col>
+            </v-row>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
 
@@ -53,6 +70,9 @@ export default {
   },
   data() {
     return {
+        value: 10,
+        bufferValue: 100,
+        interval: 0,
         sprints: [{name:'',issues:[{name: '', id:''}]}],
         unasignedIssues: [],
         arrOne: [],
