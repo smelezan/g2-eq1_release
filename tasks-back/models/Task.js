@@ -26,11 +26,6 @@ const taskSchema = mongoose.Schema({
     enum: ['TO DO', 'DOING', 'DONE'],
     default: 'TO DO',
   },
-  issues: {
-    type: [String],
-    required: false,
-    default: [],
-  },
 });
 
 module.exports = mongoose.model('Task', taskSchema);
