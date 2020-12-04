@@ -128,13 +128,13 @@ export default {
     this.board_route = this.$refs.board_route.innerText;
     this.board_action = this.$refs.board_action.innerText;
     this.proxy = this.$refs.proxy.innerText;
-    console.log(this.proxy);
+    //console.log(this.proxy);
 
     const URL = `${this.proxy}${this.board_route}`;
     this.axios.get(URL).then((response) => {
       this.sortIssues(response.data);
     });
-    console.log(this.board);
+    //console.log(this.board);
   },
   methods: {
     removeItem: function(element) {

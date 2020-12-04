@@ -34,7 +34,6 @@
     </div> -->
 
     <v-expansion-panels
-        v-model="panel"
         multiple
       >
         <v-expansion-panel
@@ -134,7 +133,6 @@ export default {
       this.axios.get(this.$proxyIssues + "/issues").then((response) => {
         this.issues = response.data;
         this.sortIssues(this.issues);
-        this.sortSprints();
       });
     });
   },
