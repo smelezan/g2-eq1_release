@@ -58,8 +58,8 @@
       <v-progress-linear
                   style=" bottom:-40px"
                   color="#76D72B"
-                  buffer-value="0"
-                  value="1"
+                  buffer-value="100"
+                  value="60"
                   ltr
       ></v-progress-linear>
 

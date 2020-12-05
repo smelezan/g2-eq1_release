@@ -4,7 +4,7 @@
       <p v-if="openedIssues<2">Ouverte : {{openedIssues}}</p>
       <p v-else>Ouvertes : {{openedIssues}}</p>
 
-      <p v-if="solvedIssues<2">Terminée : {{solvedIssues}}</p>
+      <p v-if="solvedIssues<2">, Terminée : {{solvedIssues}}</p>
       <p v-else>, Terminées : {{solvedIssues}}</p>
       
       <p v-if="closedIssues<2">, Fermée : {{closedIssues}}</p>

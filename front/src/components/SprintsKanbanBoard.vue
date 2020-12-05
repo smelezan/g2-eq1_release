@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>Sprints</h1>
+    <div v-if="this.sprints.length<1" class="col"> <h3 class="garamond">Aucun sprint créé</h3></div>
     <v-expansion-panels
         multiple
+        v-else
       >
         <v-expansion-panel
           v-for="(sprint) in sprints"
@@ -42,7 +43,7 @@
   
   <div class="col">
       <div >
-        <h3>
+        <h3 v-if="this.unasignedIssues.length>0">
           Issues non assignés
           <v-icon 
             right
@@ -161,4 +162,8 @@ export default {
     transition: transform 0.3s;
   }
 
+  .garamond {
+    font-family: roboto;
+    color: grey;
+  }
 </style>
