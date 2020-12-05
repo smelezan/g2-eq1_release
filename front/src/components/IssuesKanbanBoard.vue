@@ -1,5 +1,19 @@
 <template>
-  <div class>
+  <div>
+    <div>
+        <v-row
+          style="float: right"
+          justify="space-around"
+        >
+          <router-link style="text-decoration: none;" to="/create-issue">
+            <v-btn 
+              color="primary"
+              >
+              <a style="color:white;">Ajouter une Issue</a>
+            </v-btn>
+          </router-link>
+        </v-row>
+      </div>
     <div class="row mt-5" style="margin-left:0.3cm; font-weight:bold; color:grey">
       <p v-if="openedIssues<2">Ouverte : {{openedIssues}}</p>
       <p v-else>Ouvertes : {{openedIssues}}</p>

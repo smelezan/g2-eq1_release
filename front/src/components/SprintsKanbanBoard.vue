@@ -4,18 +4,7 @@
     style="float: right"
     justify="space-around"
   >
-    <v-btn
-      depressed
-      color="#90EE90"
-    >
-      créer
-    </v-btn>
-    <v-btn
-      v-if="sprints.length"
-      depressed
-    >
-      supprimer
-    </v-btn>
+    <AddSprintModaleComponent/>
   </v-row>
     <div v-if="this.sprints.length<1" class="col"> <h3 class="garamond">Aucun sprint créé</h3></div>
     <v-expansion-panels
@@ -41,8 +30,8 @@
                         style="width:50%"
                       ></v-progress-linear>
                 </v-fade-transition>
-              <th style="position:absolute; bottom: 10%; right:68%; top:25%">{{sprint.startDate}}</th>
-              <th style="position:absolute; bottom: 10%; left:68%; top:25%">{{sprint.endDate}}</th>
+              <th style="position:absolute; bottom: 10%; left:68%; top:10%">début: {{sprint.startDate}}</th>
+              <th style="position:absolute; bottom: 10%; left:68%; top:60%">fin: {{sprint.endDate}}</th>
               </v-col>
             </v-row>
           </v-expansion-panel-header>
@@ -81,10 +70,12 @@
 </template>
 
 <script>
+import AddSprintModaleComponent from "./sprints/subComponents/AddSprintModaleComponent";
 import draggable from 'vuedraggable'
 export default {
   components: {
     draggable,
+    AddSprintModaleComponent,
   },
   data() {
     return {
