@@ -1,5 +1,22 @@
 <template>
   <div>
+    <v-row
+    style="float: right"
+    justify="space-around"
+  >
+    <v-btn
+      depressed
+      color="#90EE90"
+    >
+      créer
+    </v-btn>
+    <v-btn
+      v-if="sprints.length"
+      depressed
+    >
+      supprimer
+    </v-btn>
+  </v-row>
     <div v-if="this.sprints.length<1" class="col"> <h3 class="garamond">Aucun sprint créé</h3></div>
     <v-expansion-panels
         multiple
