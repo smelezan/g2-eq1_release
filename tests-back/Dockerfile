@@ -10,4 +10,4 @@ RUN npm install
 COPY . /usr/src/testsBack
 
 EXPOSE 5001
-CMD ["npm", "start"]
+CMD ["npm", "run", "start-dev"]

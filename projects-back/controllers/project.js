@@ -1,7 +1,6 @@
 const axios = require('axios');
-
 const Project = require('../models/Project');
-const { issueProxy } = require('../config/proxy');
+const { issueProxy, testProxy } = require('../config/proxy');
 
 exports.getAllProjects = function getAllProjects(req, res) {
   Project.find()
@@ -32,14 +31,13 @@ exports.getIssuesByProjectId = function getIssuesByProjectId(req, res) {
             axios
               .get(`${issueProxy}/issues/${issue}`)
               .then((response) => {
-                console.log(response.data);
                 resolve(response.data);
               })
               .catch((error) => reject(error));
           }),
       );
       Promise.all(promises).then((issuesFound) => {
-        res.status(200).json({ projectId, issuesFound });
+        res.status(200).json({ projectId, issues: issuesFound });
       });
     })
     .catch((error) => {
@@ -49,10 +47,28 @@ exports.getIssuesByProjectId = function getIssuesByProjectId(req, res) {
 
 exports.getTestsByProjectId = function getTestsByProjectId(req, res) {
   const projectId = req.params.project;
+  console.log('AXIOOOOS');
   Project.findById(projectId)
     .then((project) => {
-      const tests = project.getTests();
-      res.status(200).json({ projectId, tests });
+      const { tests } = project;
+      const promises = tests.map(
+        (test) =>
+          new Promise((resolve, reject) => {
+            axios
+              .get(`${testProxy}/tests/${test}`)
+              .then((response) => {
+                resolve(response.data);
+              })
+              .catch((error) => reject(error));
+          }),
+      );
+      Promise.all(promises)
+        .then((testsFound) => {
+          res.status(200).json({ projectId, tests: testsFound });
+        })
+        .catch((error) => {
+          res.status(400).json({ error });
+        });
     })
     .catch((error) => {
       res.status(400).json({ error });
@@ -90,8 +106,25 @@ exports.getSprintsByProjectId = function getSprintsByProjectId(req, res) {
   const projectId = req.params.project;
   Project.findById(projectId)
     .then((project) => {
-      const sprints = project.getSprints();
-      res.status(200).json({ projectId, sprints });
+      const { sprints } = project;
+      const promises = sprints.map(
+        (sprint) =>
+          new Promise((resolve, reject) => {
+            axios
+              .get(`${issueProxy}/sprints/${sprint}`)
+              .then((response) => {
+                resolve(response.data);
+              })
+              .catch((error) => reject(error));
+          }),
+      );
+      Promise.all(promises)
+        .then((sprintsFound) => {
+          res.status(200).json({ projectId, sprints: sprintsFound });
+        })
+        .catch((error) => {
+          res.status(400).json({ error });
+        });
     })
     .catch((error) => {
       res.status(400).json({ error });

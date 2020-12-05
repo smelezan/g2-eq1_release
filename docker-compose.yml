@@ -7,6 +7,7 @@ services:
       - VUE_APP_ISSUEPORT=4000
       - VUE_APP_TASKADDRESS=localhost
       - VUE_APP_TASKPORT=5000
+      - CHOKIDAR_USEPOLLING=true
     build:
       context: ./front
       dockerfile: Dockerfile
@@ -23,6 +24,7 @@ services:
     container_name: issue_server
     environment:
       - MONGO_ISSUEADDRESS=issue_database
+      - CHOKIDAR_USEPOLLING=true
 
     build:
       context: ./issues-back
@@ -33,6 +35,8 @@ services:
       - cdp
     depends_on:
       - mongoIssues
+    volumes:
+      - ./issues-back:/usr/src/issuesBack
 
   mongoIssues:
     image: mongo
@@ -47,6 +51,7 @@ services:
     environment:
       - MONGO_TASKADDRESS=task_database
       - MONGO_TASKPORT=27018
+      - CHOKIDAR_USEPOLLING=true
 
     build:
       context: ./tasks-back
@@ -57,6 +62,8 @@ services:
       - cdp
     depends_on:
       - mongoTasks
+    volumes:
+      - ./tasks-back:/usr/src/tasksBack
 
   mongoTasks:
     image: mongo
@@ -71,6 +78,7 @@ services:
     environment:
       - MONGO_TESTADDRESS=test_database
       - MONGO_TESTPORT=27019
+      - CHOKIDAR_USEPOLLING=true
 
     build:
       context: ./tests-back
@@ -81,6 +89,8 @@ services:
       - cdp
     depends_on:
       - mongoTest
+    volumes:
+      - ./tests-back:/usr/src/testsBack
 
   mongoTest:
     image: mongo
@@ -96,12 +106,13 @@ services:
     environment:
       - MONGO_PROJECTADDRESS=project_database
       - MONGO_PROJECTPORT=27020
-      - ISSUE_ADDRESS=localhost
+      - ISSUE_ADDRESS=issue_server
       - ISSUE_PORT=4000
-      - TASK_ADDRESS=localhost
+      - TASK_ADDRESS=task_server
       - TASK_PORT=5000
-      - TEST_ADDRESS=localhost
+      - TEST_ADDRESS=test_server
       - TEST_PORT=5001
+      - CHOKIDAR_USEPOLLING=true
     build:
       context: ./projects-back
       dockerfile: Dockerfile
@@ -111,6 +122,8 @@ services:
       - cdp
     depends_on:
       - mongoProject
+    volumes:
+      - ./projects-back:/usr/src/projectsBack
 
   mongoProject:
     image: mongo

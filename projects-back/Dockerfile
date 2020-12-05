@@ -10,4 +10,4 @@ RUN npm install
 COPY . /usr/src/projectsBack
 
 EXPOSE 5002
-CMD ["npm", "start"]
+CMD ["npm", "run", "start-dev"]
