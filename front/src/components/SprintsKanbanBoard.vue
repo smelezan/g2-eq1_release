@@ -39,7 +39,7 @@
 
             <draggable class="list-group sprint-table" :list="sprint.issues" group="tasks">
               <ul class="sortable" :id="element.id" v-for="element in sprint.issues" :key="element.name">
-                  <li>US:{{element.id}}</li>
+                  <li>{{element.title}}</li>
               </ul>
             </draggable>
 
@@ -115,10 +115,11 @@ export default {
   },
   data() {
     return {
+        startDate:'',
         value: 10,
         bufferValue: 100,
         interval: 0,
-        sprints: [{name:'',issues:[{name: '', id:''}]}],
+        sprints: [],
         unasignedIssues: [],
         arrOne: [],
         arrTwo: [],
