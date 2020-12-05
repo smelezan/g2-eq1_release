@@ -68,3 +68,24 @@ exports.reatribute = (req, res) => {
       res.status(400).json({ error, message: 'failed the reatribution' })
     );
 };
+
+exports.addIssue = (req, res) => {
+  const { issueId } = req.body;
+  const { sprint } = req.params;
+  console.log(sprint);
+  console.log(issueId);
+  Sprint.findById(sprint).then((sprintFound) => {
+    sprintFound
+      .addIssue(issueId)
+      .then(() => res.status(201).json({ message: 'Sprint updated' }));
+  });
+};
+exports.removeIssue = (req, res) => {
+  const issueId = req.body;
+  const { sprint } = req.params;
+  Sprint.findById(sprint).then((sprintFound) => {
+    sprintFound
+      .removeIssue(issueId)
+      .then(() => res.status(201).json({ message: 'Sprint updated' }));
+  });
+};

@@ -6,6 +6,8 @@ const sprintCtrl = require('../controllers/sprint');
 
 router.put('/reatribute', sprintCtrl.reatribute);
 router.post('/', sprintCtrl.createSprint);
+router.put('/addIssue/:sprint', sprintCtrl.addIssue);
+router.put('/removeIssue/:sprint', sprintCtrl.removeIssue);
 
 router.get('/:sprint', sprintCtrl.getOneSprint);
 

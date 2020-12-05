@@ -10,7 +10,38 @@ exports.createIssue = function createIssue(req, res) {
     .then(() => res.status(201).json({ message: 'Créé avec succès', issue }))
     .catch((error) => res.status(401).json({ error }));
 };
+exports.assignedTasks = function assignedTasks(req, res) {
+  const tasks = req.body;
+  console.log(tasks);
 
+  const updateIssues = (issues, task) =>
+    issues.map(
+      (issue) =>
+        new Promise((resolve, reject) => {
+          Issue.findById(issue).then((issueFound) => {
+            issueFound
+              .addTask(task)
+              .then(resolve(issueFound))
+              .catch((error) => reject(error));
+          });
+        })
+    );
+  const promises = tasks.map(
+    (task) =>
+      new Promise((resolve, reject) => {
+        Promise.all(updateIssues(task.issues, task.taskId))
+          .then((issue) => resolve(issue))
+          .catch((error) => reject(error));
+      })
+  );
+  Promise.all(promises)
+    .then((issues) => res.status(201).json(issues))
+    .catch((error) => {
+      console.log('ERRRRRRRROR');
+      console.log(error);
+      res.status(401).json(error);
+    });
+};
 exports.updateIssue = function updateIssue(req, res) {
   Issue.findOneAndUpdate(
     { _id: req.params.issue },

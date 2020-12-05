@@ -39,4 +39,9 @@ const issueSchema = mongoose.Schema({
   },
 });
 
+issueSchema.methods.addTask = async function addTask(taskId) {
+  this.tasks.push(taskId);
+  await this.save();
+};
+
 module.exports = mongoose.model('Issue', issueSchema);

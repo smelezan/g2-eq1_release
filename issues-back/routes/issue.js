@@ -6,7 +6,7 @@ const issueCtrl = require('../controllers/issue');
 
 router.put('/manageDifficulty', issueCtrl.manageDifficulty);
 router.put('/managePriority', issueCtrl.managePriority);
-
+router.post('/tasks', issueCtrl.assignedTasks);
 router.post('/', issueCtrl.createIssue);
 
 router.put('/:issue', issueCtrl.updateIssue);
