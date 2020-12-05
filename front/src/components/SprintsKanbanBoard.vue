@@ -46,10 +46,9 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
     </v-expansion-panels>
-  
-  <div class="col">
-      <div >
-        <h3 v-if="this.unasignedIssues.length>0">
+
+    <div class="col">
+      <h3 v-if="this.unasignedIssues.length>0">
           Issues non assignés
           <v-icon 
             right
@@ -58,12 +57,49 @@
             mdi-alert
           </v-icon>
         </h3>
-        <draggable class="list-group" :list="unasignedIssues" group="tasks">
-          <ul style="background:LemonChiffon" class="sortable" :id="element.name" v-for="element in unasignedIssues" :key="element.name">
-            <li>{{element.title}}</li>
-          </ul>
-        </draggable>
-      </div>
+      <v-simple-table height="500px">
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left">
+                Détails
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <draggable :list="unasignedIssues" group="tasks">
+            <tr
+              v-for="item in unasignedIssues"
+              :key="item.title"
+            >
+              <td 
+             >
+              <a class="a" style="text-decoration: none; color: black" href="http://google.com">
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-icon class="stateIcon"
+                      v-if="item.status!='DONE'"
+                      v-bind="attrs"
+                      v-on="on"
+                    >mdi-progress-alert</v-icon>
+                    <v-icon class="stateIcon"
+                      v-else
+                      v-bind="attrs"
+                      v-on="on"
+                      style="color:green"
+                    >mdi-alert-circle-check-outline</v-icon>
+                  </template>
+                  <span v-if="item.status!='DONE'">issue ouverte</span>
+                  <span v-else>issue terminée</span>
+                </v-tooltip>
+                {{ item.title }}
+              </a>
+                </td>
+            </tr>
+            </draggable>
+          </tbody>
+        </template>
+      </v-simple-table>
     </div>
 
   </div>
