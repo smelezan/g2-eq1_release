@@ -29,6 +29,9 @@
             </v-col>
           </v-row>
         </v-expansion-panel-header>
+
+        <!-- Table des Sprints -->
+
         <v-expansion-panel-content>
           <draggable
             class="list-group sprint-table"
@@ -49,11 +52,16 @@
       </v-expansion-panel>
     </v-expansion-panels>
 
+    <!-- Issues Non Assignées -->
+
     <div class="col">
       <h3 v-if="this.unasignedIssues.length > 0">
         Issues non assignés
         <v-icon right style="color: orange"> mdi-alert </v-icon>
       </h3>
+
+      <!-- Table des Issues Non Assignées -->
+
       <v-simple-table height="500px">
         <template v-slot:default>
           <thead>
@@ -178,14 +186,7 @@ export default {
 </script>
 
 <style>
-/*   .wrapper {
-    max-height: 120px;
-    border: 0px solid #ddd;
-    display: flex;
-    overflow-x: auto;
-  }
- */
-.wrapper::-webkit-scrollbar {
+*/ .wrapper::-webkit-scrollbar {
   width: 0;
 }
 
