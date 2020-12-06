@@ -10,4 +10,4 @@ RUN npm install
 COPY . /usr/src/issuesBack
 
 EXPOSE 4000
-CMD ["npm", "run", "start-dev"]
+CMD ["npm", "start"]
