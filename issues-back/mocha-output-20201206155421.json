@@ -1,0 +1,319 @@
+{
+  "stats": {
+    "suites": 13,
+    "tests": 17,
+    "passes": 17,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-06T14:54:21.324Z",
+    "end": "2020-12-06T14:54:21.626Z",
+    "duration": 302
+  },
+  "suites": [
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "get all issues",
+      "tests": [
+        {
+          "fullTitle": "get all issues it should GET all issues",
+          "title": "it should GET all issues",
+          "duration": 30,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "create issue",
+      "tests": [
+        {
+          "fullTitle": "create issue it should not create an Issue without title field",
+          "title": "it should not create an Issue without title field",
+          "duration": 42,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "create issue it should create an Issue",
+          "title": "it should create an Issue",
+          "duration": 14,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Get an issue by id",
+      "tests": [
+        {
+          "fullTitle": "Get an issue by id it should get an issue by the given id",
+          "title": "it should get an issue by the given id",
+          "duration": 17,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Get an issue by id it should send an error if issue doesn't exist",
+          "title": "it should send an error if issue doesn't exist",
+          "duration": 9,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "update an issue ",
+      "tests": [
+        {
+          "fullTitle": "update an issue  it should UPDATE an issue given an id",
+          "title": "it should UPDATE an issue given an id",
+          "duration": 12,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "delete an issue ",
+      "tests": [
+        {
+          "fullTitle": "delete an issue  it should DELETE an issue given an id",
+          "title": "it should DELETE an issue given an id",
+          "duration": 8,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "update issue difficulty ",
+      "tests": [
+        {
+          "fullTitle": "update issue difficulty  it should UPDATE an issue given an id and a difficulty",
+          "title": "it should UPDATE an issue given an id and a difficulty",
+          "duration": 11,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "update issue difficulty  it should not UPDATE an issue with invalid field",
+          "title": "it should not UPDATE an issue with invalid field",
+          "duration": 30,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "update issue priority ",
+      "tests": [
+        {
+          "fullTitle": "update issue priority  it should UPDATE an issue given an id and a priority",
+          "title": "it should UPDATE an issue given an id and a priority",
+          "duration": 10,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "update issue priority  it should not UPDATE an issue with invalid field",
+          "title": "it should not UPDATE an issue with invalid field",
+          "duration": 8,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Sprints",
+      "tests": []
+    },
+    {
+      "title": "get all sprints",
+      "tests": [
+        {
+          "fullTitle": "get all sprints it should GET all sprints",
+          "title": "it should GET all sprints",
+          "duration": 5,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "create a sprint",
+      "tests": [
+        {
+          "fullTitle": "create a sprint it should not create a  sprint without startDate field",
+          "title": "it should not create a  sprint without startDate field",
+          "duration": 5,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "create a sprint it should create a Sprint",
+          "title": "it should create a Sprint",
+          "duration": 7,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Get a sprint by id ",
+      "tests": [
+        {
+          "fullTitle": "Get a sprint by id  it should get a sprint by the given id",
+          "title": "it should get a sprint by the given id",
+          "duration": 9,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Get a sprint by id  it should send an error if sprint doesn't exist",
+          "title": "it should send an error if sprint doesn't exist",
+          "duration": 6,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /sprint/:sprint sprint ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /sprint/:sprint sprint  it should DELETE a sprint given an id",
+          "title": "it should DELETE a sprint given an id",
+          "duration": 7,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "get all issues it should GET all issues",
+      "title": "it should GET all issues",
+      "duration": 30,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "create issue it should not create an Issue without title field",
+      "title": "it should not create an Issue without title field",
+      "duration": 42,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "create issue it should create an Issue",
+      "title": "it should create an Issue",
+      "duration": 14,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Get an issue by id it should get an issue by the given id",
+      "title": "it should get an issue by the given id",
+      "duration": 17,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Get an issue by id it should send an error if issue doesn't exist",
+      "title": "it should send an error if issue doesn't exist",
+      "duration": 9,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "update an issue  it should UPDATE an issue given an id",
+      "title": "it should UPDATE an issue given an id",
+      "duration": 12,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "delete an issue  it should DELETE an issue given an id",
+      "title": "it should DELETE an issue given an id",
+      "duration": 8,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "update issue difficulty  it should UPDATE an issue given an id and a difficulty",
+      "title": "it should UPDATE an issue given an id and a difficulty",
+      "duration": 11,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "update issue difficulty  it should not UPDATE an issue with invalid field",
+      "title": "it should not UPDATE an issue with invalid field",
+      "duration": 30,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "update issue priority  it should UPDATE an issue given an id and a priority",
+      "title": "it should UPDATE an issue given an id and a priority",
+      "duration": 10,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "update issue priority  it should not UPDATE an issue with invalid field",
+      "title": "it should not UPDATE an issue with invalid field",
+      "duration": 8,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "get all sprints it should GET all sprints",
+      "title": "it should GET all sprints",
+      "duration": 5,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "create a sprint it should not create a  sprint without startDate field",
+      "title": "it should not create a  sprint without startDate field",
+      "duration": 5,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "create a sprint it should create a Sprint",
+      "title": "it should create a Sprint",
+      "duration": 7,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Get a sprint by id  it should get a sprint by the given id",
+      "title": "it should get a sprint by the given id",
+      "duration": 9,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Get a sprint by id  it should send an error if sprint doesn't exist",
+      "title": "it should send an error if sprint doesn't exist",
+      "duration": 6,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /sprint/:sprint sprint  it should DELETE a sprint given an id",
+      "title": "it should DELETE a sprint given an id",
+      "duration": 7,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

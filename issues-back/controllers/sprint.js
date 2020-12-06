@@ -23,6 +23,9 @@ exports.createSprint = (req, res) => {
   const sprint = { ...req.body };
   const startDate = new Date(sprint.startDate);
   const endDate = new Date(sprint.endDate);
+  if (sprint.startDate === undefined || sprint.endDate === undefined) {
+    res.status(401).json({ error: '', message: 'Missing property' });
+  }
   Sprint.find({}).then((sprints) => {
     const allSprintsInDatabase = sprints;
     const isBetweenDates = allSprintsInDatabase.some((sprintInDb) => {
@@ -50,7 +53,7 @@ exports.createSprint = (req, res) => {
   });
 };
 
-exports.reatribute = (req, res) => {
+exports.reassign = (req, res) => {
   const allSprints = req.body.sprints;
 
   const promises = allSprints.map(
@@ -72,8 +75,6 @@ exports.reatribute = (req, res) => {
 exports.addIssue = (req, res) => {
   const { issueId } = req.body;
   const { sprint } = req.params;
-  console.log(sprint);
-  console.log(issueId);
   Sprint.findById(sprint).then((sprintFound) => {
     sprintFound
       .addIssue(issueId)

@@ -21,7 +21,7 @@ describe('Issues', () => {
     });
   });
 
-  describe('/GET issue', () => {
+  describe('get all issues', () => {
     it('it should GET all issues', (done) => {
       chai
         .request(app)
@@ -35,8 +35,8 @@ describe('Issues', () => {
     });
   });
 
-  describe('/POST issue', () => {
-    it('it should not POST an Issue without title field', (done) => {
+  describe('create issue', () => {
+    it('it should not create an Issue without title field', (done) => {
       const issue = {
         description: 'A test description',
         type: 'feature',
@@ -47,13 +47,14 @@ describe('Issues', () => {
         .send(issue)
         .end((err, res) => {
           res.should.have.status(401);
-          res.should.be.a('object');
-          res.should.have.property('error');
+          res.body.should.be.a('object');
+          res.body.should.have.property('error');
+          res.body.should.have.property('message').eql('Missing property');
           done();
         });
     });
 
-    it('it should POST a Issue', (done) => {
+    it('it should create an Issue', (done) => {
       const issue = {
         title: 'Test Issue',
         description: 'Test Description',
@@ -67,15 +68,17 @@ describe('Issues', () => {
           res.should.have.status(201);
           res.body.should.be.a('object');
           res.body.should.have.a.property('message').eql('Créé avec succès');
-          res.body.issue.should.have.property('title');
-          res.body.issue.should.have.property('description');
+          res.body.issue.should.have.property('title').eql('Test Issue');
+          res.body.issue.should.have
+            .property('description')
+            .eql('Test Description');
           done();
         });
     });
   });
 
-  describe('/GET /issue/:issue issue ', () => {
-    it('it should GET an issue by the given id', (done) => {
+  describe('Get an issue by id', () => {
+    it('it should get an issue by the given id', (done) => {
       const issue = new Issue({
         title: 'New Issue',
         description: 'New description',
@@ -89,16 +92,36 @@ describe('Issues', () => {
           .end((_, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            res.body.should.have.property('title');
-            res.body.should.have.property('description');
+            res.body.should.have.property('title').eql('New Issue');
+            res.body.should.have.property('description').eql('New description');
             res.body.should.have.property('_id').eql(issueSaved.id);
+            done();
+          });
+      });
+    });
+    it("it should send an error if issue doesn't exist", (done) => {
+      const issue = new Issue({
+        title: 'New Issue',
+        description: 'New description',
+        type: 'documentation',
+      });
+      issue.save((err, issueSaved) => {
+        chai
+          .request(app)
+          .get(`/issues/abcdEfgH`)
+          .send(issueSaved)
+          .end((_, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('error');
+            res.body.should.have.property('message').eql("Issue doesn't exist");
             done();
           });
       });
     });
   });
 
-  describe('/PUT /issue/:issue issue ', () => {
+  describe('update an issue ', () => {
     it('it should UPDATE an issue given an id', (done) => {
       const issue = new Issue({
         title: 'New Issue',
@@ -111,15 +134,21 @@ describe('Issues', () => {
           .put(`/issues/${issueSaved.id}`)
           .send({ title: 'New Issue', description: 'Nouvelle description' })
           .end((_, res) => {
-            res.should.have.status(200);
+            res.should.have.status(201);
             res.body.should.be.a('object');
             res.body.should.have.property('message').eql('Issue updated');
+            res.body.should.have.property('issue');
+            res.body.issue.should.have.property('title').eql('New Issue');
+            res.body.issue.should.have
+              .property('description')
+              .eql('Nouvelle description');
+            res.body.issue.should.have.property('_id').eql(issueSaved.id);
             done();
           });
       });
     });
   });
-  describe('/DELETE /issue/:issue issue ', () => {
+  describe('delete an issue ', () => {
     it('it should DELETE an issue given an id', (done) => {
       const issue = new Issue({
         title: 'New Issue',
@@ -142,64 +171,83 @@ describe('Issues', () => {
       });
     });
   });
-  describe('/PUT /issues/manageDifficulty ', () => {
-    it('it should update the difficulty field in each Issues', (done) => {
-      const issues = [
-        new Issue({
-          title: 'New Issue',
-          description: 'New description',
-          type: 'feature',
-        }),
-        new Issue({
-          title: 'New Issue1',
-          description: 'New description',
-          type: 'feature',
-        }),
-        new Issue({
-          title: 'New Issue2',
-          description: 'New description',
-          type: 'feature',
-        }),
-        new Issue({
-          title: 'New Issue3',
-          description: 'New description',
-          type: 'feature',
-        }),
-        new Issue({
-          title: 'New Issue4',
-          description: 'New description',
-          type: 'feature',
-        }),
-        new Issue({
-          title: 'New Issue5',
-          description: 'New description',
-          type: 'feature',
-        }),
-      ];
-
-      const difficultyList = [
-        {
-          difficulty: 1,
-          issues: [issues[0]._id, issues[2]._id],
-        },
-        {
-          difficulty: 2,
-          issues: [issues[4]._id, issues[5]._id],
-        },
-        {
-          difficulty: 3,
-          issues: [issues[1]._id, issues[3]._id],
-        },
-      ];
-
-      Issue.insertMany(issues).then(() => {
+  describe('update issue difficulty ', () => {
+    it('it should UPDATE an issue given an id and a difficulty', (done) => {
+      const issue = new Issue({
+        title: 'New Issue',
+        description: 'New description',
+        type: 'feature',
+      });
+      issue.save((err, issueSaved) => {
         chai
           .request(app)
-          .put('/issues/manageDifficulty')
-          .send({ difficultyList })
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.have.property('message').eql('Updated');
+          .put(`/issues/difficulty/${issueSaved.id}`)
+          .send({ difficulty: 2 })
+          .end((_, res) => {
+            res.should.have.status(201);
+            res.body.should.be.a('object');
+            res.body.should.have.property('difficulty').eql(2);
+            res.body.should.have.property('_id').eql(issueSaved.id);
+            done();
+          });
+      });
+    });
+    it('it should not UPDATE an issue with invalid field', (done) => {
+      const issue = new Issue({
+        title: 'New Issue',
+        description: 'New description',
+        type: 'feature',
+      });
+      issue.save((err, issueSaved) => {
+        chai
+          .request(app)
+          .put(`/issues/difficulty/${issueSaved.id}`)
+          .send({ difficulty: 'Truc' })
+          .end((_, res) => {
+            res.should.have.status(401);
+            res.body.should.be.a('object');
+            res.body.should.have.property('message').eql('Invalid field');
+            done();
+          });
+      });
+    });
+  });
+  describe('update issue priority ', () => {
+    it('it should UPDATE an issue given an id and a priority', (done) => {
+      const issue = new Issue({
+        title: 'New Issue',
+        description: 'New description',
+        type: 'feature',
+      });
+      issue.save((err, issueSaved) => {
+        chai
+          .request(app)
+          .put(`/issues/priority/${issueSaved.id}`)
+          .send({ priority: 'HIGH' })
+          .end((_, res) => {
+            res.should.have.status(201);
+            res.body.should.be.a('object');
+            res.body.should.have.property('priority').eql('HIGH');
+            res.body.should.have.property('_id').eql(issueSaved.id);
+            done();
+          });
+      });
+    });
+    it('it should not UPDATE an issue with invalid field', (done) => {
+      const issue = new Issue({
+        title: 'New Issue',
+        description: 'New description',
+        type: 'feature',
+      });
+      issue.save((err, issueSaved) => {
+        chai
+          .request(app)
+          .put(`/issues/priority/${issueSaved.id}`)
+          .send({ priority: 'Truc' })
+          .end((_, res) => {
+            res.should.have.status(401);
+            res.body.should.be.a('object');
+            res.body.should.have.property('message').eql('Invalid field');
             done();
           });
       });

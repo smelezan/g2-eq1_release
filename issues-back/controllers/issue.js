@@ -8,11 +8,12 @@ exports.createIssue = function createIssue(req, res) {
   issue
     .save()
     .then(() => res.status(201).json({ message: 'Créé avec succès', issue }))
-    .catch((error) => res.status(401).json({ error }));
+    .catch((error) => {
+      res.status(401).json({ error, message: 'Missing property' });
+    });
 };
 exports.assignedTasks = function assignedTasks(req, res) {
   const tasks = req.body;
-  console.log(tasks);
 
   const updateIssues = (issues, task) =>
     issues.map(
@@ -37,18 +38,17 @@ exports.assignedTasks = function assignedTasks(req, res) {
   Promise.all(promises)
     .then((issues) => res.status(201).json(issues))
     .catch((error) => {
-      console.log('ERRRRRRRROR');
-      console.log(error);
       res.status(401).json(error);
     });
 };
 exports.updateIssue = function updateIssue(req, res) {
   Issue.findOneAndUpdate(
     { _id: req.params.issue },
-    { ...req.body, _id: req.params.issue }
+    { ...req.body, _id: req.params.issue },
+    { new: true }
   )
-    .then(() => res.status(200).json({ message: 'Issue updated' }))
-    .catch((error) => res.status(400).json({ error }));
+    .then((issue) => res.status(201).json({ message: 'Issue updated', issue }))
+    .catch((error) => res.status(401).json({ error }));
 };
 
 exports.getAllIssues = function getAllIssue(req, res) {
@@ -69,9 +69,35 @@ exports.findOneIssue = function findOneIssue(req, res) {
     .catch((error) => res.status(400).json({ error }));
 };
 
+exports.updateDifficulty = function updateDifficulty(req, res) {
+  const issueId = req.params.issue;
+  const update = { difficulty: req.body.difficulty };
+  Issue.findByIdAndUpdate(issueId, update, { new: true })
+    .then((updatedIssue) => res.status(201).json(updatedIssue))
+    .catch((error) =>
+      res.status(401).json({ error, message: 'Invalid field' })
+    );
+};
+
+exports.updatePriority = function updatePriority(req, res) {
+  const issueId = req.params.issue;
+  const update = { priority: req.body.priority };
+  if (
+    update.priority !== 'HIGH' &&
+    update.priority !== 'MEDIUM' &&
+    update.priority !== 'LOW'
+  ) {
+    res.status(401).json({ error: '', message: 'Invalid field' });
+  }
+  Issue.findByIdAndUpdate(issueId, update, { new: true })
+    .then((updatedIssue) => res.status(201).json(updatedIssue))
+    .catch((error) =>
+      res.status(401).json({ error, message: 'Invalid field' })
+    );
+};
+
 exports.managePriority = function managePriority(req, res) {
   const { priorityList } = req.body;
-  console.log(priorityList);
   const updatePriority = (issuesArray) =>
     issuesArray.issues.map(
       (issue) =>

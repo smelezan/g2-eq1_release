@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-06T14:54:32.053Z",
+    "end": "2020-12-06T14:54:32.268Z",
+    "duration": 215
+  },
+  "suites": [
+    {
+      "title": "Tasks",
+      "tests": []
+    },
+    {
+      "title": "/GET task",
+      "tests": [
+        {
+          "fullTitle": "/GET task it should GET all tasks",
+          "title": "it should GET all tasks",
+          "duration": 26,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST task",
+      "tests": [
+        {
+          "fullTitle": "/POST task it should not POST an Task without title field",
+          "title": "it should not POST an Task without title field",
+          "duration": 65,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "/POST task it should POST a Task",
+          "title": "it should POST a Task",
+          "duration": 14,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /task/:task task ",
+      "tests": [
+        {
+          "fullTitle": "/GET /task/:task task  it should GET a task by the given id",
+          "title": "it should GET a task by the given id",
+          "duration": 11,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/PUT /task/:task task ",
+      "tests": [
+        {
+          "fullTitle": "/PUT /task/:task task  it should UPDATE an task given an id",
+          "title": "it should UPDATE an task given an id",
+          "duration": 19,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /task/:task task ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /task/:task task  it should DELETE an task given an id",
+          "title": "it should DELETE an task given an id",
+          "duration": 18,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "fullTitle": "/GET task it should GET all tasks",
+      "title": "it should GET all tasks",
+      "duration": 26,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST task it should not POST an Task without title field",
+      "title": "it should not POST an Task without title field",
+      "duration": 65,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST task it should POST a Task",
+      "title": "it should POST a Task",
+      "duration": 14,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /task/:task task  it should GET a task by the given id",
+      "title": "it should GET a task by the given id",
+      "duration": 11,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/PUT /task/:task task  it should UPDATE an task given an id",
+      "title": "it should UPDATE an task given an id",
+      "duration": 19,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /task/:task task  it should DELETE an task given an id",
+      "title": "it should DELETE an task given an id",
+      "duration": 18,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}
