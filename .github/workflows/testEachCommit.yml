@@ -24,5 +24,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: run shell script
-      run: ./runTests.sh && ls ./issues-back/
-      
+      run: chmod +x ./runTests.sh &&  ./runTests.sh && ls --help
