@@ -26,5 +26,5 @@ jobs:
     - name: install
       run: npm ci
     - name: run shell script
-    - run: ./runTests.sh
+      run: ./runTests.sh
       
