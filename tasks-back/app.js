@@ -39,7 +39,6 @@ app.listen(5000, () => {
 app.post('/populate', (req, res) => {
   mongoose.connection.db.dropDatabase();
   const { issues } = req.body;
-  console.log(issues);
   const promises = taskData.map(
     (result) =>
       new Promise((resolve, reject) => {
@@ -57,10 +56,6 @@ app.post('/populate', (req, res) => {
           taskId: task._id,
           issues: newIssuesList,
         };
-        console.log('>>>>>>>> newTasks');
-        console.log(newTask);
-        console.log('>>>>>>>>>> save task');
-        console.log(task);
         task
           .save()
           .then(() => resolve(newTask))
