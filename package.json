@@ -4,7 +4,7 @@
   "description": "Backlog : Liste les besoins que doit couvrir le logiciel\r <br/>\r =======",
   "main": "test.js",
   "scripts": {
-    "test": "mocha */test/*.js"
+    "test": "mocha */test/*.js --exit"
   },
   "repository": {
     "type": "git",
