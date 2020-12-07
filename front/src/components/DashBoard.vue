@@ -5,9 +5,9 @@
     </router-link>
     <v-data-table
       :headers="headers"
-      :items="desserts"
-      sort-by="calories"
+      :items="tests"
       class="elevation-1"
+      :calculate-widths="true"
     >
       <template v-slot:top>
         <v-toolbar flat>
@@ -15,44 +15,48 @@
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="500px">
-            <template> </template>
             <v-card>
               <v-card-title>
-                <span class="headline">Modifier le test</span>
+                <span class="headline">{{ formTitle }}</span>
               </v-card-title>
 
               <v-card-text>
                 <v-container>
                   <v-row>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.name"
-                        label="nom"
-                      ></v-text-field>
+                      <v-select
+                        :items="['issues', 'tâches']"
+                        label="issues"
+                        return-object
+                        single-line
+                        @change="updateSelection"
+                      ></v-select>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.calories"
-                        label="user stories liées"
-                      ></v-text-field>
+                    <v-col cols="12" sm="6" md="8">
+                      <v-select
+                        v-if="issueChosen"
+                        v-model="selectedDependance"
+                        :items="issues"
+                        item-text="title"
+                        return-object
+                        single-line
+                      ></v-select>
+                      <v-select
+                        v-else
+                        v-model="selectedDependance"
+                        :items="tasks"
+                        item-text="title"
+                        return-object
+                        single-line
+                      ></v-select>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.fat"
-                        label="derniere execution"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.carbs"
-                        label="nombre d'éxécution"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="4">
-                      <v-text-field
-                        v-model="editedItem.protein"
-                        label="résultats"
-                      ></v-text-field>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="12" sm="6" md="12">
+                      <v-textarea
+                        v-model="test.description"
+                        label="description"
+                      ></v-textarea>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -70,15 +74,15 @@
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
               <v-card-title class="headline"
-                >Êtes vous sur de vouloir supprimer cet élément?</v-card-title
+                >Etes vous sûr de vouloir le supprimer?</v-card-title
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue darken-1" text @click="closeDelete"
-                  >Cancel</v-btn
+                  >Annuler</v-btn
                 >
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                  >OK</v-btn
+                <v-btn color="red darken-1" text @click="deleteItemConfirm"
+                  >Supprmier</v-btn
                 >
                 <v-spacer></v-spacer>
               </v-card-actions>
@@ -91,52 +95,61 @@
         <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-card> Aucune données dans la base </v-card>
+        <v-btn color="primary" @click="initialize"> Reset </v-btn>
       </template>
     </v-data-table>
   </v-container>
 </template>
 
+
 <script>
+import moment from "moment";
 export default {
   data: () => ({
+    issueChosen: true,
+    selectedDependance: {},
+    issues: [],
+    tasks: [],
+    tests: [],
     dialog: false,
     dialogDelete: false,
     headers: [
       {
-        text: "description",
+        text: "Dépendance",
         align: "start",
         sortable: false,
-        value: "name",
+        value: "dependance",
       },
-      { text: "user stories liées", value: "UserStoriesLiees" },
-      { text: "dernière exécution", value: "derniereExecution" },
-      { text: "nombre d'exécution", value: "nbExecution" },
-      { text: "état", value: "etat" },
+      { text: "description", value: "description" },
+      { text: "date", value: "date" },
+      { text: "result ", value: "result" },
       { text: "Actions", value: "actions", sortable: false },
     ],
-    desserts: [],
     editedIndex: -1,
-    editedItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
+    test: {
+      id: "",
+      description: "",
+      dependance: "",
+      type: "",
+      result: "",
+      date: "",
     },
-    defaultItem: {
-      name: "",
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
+    defaultTest: {
+      id: "",
+      description: "",
+      dependance: "",
+      type: "",
+      result: "",
+      date: "",
     },
   }),
+
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
   },
+
   watch: {
     dialog(val) {
       val || this.close();
@@ -145,96 +158,131 @@ export default {
       val || this.closeDelete();
     },
   },
+
   created() {
     this.initialize();
+    this.axios.get(`${this.$proxyIssues}/issues`).then(
+      (response) =>
+        (this.issues = response.data.map((issue) => {
+          return {
+            title: issue.title,
+            id: issue._id,
+          };
+        }))
+    );
+    this.axios.get(`${this.$proxyTasks}/tasks`).then(
+      (response) =>
+        (this.tasks = response.data.map((task) => {
+          return {
+            title: task.title,
+            id: task._id,
+          };
+        }))
+    );
   },
+
   methods: {
+    updateSelection(event) {
+      this.issueChosen = event == "issues";
+    },
     initialize() {
-      this.axios
-        .get(this.$proxyTests + "/tests/")
-        .then((response) => {
-          const tests = response.data;
-          const promise = tests.map(
-            (test) =>
-              new Promise((resolve) => {
-                this.getDependanceName(test).then((response) => {
-                  const object = {
-                    name: test.description,
-                    derniereExecution:
-                      test.testedDates.length === 0
-                        ? ""
-                        : test.testedDates[test.testedDates.length - 1].date,
-                    nbExecution: test.testedDates.length,
-                    etat:
-                      test.testedDates.length === 0
-                        ? "aucun"
-                        : test.testedDates[test.testedDates.length - 1].date,
-                    UserStoriesLiees: response,
-                  };
-                  resolve(object);
-                });
-              })
-          );
-          Promise.all(promise).then((response) => {
-            console.log(response);
-            this.desserts = response;
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      this.tests = [];
+      this.axios.get(`${this.$proxyTests}/tests`).then((response) => {
+        const promises = response.data.map(
+          (test) =>
+            new Promise((resolve) => {
+              this.getDependanceName(test).then((dependanceName) => {
+                let newTest = {
+                  id: test._id,
+                  description: test.description,
+                  dependance: dependanceName,
+                  type: test.type,
+                  result: test.testedDates[test.testedDates.length - 1].result,
+                  date: moment(
+                    test.testedDates[test.testedDates.length - 1].date
+                  ).format("YYYY-MM-DD"),
+                };
+                this.tests.push(newTest);
+                resolve(newTest);
+              });
+            })
+        );
+        Promise.all(promises).catch(() => console.log("EROOR"));
+      });
     },
     getDependanceName(test) {
       return new Promise((resolve) => {
         if (test.dependance.length === 0) {
           resolve("");
         } else {
-          if (test.type === "E2E") {
+          if (test.dependance[0] === null) resolve("");
+          else if (test.type === "E2E") {
             this.axios
               .get(this.$proxyIssues + "/issues/" + test.dependance[0])
               .then((response) => resolve(response.data.title));
           } else {
             this.axios
               .get(this.$proxyTasks + "/tasks/" + test.dependance[0])
-              .then((response) => resolve(response.data.title));
+              .then((response) => {
+                if (response.data) resolve(response.data.title);
+              });
           }
         }
       });
     },
+
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
+      this.editedIndex = this.tests.indexOf(item);
+      this.test = Object.assign({}, item);
+      console.log(this.test);
       this.dialog = true;
     },
+
     deleteItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
+      this.editedIndex = this.tests.indexOf(item);
+      this.test = Object.assign({}, item);
       this.dialogDelete = true;
     },
+
     deleteItemConfirm() {
-      this.desserts.splice(this.editedIndex, 1);
+      this.axios
+        .delete(`${this.$proxyTests}/tests/${this.test.id}`)
+        .then(() => this.initialize());
       this.closeDelete();
     },
+
     close() {
       this.dialog = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.test = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
       });
     },
+
     closeDelete() {
       this.dialogDelete = false;
       this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.test = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
       });
     },
+
     save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem);
-      } else {
-        this.desserts.push(this.editedItem);
-      }
+      console.log(this.test);
+      let result = {
+        dependance: [this.selectedDependance.id],
+        description: this.test.description,
+        type: this.issueChosen ? "E2E" : "Unitaire",
+      };
+      console.log(`Object to send: \n ${{ ...result }}`);
+      console.log(result);
+      this.axios
+        .put(`${this.$proxyTests}/tests/${this.test.id}`, {
+          ...result,
+        })
+        .then(() => this.initialize());
+
+      //
       this.close();
     },
   },

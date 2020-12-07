@@ -12,18 +12,26 @@ exports.createTest = function (req, res, next) {
 };
 
 exports.updateTest = function (req, res, next) {
+  console.log(req.body);
+  console.log(req.params);
   Test.findOneAndUpdate(
     { _id: req.params.test },
     { ...req.body, _id: req.params.test }
   )
     .then(() => res.status(200).json({ message: "Test updated" }))
-    .catch((error) => res.status(400).json({ error }));
+    .catch((error) => {
+      console.log(error);
+      res.status(400).json({ error });
+    });
 };
 
 exports.getAllTests = function (req, res, next) {
   Test.find()
     .then((tests) => res.status(200).json(tests))
-    .catch((error) => res.status(400).json({ error }));
+    .catch((error) => {
+      console.log(error);
+      res.status(400).json({ error });
+    });
 };
 
 exports.deleteTest = function (req, res, next) {
