@@ -59,7 +59,7 @@
 
 <script>
     import IssuesKanbanBoard from '@/components/IssuesKanbanBoard'
-    import SprintsKanbanBoard from '@/components/SprintsKanbanBoard'
+    import SprintsKanbanBoard from '@/components/SprintsIndexBoard'
     import TasksKanbanBoard from '@/components/TasksKanbanBoard'
     import DashBoard from '@/components/DashBoard'
     import ReleaseDashBoard from '@/components/ReleaseDashBoard'

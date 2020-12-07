@@ -4,53 +4,14 @@
       <AddSprintModaleComponent />
     </v-row>
     <div v-if="this.sprints.length < 1" class="col">
-      <h3 class="garamond">Aucun sprint créé</h3>
+      <h3 class="garamond"> Aucun sprint créé</h3>
     </div>
-    <v-expansion-panels multiple v-else>
-      <v-expansion-panel v-for="sprint in sprints" :key="sprint.name">
-        <v-expansion-panel-header>
-          <v-row no-gutters>
-            <v-col cols="4">{{ sprint.name }}</v-col>
-            <v-col cols="8" class="text--secondary">
-              <v-fade-transition leave-absolute>
-                <v-progress-linear
-                  v-model="value"
-                  :buffer-value="bufferValue"
-                  color="red"
-                  style="width: 50%"
-                ></v-progress-linear>
-              </v-fade-transition>
-              <th style="position: absolute; bottom: 10%; left: 68%; top: 10%">
-                début: {{ sprint.startDate }}
-              </th>
-              <th style="position: absolute; bottom: 10%; left: 68%; top: 60%">
-                fin: {{ sprint.endDate }}
-              </th>
-            </v-col>
-          </v-row>
-        </v-expansion-panel-header>
-
-        <!-- Table des Sprints -->
-
-        <v-expansion-panel-content>
-          <draggable
-            class="list-group sprint-table"
-            :list="sprint.issues"
-            group="tasks"
-            @change="updateSprint($event, sprint._id)"
-          >
-            <ul
-              class="sortable"
-              :id="element.id"
-              v-for="element in sprint.issues"
-              :key="element.name"
-            >
-              <li>{{ element.title }}</li>
-            </ul>
-          </draggable>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
+    <div v-for="(value) in sprints" :key="value._id">
+       
+        <SprintComponent 
+          :sprints="value"
+    />
+    </div>
 
     <!-- Issues Non Assignées -->
 
@@ -71,37 +32,10 @@
           </thead>
           <tbody>
             <draggable :list="unasignedIssues" group="tasks">
-              <tr v-for="item in unasignedIssues" :key="item.title">
-                <td>
-                  <a
-                    class="a"
-                    style="text-decoration: none; color: black"
-                    href="http://google.com"
-                  >
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-icon
-                          class="stateIcon"
-                          v-if="item.status != 'DONE'"
-                          v-bind="attrs"
-                          v-on="on"
-                          >mdi-progress-alert</v-icon
-                        >
-                        <v-icon
-                          class="stateIcon"
-                          v-else
-                          v-bind="attrs"
-                          v-on="on"
-                          style="color: green"
-                          >mdi-alert-circle-check-outline</v-icon
-                        >
-                      </template>
-                      <span v-if="item.status != 'DONE'">issue ouverte</span>
-                      <span v-else>issue terminée</span>
-                    </v-tooltip>
-                    {{ item.title }}
-                  </a>
-                </td>
+              <tr v-for="item in unasignedIssues" :key="item">
+                <issueItemComponent 
+                  :id="item"
+                />
               </tr>
             </draggable>
           </tbody>
@@ -113,15 +47,18 @@
 
 <script>
 import AddSprintModaleComponent from "./sprints/subComponents/AddSprintModaleComponent";
+import SprintComponent from "./issues/subComponents/SprintComponent";
+import IssueItemComponent from "./sprints/subComponents/IssueItemComponent"
 import draggable from "vuedraggable";
 export default {
   components: {
+    SprintComponent,
+    IssueItemComponent,
     draggable,
     AddSprintModaleComponent,
   },
   data() {
     return {
-      startDate: "",
       value: 10,
       bufferValue: 100,
       interval: 0,
@@ -168,7 +105,7 @@ export default {
           if (issueFound) break;
         }
         if (!issueFound) {
-          this.unasignedIssues.push(issue);
+          this.unasignedIssues.push(issue._id);
         }
       }
     },
