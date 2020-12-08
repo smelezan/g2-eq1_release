@@ -79,6 +79,31 @@ exports.updateDifficulty = function updateDifficulty(req, res) {
     );
 };
 
+exports.addTaskToIssue = function addTaskToIssue(req, res) {
+  const issueId = req.params.issue;
+  const taskId = req.params;
+  Issue.findById(issueId).then((issueFound) => {
+    issueFound
+      .addTask(taskId)
+      .then(() => {
+        res.status(201).json(issueFound);
+      })
+      .catch((error) => res.status(401).json({ error }));
+  });
+};
+exports.removeTaskToIssue = function removeTaskToIssue(req, res) {
+  const issueId = req.params.issue;
+  const taskId = req.params;
+  Issue.findById(issueId).then((issueFound) => {
+    issueFound
+      .removeTask(taskId)
+      .then(() => {
+        res.status(201).json(issueFound);
+      })
+      .catch((error) => res.status(401).json({ error }));
+  });
+};
+
 exports.updatePriority = function updatePriority(req, res) {
   const issueId = req.params.issue;
   const update = { priority: req.body.priority };

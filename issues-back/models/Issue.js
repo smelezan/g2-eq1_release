@@ -43,5 +43,9 @@ issueSchema.methods.addTask = async function addTask(taskId) {
   this.tasks.push(taskId);
   await this.save();
 };
+issueSchema.methods.removeTask = async function removeTask(taskId) {
+  this.tasks.splice(this.tasks.indexOf(taskId), 1);
+  await this.save();
+};
 
 module.exports = mongoose.model('Issue', issueSchema);
