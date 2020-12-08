@@ -49,7 +49,7 @@
               >
                 <v-autocomplete
                   :items="['HIGH', 'MEDIUM', 'LOW']"
-                  :label=priority
+                  v-model="newPriority"
                   hint="Priorité"
                   persistent-hint
                 ></v-autocomplete>
@@ -60,7 +60,7 @@
                 md="4"
               >
                 <v-text-field
-                  :label=difficulty.toString()
+                  v-model="newDifficulty"
                   hint="Difficulté"
                   persistent-hint
                   required
@@ -88,7 +88,7 @@
               >
                 <v-select
                   :items="['Feature', 'Documentation']"
-                  :label=type
+                  v-model="newType"
                   hint="Type"
                   persistent-hint
                   required
@@ -137,25 +137,28 @@
         status: String,
         id: String,
         priority: String,
-        difficulty: {
-          type: Number,
-          default: 0,
-        },
+        difficulty: Number,
         description: String, 
         etat: String,
         type: String,
     },
     data () {
       return {
+        newType: this.type,
+        newPriority: this.priority,
         newTitle: this.title,
         newDescription: this.description,
         newState: this.etat,
+        newDifficulty: this.difficulty,
         dialog: false,
         updateIssue: () => {
         let issue = {
+          type: this.newType,
+          priority: this.newPriority,
           title: this.newTitle,
           description: this.newDescription,
-          status: this.newState
+          status: this.newState,
+          difficulty: this.newDifficulty.toString(),
         };
         this.axios.put(this.$proxyIssues + "/issues/" + this.id, issue);
       },
