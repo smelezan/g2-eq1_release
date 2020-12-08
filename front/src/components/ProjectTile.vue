@@ -20,15 +20,6 @@
         </v-icon>
 
         <span class="title font-weight-light" style="color:grey">{{Project_Name}}</span>
-      
-       <!--  <v-layout align-end justify-end>
-          <v-icon
-            color="yellow"
-        >mdi-alert-outline</v-icon>
-          <v-icon
-            color="grey"
-          >mdi-dots-vertical</v-icon>
-        </v-layout> -->
             
       </v-card-title>
 

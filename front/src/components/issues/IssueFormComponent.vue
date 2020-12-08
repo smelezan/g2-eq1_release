@@ -131,7 +131,10 @@ export default {
     status: String,
     id: String,
     priority: String,
-    difficulty: Number,
+    difficulty: {
+      type: Number,
+      default: 0,
+    },
     description: String,
     type: String,
   },
