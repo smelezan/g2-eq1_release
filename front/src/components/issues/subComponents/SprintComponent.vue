@@ -149,7 +149,9 @@ export default {
         );
         if (response.data.status === "CLOSED") totalIssuesClosed += 1;
       }
-      this.progress = (totalIssuesClosed * 100) / this.sprints.issues.length;
+      if (this.sprints.issues.length === 0) this.progress = 0;
+      else
+        this.progress = (totalIssuesClosed * 100) / this.sprints.issues.length;
     },
   },
 };

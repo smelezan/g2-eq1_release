@@ -3,7 +3,6 @@
   <a
     class="a"
     style="text-decoration: none; color: black"
-    href="http://google.com"
   >
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">

@@ -59,7 +59,7 @@
               </a>
                 </td>
               <td class="item-name">
-              <a class="a" style="text-decoration: none; color: black" href="http://google.com">
+              <a class="a" style="text-decoration: none; color: black">
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on, attrs }">
                     <v-icon class="stateIcon"
