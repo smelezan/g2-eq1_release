@@ -34,7 +34,7 @@
                 Détails
               </th>
               <th>
-                <p style="text-align: center; margin-right:35px;">Catégorie</p>
+                <p>Catégorie</p>
               </th>
             </tr>
           </thead>
@@ -60,15 +60,6 @@
                 </td>
               <td class="item-name">
               <a class="a" style="text-decoration: none; color: black">
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon class="stateIcon"
-                      v-bind="attrs"
-                      v-on="on"
-                    >mdi-check</v-icon>
-                  </template>
-                  <span >Fermer l'issue</span>
-                </v-tooltip>
                 {{ item.type }}
                 </a>
                 </td>

@@ -13,22 +13,31 @@
             <template v-slot:activator="{ on, attrs }">
               <v-icon
                 class="stateIcon"
-                v-if="status != 'DONE'"
+                v-if="status == ('TO DO' || 'DOING')"
                 v-bind="attrs"
                 v-on="on"
                 >mdi-progress-alert</v-icon
               >
               <v-icon
                 class="stateIcon"
-                v-else
+                v-if="status == 'DONE'"
+                v-bind="attrs"
+                v-on="on"
+                style="color: grey"
+                >mdi-alert-circle-check-outline</v-icon
+              >
+              <v-icon
+                class="stateIcon"
+                v-if="status == 'CLOSED'"
                 v-bind="attrs"
                 v-on="on"
                 style="color: green"
                 >mdi-alert-circle-check-outline</v-icon
               >
             </template>
-            <span v-if="status != 'DONE'">issue ouverte</span>
-            <span v-else>issue terminée</span>
+            <span v-if="status == ('TO DO' || 'DOING')">issue ouverte</span>
+            <span v-if="status == 'DONE'">issue terminée</span>
+            <span v-else>issue fermée</span>
           </v-tooltip>
           {{ title }}
         </a>
