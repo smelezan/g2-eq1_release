@@ -53,7 +53,6 @@
                   :priority="item.priority"
                   :difficulty="item.difficulty"
                   :description="item.description"
-                  :etat="item.status"
                   :type="item.type"
                 />
               </a>

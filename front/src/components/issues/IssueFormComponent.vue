@@ -37,7 +37,7 @@
             </template>
             <span v-if="status == ('TO DO' || 'DOING')">issue ouverte</span>
             <span v-if="status == 'DONE'">issue terminée</span>
-            <span v-else>issue fermée</span>
+            <span v-if="status == 'CLOSED'">issue fermée</span>
           </v-tooltip>
           {{ title }}
         </a>
@@ -85,7 +85,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
-                  :items="['Feature', 'Documentation']"
+                  :items="['feature', 'documentation']"
                   v-model="newType"
                   hint="Type"
                   persistent-hint
@@ -133,7 +133,6 @@ export default {
     priority: String,
     difficulty: Number,
     description: String,
-    etat: String,
     type: String,
   },
   data() {
@@ -142,7 +141,7 @@ export default {
       newPriority: this.priority,
       newTitle: this.title,
       newDescription: this.description,
-      newState: this.etat,
+      newState: this.status,
       newDifficulty: this.difficulty,
       dialog: false,
       updateIssue: () => {
