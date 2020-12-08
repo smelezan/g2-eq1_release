@@ -8,15 +8,19 @@
             <v-fade-transition leave-absolute>
               <v-progress-linear
                 :value="progress"
-                color="red"
+                :buffered-value="bufferValue"
+                color="green"
+                background-color="grey"
                 style="width: 50%"
+                height="5"
+                striped
               ></v-progress-linear>
             </v-fade-transition>
             <th style="position: absolute; bottom: 10%; left: 68%; top: 10%">
-              début: {{ sprints.startDate }}
+              début: {{ formatedStartDate }}
             </th>
             <th style="position: absolute; bottom: 10%; left: 68%; top: 60%">
-              fin: {{ sprints.endDate }}
+              fin: {{ formatedendDate }}
             </th>
           </v-col>
         </v-row>
@@ -49,6 +53,7 @@
 
 
 <script>
+import moment from "moment";
 import draggable from "vuedraggable";
 import IssueItemComponent from "../../sprints/subComponents/IssueItemComponent";
 export default {
@@ -66,7 +71,6 @@ export default {
   },
   data() {
     return {
-      value: 10,
       bufferValue: 100,
       sprint: Array,
       progress: 0,
@@ -75,7 +79,14 @@ export default {
       issueId: String,
     };
   },
-
+  computed: {
+    formatedStartDate() {
+      return moment(this.sprints.startDate).format("DD/MM/YYYY");
+    },
+    formatedendDate() {
+      return moment(this.sprints.endDate).format("DD/MM/YYYY");
+    },
+  },
   created() {
     /* var i;
        for (i in this.sprints){
@@ -101,6 +112,8 @@ export default {
           return this.issues[n];
         }
       };
+
+      this.updateProgression();
     });
   },
 
@@ -136,7 +149,7 @@ export default {
         );
         if (response.data.status === "CLOSED") totalIssuesClosed += 1;
       }
-      this.progress = (totalIssuesClosed * 100) / this.sprints.issues.lenght();
+      this.progress = (totalIssuesClosed * 100) / this.sprints.issues.length;
     },
   },
 };

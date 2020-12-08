@@ -101,6 +101,34 @@ services:
     networks:
       - cdp
 
+  release:
+    container_name: release_server
+    environment:
+      - MONGO_RELEASEADDRESS=release_database
+      - MONGO_RELEASEPORT=27021
+      - CHOKIDAR_USEPOLLING=true
+
+    build:
+      context: ./release-doc-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5003:5003"
+    networks:
+      - cdp
+    depends_on:
+      - mongoRelease
+    volumes:
+      - ./release-doc-back:/usr/src/release-docBack
+
+  mongoRelease:
+    image: mongo
+    container_name: release_database
+    command: mongod --port 27021
+    ports:
+      - 27021:27021
+    networks:
+      - cdp
+
   projects:
     container_name: project_server
     environment:
@@ -113,6 +141,8 @@ services:
       - TEST_ADDRESS=test_server
       - TEST_PORT=5001
       - CHOKIDAR_USEPOLLING=true
+      - RELEASE_ADDRESS=release_server
+      - RELEASE_PORT=5003
     build:
       context: ./projects-back
       dockerfile: Dockerfile.dev

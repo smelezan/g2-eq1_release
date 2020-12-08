@@ -26,7 +26,7 @@ const issueSchema = mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['TO DO', 'DOING', 'DONE'],
+    enum: ['TO DO', 'DOING', 'DONE', 'CLOSED'],
     default: 'TO DO',
   },
   tasks: {

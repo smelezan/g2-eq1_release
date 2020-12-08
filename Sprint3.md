@@ -64,7 +64,7 @@
                 Afin de déplacer ( drag and drop ) les Issues de tableau en tableau en fonction de nos intentions.
             </td>
             <td>2</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>6</td>
@@ -75,7 +75,7 @@
                 afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
             </td>
             <td>2</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>28</td>
@@ -85,7 +85,7 @@
                     Afin de permettre l'évolution des tests.
                 </td>
             <td>2</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         </tr>
         <tr>
@@ -102,7 +102,7 @@
                 Afin d'ajouter une release.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
           <td>32</td>
@@ -112,7 +112,7 @@
             Afin d'avoir un suivis des releases.
           </td>
           <td>1</td>
-          <td>TO DO</td>
+          <td>DOING</td>
         </tr>
         <tr>
           <td>33</td>
