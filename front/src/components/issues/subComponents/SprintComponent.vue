@@ -9,8 +9,11 @@
                 <v-progress-linear
                   v-model="value"
                   :buffer-value="bufferValue"
-                  color="red"
+                  color="green"
+                  background-color="grey"
                   style="width: 50%"
+                  height="5"
+                  striped
                 ></v-progress-linear>
               </v-fade-transition>
               <th style="position: absolute; bottom: 10%; left: 68%; top: 10%">
@@ -71,7 +74,6 @@ export default {
   },
   data() {
     return {
-      value: 10,
       bufferValue: 100,
       sprint: Array,
       progress: 0,
@@ -91,22 +93,22 @@ export default {
             this.issue_name.push(response.data.title);
         })
       }*/
-
         this.axios.get(this.$proxyIssues + "/issues").then((response) => {
-        this.issues = response.data;
+          this.issues = response.data;
         this.issueToShow = (n, body = false) => {
-            if (body) {
+          if (body) {
             this.show = false;
             return;
             }
             if (this.show) this.show = false;
             else {
-            this.show = true;
+              this.show = true;
             this.currentIssue = this.issues[n];
             return this.issues[n];
             }
         };
         });
+        this.value= 10
     },
 
   methods: {
