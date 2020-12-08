@@ -47,18 +47,6 @@
                 sm="6"
                 md="4"
               >
-                <v-text-field
-                  label=""
-                  hint="Planification"
-                  persistent-hint
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-              >
                 <v-autocomplete
                   :items="['HIGH', 'MEDIUM', 'LOW']"
                   :label=priority
@@ -72,7 +60,7 @@
                 md="4"
               >
                 <v-text-field
-                  :label=difficulty
+                  :label=difficulty.toString()
                   hint="Difficulté"
                   persistent-hint
                   required
@@ -83,16 +71,16 @@
                   :label=id
                   hint="Identifiant"
                   persistent-hint
-                  required
+                  disabled
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field
-                  :label=description
+                <v-textarea
                   hint="Description"
+                  v-model="newDescription"
                   persistent-hint
                   required
-                ></v-text-field>
+                ></v-textarea>
               </v-col>
               <v-col
                 cols="12"
@@ -127,14 +115,14 @@
             text
             @click="dialog = false"
           >
-            Close
+            Annuler
           </v-btn>
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog = false"
+            @click="updateIssue(); dialog = false; " 
           >
-            Save
+            Sauvegarder
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -149,13 +137,28 @@
         status: String,
         id: String,
         priority: String,
-        difficulty: Number,
-        description: String,
+        difficulty: {
+          type: Number,
+          default: 0,
+        },
+        description: String, 
         etat: String,
         type: String,
     },
-    data: () => ({
-      dialog: false,
-    }),
+    data () {
+      return {
+        newTitle: this.title,
+        newDescription: this.description,
+        dialog: false,
+        updateIssue: () => {
+          console.log(this.newDescription)
+        let issue = {
+          title: this.newTitle,
+          description: this.newDescription,
+        };
+        this.axios.put(this.$proxyIssues + "/issues/" + this.id, issue);
+      },
+      }
+    }    
   }
 </script>
