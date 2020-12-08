@@ -45,25 +45,17 @@
             >
               <td 
               class="item-name">
-              <a class="a" style="text-decoration: none; color: black" href="http://google.com">
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon class="stateIcon"
-                      v-if="item.status!='DONE'"
-                      v-bind="attrs"
-                      v-on="on"
-                    >mdi-progress-alert</v-icon>
-                    <v-icon class="stateIcon"
-                      v-else
-                      v-bind="attrs"
-                      v-on="on"
-                      style="color:green"
-                    >mdi-alert-circle-check-outline</v-icon>
-                  </template>
-                  <span v-if="item.status!='DONE'">issue ouverte</span>
-                  <span v-else>issue terminée</span>
-                </v-tooltip>
-                {{ item.title }}
+              <a class="a" style="text-decoration: none; color: black">
+                <IssueFormComponent
+                  :title="item.title"
+                  :status="item.status"
+                  :id="item._id"
+                  :priority="item.priority"
+                  :difficulty="item.difficulty"
+                  :description="item.description"
+                  :etat="item.status"
+                  :type="item.type"
+                />
               </a>
                 </td>
               <td class="item-name">
@@ -90,6 +82,7 @@
 
 <script>
 import Board from "./Board";
+import IssueFormComponent from "./issues/IssueFormComponent"
 export default {
   data() {
     return {
@@ -122,6 +115,9 @@ export default {
       ],
       Board,
     };
+  },
+  components: {
+    IssueFormComponent,
   },
   created() {
     this.axios.get(this.$proxyIssues + "/issues").then((response) => {
