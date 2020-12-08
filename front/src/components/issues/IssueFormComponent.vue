@@ -99,8 +99,8 @@
                 sm="6"
               >
                 <v-autocomplete
-                  :items="['TO DO', 'Doing', 'Done', 'Fermer']"
-                  :label=etat
+                  :items="['TO DO', 'DOING', 'DONE', 'FERMÉE']"
+                  v-model=newState
                   hint="État"
                   persistent-hint
                 ></v-autocomplete>
@@ -149,12 +149,13 @@
       return {
         newTitle: this.title,
         newDescription: this.description,
+        newState: this.etat,
         dialog: false,
         updateIssue: () => {
-          console.log(this.newDescription)
         let issue = {
           title: this.newTitle,
           description: this.newDescription,
+          status: this.newState
         };
         this.axios.put(this.$proxyIssues + "/issues/" + this.id, issue);
       },

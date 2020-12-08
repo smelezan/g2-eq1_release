@@ -122,7 +122,6 @@ export default {
   created() {
     this.axios.get(this.$proxyIssues + "/issues").then((response) => {
       this.issues = response.data;
-      console.log(this.issues);
       var i;
       for (i in this.issues){
         if (this.issues[i].status=="TO DO"){
