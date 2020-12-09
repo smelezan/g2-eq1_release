@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <router-link to="/tests">
       <v-btn color="primary" dark class="mb-2"> Ajouter des tests</v-btn>
     </router-link>
@@ -95,7 +95,7 @@
         <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
     </v-data-table>
-  </v-container>
+  </div>
 </template>
 
 
