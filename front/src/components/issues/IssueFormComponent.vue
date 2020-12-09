@@ -13,7 +13,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-icon
                 class="stateIcon"
-                v-if="status == ('TO DO' || 'DOING')"
+                v-if="status == 'TO DO' || status == 'DOING'"
                 v-bind="attrs"
                 v-on="on"
                 >mdi-progress-alert</v-icon
@@ -35,8 +35,10 @@
                 >mdi-alert-circle-check-outline</v-icon
               >
             </template>
-            <span v-if="status == ('TO DO' || 'DOING')">issue ouverte</span>
-            <span v-if="status == 'DONE'">issue terminée</span>
+            <span v-if="status == 'TO DO' || status == 'DOING'"
+              >issue ouverte</span
+            >
+            <span v-else-if="status == 'DONE'">issue terminée</span>
             <span v-else>issue fermée</span>
           </v-tooltip>
           {{ title }}
@@ -143,7 +145,7 @@ export default {
       newTitle: this.title,
       newDescription: this.description,
       newState: this.etat,
-      newDifficulty: this.difficulty,
+      newDifficulty: this.difficulty || 0,
       dialog: false,
       updateIssue: () => {
         let issue = {
@@ -154,7 +156,11 @@ export default {
           status: this.newState,
           difficulty: this.newDifficulty.toString(),
         };
-        this.axios.put(this.$proxyIssues + "/issues/" + this.id, issue);
+        this.axios
+          .put(this.$proxyIssues + "/issues/" + this.id, issue)
+          .then(() => {
+            this.$emit("refresh-page", { message: "changes" });
+          });
       },
     };
   },

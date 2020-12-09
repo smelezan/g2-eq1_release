@@ -1,68 +1,60 @@
 <template>
   <div>
     <div>
-        <v-row
-          style="float: right"
-          justify="space-around"
-        >
-          <router-link style="text-decoration: none;" to="/create-issue">
-            <v-btn 
-              color="primary"
-              >
-              <a style="color:white;">Ajouter une Issue</a>
-            </v-btn>
-          </router-link>
-        </v-row>
-      </div>
-    <div class="row mt-5" style="margin-left:0.3cm; font-weight:bold; color:grey">
-      <p v-if="openedIssues<2">Ouverte : {{openedIssues}}</p>
-      <p v-else>Ouvertes : {{openedIssues}}</p>
-
-      <p v-if="solvedIssues<2">, Terminée : {{solvedIssues}}</p>
-      <p v-else>, Terminées : {{solvedIssues}}</p>
-      
-      <p v-if="closedIssues<2">, Fermée : {{closedIssues}}</p>
-      <p v-else>, Fermées : {{closedIssues}}</p>
-
+      <v-row style="float: right" justify="space-around">
+        <router-link style="text-decoration: none" to="/create-issue">
+          <v-btn color="primary">
+            <a style="color: white">Ajouter une Issue</a>
+          </v-btn>
+        </router-link>
+      </v-row>
     </div>
-    <div >
+    <div
+      class="row mt-5"
+      style="margin-left: 0.3cm; font-weight: bold; color: grey"
+    >
+      <p v-if="openedIssues < 2">Ouverte : {{ openedIssues }}</p>
+      <p v-else>Ouvertes : {{ openedIssues }}</p>
+
+      <p v-if="solvedIssues < 2">, Terminée : {{ solvedIssues }}</p>
+      <p v-else>, Terminées : {{ solvedIssues }}</p>
+
+      <p v-if="closedIssues < 2">, Fermée : {{ closedIssues }}</p>
+      <p v-else>, Fermées : {{ closedIssues }}</p>
+    </div>
+    <div>
       <v-simple-table height="500px">
         <template v-slot:default>
           <thead>
             <tr>
-              <th class="text-left">
-                Détails
-              </th>
+              <th class="text-left">Détails</th>
               <th>
                 <p>Catégorie</p>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="item in issues"
-              :key="item.title"
-            >
-              <td 
-              class="item-name">
-              <a class="a" style="text-decoration: none; color: black">
-                <IssueFormComponent
-                  :title="item.title"
-                  :status="item.status"
-                  :id="item._id"
-                  :priority="item.priority"
-                  :difficulty="item.difficulty"
-                  :description="item.description"
-                  :etat="item.status"
-                  :type="item.type"
-                />
-              </a>
-                </td>
+            <tr v-for="item in issues" :key="item.title">
               <td class="item-name">
-              <a class="a" style="text-decoration: none; color: black">
-                {{ item.type }}
+                <a class="a" style="text-decoration: none; color: black">
+                  <IssueFormComponent
+                    :title="item.title"
+                    :status="item.status"
+                    :id="item._id"
+                    :priority="item.priority"
+                    :difficulty="item.difficulty"
+                    :description="item.description"
+                    :etat="item.status"
+                    :type="item.type"
+                    @refresh-page="reloadPage"
+                  />
                 </a>
-                </td>
+              </td>
+              <td class="item-name">
+                <a class="a" style="text-decoration: none; color: black">
+                  {{ item.type }}
+                </a>
+              </td>
             </tr>
           </tbody>
         </template>
@@ -73,13 +65,13 @@
 
 <script>
 import Board from "./Board";
-import IssueFormComponent from "./issues/IssueFormComponent"
+import IssueFormComponent from "./issues/IssueFormComponent";
 export default {
   data() {
     return {
-      openedIssues:0,
-      solvedIssues:0,
-      closedIssues:0,
+      openedIssues: 0,
+      solvedIssues: 0,
+      closedIssues: 0,
       issues: [],
       list: [
         {
@@ -110,42 +102,51 @@ export default {
   components: {
     IssueFormComponent,
   },
+  methods: {
+    getAllIssues() {
+      this.openedIssues = 0;
+      this.solvedIssues = 0;
+      this.axios.get(this.$proxyIssues + "/issues").then((response) => {
+        this.issues = response.data;
+        var i;
+        for (i in this.issues) {
+          if (this.issues[i].status == "TO DO") {
+            this.openedIssues++;
+          } else if (this.issues[i].status == "DOING") {
+            this.openedIssues++;
+          } else if (this.issues[i].status == "DONE") {
+            this.solvedIssues++;
+          }
+        }
+      });
+    },
+    reloadPage() {
+      console.log("Issues");
+      this.issues = [];
+      this.getAllIssues();
+    },
+  },
   created() {
-    this.axios.get(this.$proxyIssues + "/issues").then((response) => {
-      this.issues = response.data;
-      var i;
-      for (i in this.issues){
-        if (this.issues[i].status=="TO DO"){
-          this.openedIssues ++;
-        }
-        else if (this.issues[i].status=="DOING"){
-          this.openedIssues ++;
-        }
-        else if (this.issues[i].status=="DONE"){
-          this.solvedIssues ++;
-        }
-      } 
-    })
-  }
+    this.getAllIssues();
+  },
 };
 </script>
 
 <style>
-  .item-name {
-    max-width: 60%;
-    width: 90%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .stateIcon {
-    position:absolute; 
-    top: 0%; 
-    left: 0px;
-    transform: scale(0.7)
-  }
-  .a:hover {
-    color: blue;
-  }
-  
+.item-name {
+  max-width: 60%;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.stateIcon {
+  position: absolute;
+  top: 0%;
+  left: 0px;
+  transform: scale(0.7);
+}
+.a:hover {
+  color: blue;
+}
 </style>
