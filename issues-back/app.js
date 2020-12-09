@@ -52,7 +52,6 @@ app.post('/populate', (req, res) => {
   Promise.all(promises).then(() => {
     Issue.find()
       .then((issues) => {
-        console.log(issues);
         res.status(200).json(issues);
       })
       .catch((error) => res.status(400).json({ error }));

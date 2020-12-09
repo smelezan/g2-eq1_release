@@ -1,6 +1,7 @@
 const Release = require('../models/Release');
 
 exports.createRelease = function createRelease(req, res) {
+  console.log(req.body);
   delete req.body._id;
   const release = new Release({
     ...req.body,
@@ -29,4 +30,22 @@ exports.getAllReleases = function getAllReleases(req, res) {
   Release.find()
     .then((releases) => res.status(200).json(releases))
     .catch((error) => res.status(400).json(error));
+};
+
+exports.getLastReleaseInfos = function getLastReleaseInfos(req, res) {
+  Release.find().then((releases) => {
+    if (releases.length !== 0) {
+      const lastRelease = releases[releases.length - 1];
+      res.json({ issues: lastRelease.issues, version: lastRelease.version });
+    } else {
+      res.json({});
+    }
+  });
+};
+
+exports.deleteRelease = function deleteRelease(req, res) {
+  const releaseId = req.params.release;
+  Release.deleteOne({ _id: releaseId })
+    .then(() => res.status(200).json({ message: 'successfully deleted!' }))
+    .catch((error) => res.status(400).json({ error }));
 };

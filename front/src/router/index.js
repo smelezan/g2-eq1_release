@@ -11,11 +11,17 @@ let addressTasks = process.env.VUE_APP_TASKADDRESS || "localhost";
 let portTasks = process.env.VUE_APP_TASKPORT || "5000";
 let addressTests = process.env.VUE_APP_TESTADDRESS || "localhost";
 let portTests = process.env.VUE_APP_TESTPORT || "5001";
+let addressReleases = process.env.VUE_APP_RELEASEADDRESS || "localhost";
+let portReleases = process.env.VUE_APP_RELEASEPORT || "5003";
+let addressProjects = process.env.VUE_APP_PROJECTADDRESS || "localhost";
+let portProjects = process.env.VUE_APP_PROJECTPORT || "5002";
 
 Vue.use(VueRouter);
 Vue.prototype.$proxyIssues = `http://${addressIssues}:${portIssues}`;
 Vue.prototype.$proxyTasks = `http://${addressTasks}:${portTasks}`;
 Vue.prototype.$proxyTests = `http://${addressTests}:${portTests}`;
+Vue.prototype.$proxyReleases = `http://${addressReleases}:${portReleases}`;
+Vue.prototype.$proxyProjects = `http://${addressProjects}:${portProjects}`;
 const routes = [
   {
     path: "/",

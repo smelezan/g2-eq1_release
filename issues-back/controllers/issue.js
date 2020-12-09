@@ -2,12 +2,24 @@ const Issue = require('../models/Issue');
 
 exports.createIssue = function createIssue(req, res) {
   delete req.body._id;
+  console.log('CREATE');
   const issue = new Issue({
     ...req.body,
   });
   issue
     .save()
-    .then(() => res.status(201).json({ message: 'Créé avec succès', issue }))
+    .then((issueSaved) => {
+      console.log(issueSaved);
+      Issue.findOneAndUpdate(
+        { _id: issueSaved._id },
+        { $inc: { issueId: 1 } },
+        { new: true }
+      ).then((newIssue) => {
+        console.log(newIssue);
+        res.status(201).json({ message: 'Créé avec succès', newIssue });
+      });
+    })
+
     .catch((error) => {
       res.status(401).json({ error, message: 'Missing property' });
     });

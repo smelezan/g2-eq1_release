@@ -17,6 +17,10 @@ const releaseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Release', releaseSchema);

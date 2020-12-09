@@ -5,7 +5,7 @@ WORKDIR /usr/src/issuesBack
 
 COPY package.json /usr/src/issuesBack/
 
-RUN npm install
+RUN npm install 
 
 COPY . /usr/src/issuesBack
 
