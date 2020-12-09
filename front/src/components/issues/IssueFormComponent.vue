@@ -87,7 +87,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
-                  :items="['Feature', 'Documentation']"
+                  :items="['feature', 'documentation']"
                   v-model="newType"
                   hint="Type"
                   persistent-hint
@@ -133,9 +133,11 @@ export default {
     status: String,
     id: String,
     priority: String,
-    difficulty: Number,
+    difficulty: {
+      type: Number,
+      default: 0,
+    },
     description: String,
-    etat: String,
     type: String,
   },
   data() {
@@ -144,7 +146,7 @@ export default {
       newPriority: this.priority,
       newTitle: this.title,
       newDescription: this.description,
-      newState: this.etat,
+      newState: this.status,
       newDifficulty: this.difficulty || 0,
       dialog: false,
       updateIssue: () => {

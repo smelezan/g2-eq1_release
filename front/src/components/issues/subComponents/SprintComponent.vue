@@ -87,6 +87,9 @@ export default {
       return moment(this.sprints.endDate).format("DD/MM/YYYY");
     },
   },
+  mounted() {
+    console.log("changments");
+  },
   created() {
     /* var i;
        for (i in this.sprints){
