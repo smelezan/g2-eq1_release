@@ -106,6 +106,7 @@ export default {
     getAllIssues() {
       this.openedIssues = 0;
       this.solvedIssues = 0;
+      this.closedIssues = 0;
       this.axios.get(this.$proxyIssues + "/issues").then((response) => {
         this.issues = response.data;
         var i;
@@ -116,6 +117,8 @@ export default {
             this.openedIssues++;
           } else if (this.issues[i].status == "DONE") {
             this.solvedIssues++;
+          } else if (this.issues[i].status == "CLOSED") {
+            this.closedIssues++;
           }
         }
       });

@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import AddSprintModaleComponent from "./sprints/subComponents/AddSprintModaleComponent";
-import SprintComponent from "./issues/subComponents/SprintComponent";
-import IssueItemComponent from "./sprints/subComponents/IssueItemComponent"
+import AddSprintModaleComponent from "./subComponents/AddSprintModaleComponent";
+import SprintComponent from "./subComponents/SprintComponent";
+import IssueItemComponent from "./subComponents/IssueItemComponent"
 import draggable from "vuedraggable";
 export default {
   components: {
