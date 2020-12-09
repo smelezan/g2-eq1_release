@@ -2,38 +2,52 @@ Example app listening on port 4000!
 
 
   Issues
-Connexion à MongoDB réussie!!!!!! !
     get all issues
-      ✓ it should GET all issues
+Connexion à MongoDB réussie!!!!!! !
+      √ it should GET all issues (50ms)
     create issue
-      ✓ it should not create an Issue without title field (112ms)
-      ✓ it should create an Issue
+CREATE
+      √ it should not create an Issue without title field (45ms)
+CREATE
+{
+  status: 'TO DO',
+  tasks: [],
+  progression: 0,
+  _id: 5fd134a5742bad0b70a2954c,
+  title: 'Test Issue',
+  description: 'Test Description',
+  type: 'feature',
+  __v: 0
+}
+      √ it should create an Issue
     Get an issue by id
-      ✓ it should get an issue by the given id
-      ✓ it should send an error if issue doesn't exist
+      √ it should get an issue by the given id
+      √ it should send an error if issue doesn't exist
     update an issue 
-      ✓ it should UPDATE an issue given an id
+      √ it should UPDATE an issue given an id
     delete an issue 
-      ✓ it should DELETE an issue given an id
+      √ it should DELETE an issue given an id
     update issue difficulty 
-      ✓ it should UPDATE an issue given an id and a difficulty
-      ✓ it should not UPDATE an issue with invalid field
+      √ it should UPDATE an issue given an id and a difficulty
+      √ it should not UPDATE an issue with invalid field (38ms)
     update issue priority 
-      ✓ it should UPDATE an issue given an id and a priority
-      ✓ it should not UPDATE an issue with invalid field
+      √ it should UPDATE an issue given an id and a priority
+      √ it should not UPDATE an issue with invalid field
 
   Sprints
     get all sprints
-      ✓ it should GET all sprints
+      √ it should GET all sprints
     create a sprint
-      ✓ it should not create a  sprint without startDate field
-      ✓ it should create a Sprint
+      √ it should not create a  sprint without startDate field
+      √ it should not create a  sprint invalid dates
+      √ it should not overlay two sprints
+      √ it should create a Sprint
     Get a sprint by id 
-      ✓ it should get a sprint by the given id
-      ✓ it should send an error if sprint doesn't exist
+      √ it should get a sprint by the given id
+      √ it should send an error if sprint doesn't exist
     /DELETE /sprint/:sprint sprint 
-      ✓ it should DELETE a sprint given an id
+      √ it should DELETE a sprint given an id
 
 
-  17 passing (366ms)
+  19 passing (441ms)
 

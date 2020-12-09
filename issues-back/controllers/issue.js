@@ -10,16 +10,8 @@ exports.createIssue = function createIssue(req, res) {
     .save()
     .then((issueSaved) => {
       console.log(issueSaved);
-      Issue.findOneAndUpdate(
-        { _id: issueSaved._id },
-        { $inc: { issueId: 1 } },
-        { new: true }
-      ).then((newIssue) => {
-        console.log(newIssue);
-        res.status(201).json({ message: 'Créé avec succès', newIssue });
-      });
+      res.status(201).json({ message: 'Créé avec succès', issue: issueSaved });
     })
-
     .catch((error) => {
       res.status(401).json({ error, message: 'Missing property' });
     });

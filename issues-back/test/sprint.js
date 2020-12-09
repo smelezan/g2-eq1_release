@@ -52,11 +52,52 @@ describe('Sprints', () => {
           done();
         });
     });
+    it('it should not create a  sprint invalid dates', (done) => {
+      const sprint = {
+        startDate: new Date(),
+        endDate: new Date(),
+      };
+      chai
+        .request(app)
+        .post('/sprints')
+        .send(sprint)
+        .end((err, res) => {
+          res.should.have.status(401);
+          res.body.should.be.a('object');
+          res.body.should.have.property('error');
+          res.body.should.have
+            .property('message')
+            .eql("Can't create a sprint with theses dates");
+          done();
+        });
+    });
+    it('it should not overlay two sprints', (done) => {
+      const sprint1 = new Sprint({
+        startDate: new Date('2020-12-09'),
+        endDate: new Date('2020-12-15'),
+      });
+      const sprint2 = {
+        startDate: new Date('2020-12-14'),
+        endDate: new Date('2020-12-23'),
+      };
+      sprint1.save((err, sprintSaved) => {
+        chai
+          .request(app)
+          .post(`/sprints/`)
+          .send(sprint2)
+          .end((_, res) => {
+            res.should.have.status(401);
+            res.body.should.be.a('object');
+            res.body.should.have.property('error').eql("Can't overlay sprints");
+            done();
+          });
+      });
+    });
 
     it('it should create a Sprint', (done) => {
       const sprint = {
-        startDate: moment(),
-        endDate: moment(),
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       };
       chai
         .request(app)
@@ -79,8 +120,8 @@ describe('Sprints', () => {
   describe('Get a sprint by id ', () => {
     it('it should get a sprint by the given id', (done) => {
       const sprint = new Sprint({
-        startDate: moment(),
-        endDate: moment(),
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       });
       sprint.save((err, sprintSaved) => {
         chai
@@ -99,8 +140,8 @@ describe('Sprints', () => {
     });
     it("it should send an error if sprint doesn't exist", (done) => {
       const sprint = new Sprint({
-        startDate: moment(),
-        endDate: moment(),
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       });
       sprint.save((err, sprintSaved) => {
         chai
@@ -118,11 +159,11 @@ describe('Sprints', () => {
       });
     });
   });
-  describe('/DELETE /sprint/:sprint sprint ', () => {
+  describe('delete a sprint', () => {
     it('it should DELETE a sprint given an id', (done) => {
       const sprint = new Sprint({
-        endDate: new Date(),
-        startDate: new Date(),
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       });
       sprint.save((err, sprintSaved) => {
         chai

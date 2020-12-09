@@ -1,9 +1,9 @@
-const Issue = require('../models/Sprint');
+const Sprint = require('../models/Sprint');
 
 exports.isSprintExists = function isSprintExists(req, res, next) {
   const sprintId = req.params.sprint;
 
-  Issue.findById(sprintId)
+  Sprint.findById(sprintId)
     .then((sprint) => {
       if (sprint) {
         next();

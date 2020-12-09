@@ -1,3 +1,4 @@
+const moment = require('moment');
 const Sprint = require('../models/Sprint');
 
 exports.getOneSprint = (req, res) => {
@@ -26,16 +27,17 @@ exports.createSprint = (req, res) => {
   if (sprint.startDate === undefined || sprint.endDate === undefined) {
     res.status(401).json({ error: '', message: 'Missing property' });
   }
+  if (moment(sprint.endDate).isSameOrBefore(moment(sprint.startDate))) {
+    res
+      .status(401)
+      .json({ error: '', message: "Can't create a sprint with theses dates" });
+  }
   Sprint.find({}).then((sprints) => {
     const allSprintsInDatabase = sprints;
     const isBetweenDates = allSprintsInDatabase.some((sprintInDb) => {
-      const fromDate = new Date(sprintInDb.startDate);
-      const toDate = new Date(sprintInDb.endDate);
       return (
-        (startDate.getTime() >= fromDate.getTime() &&
-          startDate.getTime() <= toDate.getTime()) ||
-        (endDate.getTime() >= fromDate.getTime() &&
-          endDate.getTime() <= toDate.getTime())
+        moment(startDate).isBetween(sprintInDb.startDate, sprintInDb.endDate) ||
+        moment(endDate).isBetween(sprintInDb.startDate, sprintInDb.endDate)
       );
     });
     if (isBetweenDates) {
