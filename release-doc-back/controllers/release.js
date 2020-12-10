@@ -1,7 +1,6 @@
 const Release = require('../models/Release');
 
 exports.createRelease = function createRelease(req, res) {
-  console.log(req.body);
   delete req.body._id;
   const release = new Release({
     ...req.body,
@@ -32,6 +31,11 @@ exports.getAllReleases = function getAllReleases(req, res) {
     .catch((error) => res.status(400).json(error));
 };
 
+/**
+ *  Get the infos of the last Release in database
+ * @param {*} req the request, object containing informations about http request.
+ * @param {*} res the response, object containing informations to send to user.
+ */
 exports.getLastReleaseInfos = function getLastReleaseInfos(req, res) {
   Release.find().then((releases) => {
     if (releases.length !== 0) {

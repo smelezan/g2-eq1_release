@@ -172,7 +172,7 @@ export default {
           let tasks = response.data;
 
           this.axios
-            .post(this.$proxyTests + "/tests/verifyTest", {
+            .post(this.$proxyTests + "/tests/checkTest", {
               tests: this.newTests,
               issues: issues,
               tasks: tasks,

@@ -1,7 +1,7 @@
 const Issue = require('../models/Issue');
 
 /**
- *  Check if an issue based on his id exists.
+ *  Check if a sprint based on his id exists.
  *  If not, send an error.
  * @param {*} req the request, object containing informations about http request.
  * @param {*} res the response, object containing informations to send to user.

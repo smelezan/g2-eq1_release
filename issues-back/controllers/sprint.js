@@ -19,6 +19,13 @@ exports.deleteOneSprint = (req, res) => {
     .catch((err) => res.status(400).json({ err }));
 };
 
+/**
+ *  Creates a sprint based on a start date, an end date and a name
+ *  Can't create a sprint with same start and end dates
+ *  Can't create a sprint who overlaying an other
+ * @param {*} req the request, object containing informations about http request.
+ * @param {*} res the response, object containing informations to send to user.
+ */
 exports.createSprint = (req, res) => {
   delete req.body._id;
   const sprint = { ...req.body };
@@ -55,6 +62,11 @@ exports.createSprint = (req, res) => {
   });
 };
 
+/**
+ *  From a list of sprints, reassigns all issues to sprints
+ * @param {*} req the request, object containing informations about http request.
+ * @param {*} res the response, object containing informations to send to user.
+ */
 exports.reassign = (req, res) => {
   const allSprints = req.body.sprints;
 
