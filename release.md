@@ -1,10 +1,10 @@
-# Release version 1.0.0
+# Release version 2.0.0
 
 Ceci est la toute première releases.
 
 ## Date de sortie
 
-27 Novembre 2020
+10 Décembre 2020
 
 ## Issues réalisées
 
