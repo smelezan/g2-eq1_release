@@ -102,7 +102,7 @@
                 Afin d'ajouter une release.
             </td>
             <td>1</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
           <td>32</td>
@@ -112,7 +112,7 @@
             Afin d'avoir un suivis des releases.
           </td>
           <td>1</td>
-          <td>DOING</td>
+          <td>DONE</td>
         </tr>
         <tr>
           <td>33</td>

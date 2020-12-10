@@ -15,9 +15,11 @@ exports.createProject = function createProject(req, res) {
   project
     .save()
     .then(() =>
-      res.status(200).json({ message: 'Successfully created', project }),
+      res.status(201).json({ message: 'Successfully created', project }),
     )
-    .catch((error) => res.status(400).json({ error }));
+    .catch((error) =>
+      res.status(401).json({ error, message: 'Missing property' }),
+    );
 };
 
 exports.getIssuesByProjectId = function getIssuesByProjectId(req, res) {
@@ -47,7 +49,6 @@ exports.getIssuesByProjectId = function getIssuesByProjectId(req, res) {
 
 exports.getTestsByProjectId = function getTestsByProjectId(req, res) {
   const projectId = req.params.project;
-  console.log('AXIOOOOS');
   Project.findById(projectId)
     .then((project) => {
       const { tests } = project;
@@ -137,5 +138,11 @@ exports.updateProject = function updateProject(req, res) {
     { ...req.body, _id: req.params.project },
   )
     .then(() => res.status(200).json({ message: 'Project updated' }))
+    .catch((error) => res.status(400).json({ error }));
+};
+
+exports.findOneProject = function findOneProject(req, res) {
+  Project.findOne({ _id: req.params.project })
+    .then((project) => res.status(200).json(project))
     .catch((error) => res.status(400).json({ error }));
 };
