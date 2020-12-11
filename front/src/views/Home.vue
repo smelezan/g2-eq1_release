@@ -13,7 +13,9 @@
           <v-col
           cols="3"
           >
-            <v-card @click="increaseNbProjects()" >
+            <v-card 
+              @click="increaseNbProjects()" 
+              >
               <v-layout justify-center style="height:200px" >
 
                 <v-tooltip bottom>
@@ -21,7 +23,6 @@
                     <v-icon
                       v-bind="attrs"
                       v-on="on"
-                      color="black"
                     >mdi-plus</v-icon>
                   </template>
                   <span>Cliquer ici pour créer un nouveau projet !</span>

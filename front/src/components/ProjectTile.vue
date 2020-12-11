@@ -8,7 +8,6 @@
       dark
       max-width="400"
       height="200"
-      :to="'Project/'+Project_Name"
     >
       <v-card-title>
         <v-icon
@@ -19,9 +18,30 @@
           mdi-briefcase-outline
         </v-icon>
 
-        <span class="title font-weight-light" style="color:grey">{{Project_Name}}</span>
-            
+        <router-link :to="'Project/'+Project_Name" style="text-decoration:none">
+          <span class="title font-weight-light" style="color:grey">{{Project_Name}}</span>
+        </router-link>
+        <div style="position:absolute; top:0; right:0;">
+          <v-card  @click="increaseNbProjects()" class="mx-auto" outlined color="white" >
+                <v-layout style="color:white" >
+
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon
+                        v-bind="attrs"
+                        v-on="on"
+                        color="grey"
+                      >clear</v-icon>
+                    </template>
+                    <span>Supprimer</span>
+                  </v-tooltip>
+                  
+                </v-layout>
+          </v-card>
+        </div>
+
       </v-card-title>
+      
 
       <v-card-actions>
         <v-list-item
@@ -62,5 +82,9 @@
 <script>
 export default {
   props: ['Project_Name'],
+  methods: {
+    increaseNbProjects: function() {
+    }
+  }
 }
 </script>
