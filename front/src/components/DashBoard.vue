@@ -1,20 +1,60 @@
 <template>
   <div>
-    <router-link to="/tests">
-      <v-btn color="primary" dark class="mb-2"> Ajouter des tests</v-btn>
-    </router-link>
-    
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-icon 
-        v-bind="attrs"
-        v-on="on"
-        color="grey"
-        style=" position:relative; bottom:3px; left:5px"
-        >help_outline</v-icon>
-      </template>
-      <span>Message pour la doc user test</span>
-    </v-tooltip>
+    <div style="display:table" >
+      <div style="display: table-row">
+        <div style="display: table-cell">
+        <router-link to="/tests">
+          <v-btn color="primary" dark class="mb-2"> Ajouter des tests</v-btn>
+        </router-link>
+        </div>
+        
+        <div style="display: table-cell" @click="openHelp()" class="mx-auto">
+          <v-tooltip bottom  >
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon 
+              v-bind="attrs"
+              v-on="on"
+              color="grey"
+              style=" position:relative; bottom:3px; left:5px"
+              >help_outline</v-icon>
+            </template>
+            <span>aide</span>
+          </v-tooltip>
+          </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <v-dialog
+        v-model="help"
+        width="500"
+      >
+
+        <v-card>
+          <v-card-title class="headline grey lighten-2">
+            Aide
+          </v-card-title>
+
+          <v-card-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              text
+              @click="help = false"
+            >
+              Fermer
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+
 
     <v-data-table
       :headers="headers"
@@ -122,6 +162,7 @@ export default {
     tasks: [],
     tests: [],
     dialog: false,
+    help: false,
     dialogDelete: false,
     headers: [
       {
@@ -192,6 +233,9 @@ export default {
   },
 
   methods: {
+    openHelp: function() {
+      this.help = !this.help
+    },
     updateSelection(event) {
       this.issueChosen = event == "issues";
     },

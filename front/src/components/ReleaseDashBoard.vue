@@ -4,17 +4,52 @@
       <v-toolbar flat>
         <v-toolbar-title>Releases</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-icon 
-            v-bind="attrs"
-            v-on="on"
-            color="grey"
-            style=" position:relative; right:5px"
-            >help_outline</v-icon>
-          </template>
-          <span>Message pour la doc user release</span>
-        </v-tooltip>
+        
+         <div style="display: table-cell" @click="openHelp()" class="mx-auto">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon 
+              v-bind="attrs"
+              v-on="on"
+              color="grey"
+              style=" position:relative; right:5px"
+              >help_outline</v-icon>
+            </template>
+            <span>Message pour la doc user release</span>
+          </v-tooltip>
+         </div>
+
+         <div class="text-center">
+          <v-dialog
+            v-model="help"
+            width="500"
+          >
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                Aide
+              </v-card-title>
+
+              <v-card-text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="primary"
+                  text
+                  @click="help = false"
+                >
+                  Fermer
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
@@ -163,6 +198,7 @@ export default {
     releaseName:"",
     date: new Date().toISOString().substr(0, 10),
     dialog: false,
+    help: false,
     issuesSelected: [],
     version:"",
     modal: false,
@@ -231,6 +267,9 @@ export default {
   },
 
   methods: {
+    openHelp: function() {
+      this.help = !this.help
+    },
     log(event) {
       console.log(event);
     },

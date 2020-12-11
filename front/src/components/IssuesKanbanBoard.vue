@@ -2,17 +2,51 @@
   <div>
     <div>
       <v-row style="float: right" justify="space-around">
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-icon 
-            v-bind="attrs"
-            v-on="on"
-            color="grey"
-            style=" position:relative; bottom:3px; right:5px"
-            >help_outline</v-icon>
-          </template>
-          <span>Message pour la doc user issue</span>
-        </v-tooltip>
+        <div style="display: table-cell" @click="openHelp()" class="mx-auto">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon 
+              v-bind="attrs"
+              v-on="on"
+              color="grey"
+              style=" position:relative; bottom:-5px; right:5px"
+              >help_outline</v-icon>
+            </template>
+            <span>Message pour la doc user issue</span>
+          </v-tooltip>
+        </div>
+
+        <div class="text-center">
+          <v-dialog
+            v-model="help"
+            width="500"
+          >
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                Aide
+              </v-card-title>
+
+              <v-card-text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="primary"
+                  text
+                  @click="help = false"
+                >
+                  Fermer
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+
         <router-link style="text-decoration: none" to="/create-issue">
           <v-btn color="primary">
             <a style="color: white">Ajouter une Issue</a>
@@ -80,6 +114,7 @@ import IssueFormComponent from "./issues/IssueFormComponent";
 export default {
   data() {
     return {
+      help: false,
       openedIssues: 0,
       solvedIssues: 0,
       closedIssues: 0,
@@ -114,6 +149,9 @@ export default {
     IssueFormComponent,
   },
   methods: {
+    openHelp: function() {
+      this.help = !this.help
+    },
     getAllIssues() {
       this.openedIssues = 0;
       this.solvedIssues = 0;
