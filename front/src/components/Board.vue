@@ -49,8 +49,8 @@
                       v-on="on"
                     >mdi-alert-circle-check-outline</v-icon>
                   </template>
-                  <span v-if="element.status!='DONE'">issue ouverte</span>
-                  <span v-else>issue fermée</span>
+                  <span v-if="element.status!='DONE'">Tâche ouverte</span>
+                  <span v-else>Tâche fermée</span>
                 </v-tooltip>
           <p id="issueTitle">{{ element.title }}</p>
         <v-dialog
