@@ -42,10 +42,23 @@ export default {
     data(){
       return{
           dialog:false,
+          issues:[],
+          index:0,
       }
     },
     methods:{
         deleteIssue: function(){
+            this.axios.get(this.$proxyIssues + "/issues").then((response) => {
+              this.issues = response.data;
+              console.log(this.issues);
+              this.issues.forEach(issue => {
+                if(issue.tasks.indexOf(this.id) != -1){
+                  this.index = issue.tasks.indexOf(this.id);
+                  issue.tasks.splice(this.index,1);
+                  this.axios.put(this.$proxyIssues+'/issues/'+issue._id,issue);
+                }
+              });
+            });
             this.axios.delete(this.$proxyTasks+'/tasks/'+this.id)
             .then(()=> window.location.reload())
         }

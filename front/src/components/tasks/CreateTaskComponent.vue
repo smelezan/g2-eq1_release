@@ -41,15 +41,25 @@ export default {
     };
   },
   created() {
-      this.axios.get(this.$proxyIssues + "/issues").then((response) => {
-        this.issues = response.data;
+    this.axios.get(this.$proxyIssues + "/issues").then((response) => {
+      this.issues = response.data;
     });
   },
   methods: {
       addTask(){
           this.task.issues = this.issuesId;
-          console.log(this.task);
-          this.axios.post(this.$proxyTasks+'/tasks', this.task).then(() => {
+          this.axios.post(this.$proxyTasks+'/tasks', this.task)
+          .then(newTask => {
+            this.issuesId.forEach(issueId => {
+              //this.axios.put(this.$proxyIssues+"/issues/addTask/"+issueId,newTask.data.task._id);
+              this.axios.get(this.$proxyIssues + "/issues/" + issueId).then((response) => {
+                console.log("Added Issue")
+                this.modif = response.data;
+                this.modif.tasks.push(newTask.data.task._id);
+                this.axios.put(this.$proxyIssues+'/issues/'+this.modif._id,this.modif);
+              });
+              
+            });
             this.$router.push({name: 'tasks'});
           });
       }

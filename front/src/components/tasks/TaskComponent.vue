@@ -138,6 +138,7 @@ export default {
           issues:{},
           tasks:{},
           taskIssues:[],
+          taskIssuesId:[],
           taskTasks:[],
           id:"",
           newTitle:"",
@@ -148,6 +149,8 @@ export default {
           newTasksId:[],
           newStat:"",
           dialog: false,
+          index:0,
+          changedIssue:{},
       }
   },
     created() {
@@ -161,7 +164,7 @@ export default {
             }else{
                 this.newCost = this.task.cost;
             }
-            this.newIssuesId = this.task.issues;
+            // this.newIssuesId = this.task.issues; Ok
             this.newTasksId = this.task.dependencies;
             if(this.task.developer == undefined){
                 this.newDevs = "";
@@ -169,11 +172,13 @@ export default {
                 this.newDevs = this.task.developer;
             }
             this.newStat = this.task.status;
+            /* Ok
             this.task.issues.forEach(id => {
                 this.axios.get(this.$proxyIssues+'/issues/'+id).then(response =>{
                     this.taskIssues.push(response.data);
                 });
             });
+            */
             this.task.dependencies.forEach(id => {
                 this.axios.get(this.$proxyTasks+'/tasks/'+id).then(response =>{
                     this.taskTasks.push(response.data);
@@ -181,6 +186,13 @@ export default {
             });
             this.axios.get(this.$proxyIssues + "/issues").then((response) => {
                 this.issues = response.data;
+                this.issues.forEach(issue => {
+                  if(issue.tasks.indexOf(this.task._id) != -1){
+                    this.taskIssues.push(issue);
+                    this.taskIssuesId.push(issue._id);
+                  }
+                });
+                this.newIssuesId = this.taskIssuesId;
             });
             this.axios.get(this.$proxyTasks + "/tasks").then((response) => {
                 this.tasks = response.data;
@@ -189,29 +201,36 @@ export default {
     },
     methods:{
       update: function(){
-          if(this.newTitle != this.task.title){
-            this.task.title = this.newTitle;
-          }
-          if(this.newDesc != this.task.dod){
-            this.task.dod = this.newDesc;
-          }
-          if(this.newCost != this.task.cost){
-            this.task.cost = this.newCost;
-          }
-          if(this.newDevs != this.task.developer){
-            this.task.developer = this.newDevs;
-          }
-          if(this.newIssuesId != this.task.issues){
-            this.task.issues = this.newIssuesId;
-          }
-          if(this.newTasksId != this.task.dependencies){
-            this.task.dependencies = this.newTasksId;
-          }
-          if(this.newStat != this.task.status){
-            this.task.status = this.newStat;
-          }
+          this.task.title = this.newTitle;
+          this.task.dod = this.newDesc;
+          this.task.cost = this.newCost;
+          this.task.developer = this.newDevs;
+          // Remove from old Ok
+          console.log(this.taskIssues);
+          this.taskIssues.forEach(issue => {
+            while(issue.tasks.indexOf(this.task._id)!=-1){
+              this.index = issue.tasks.indexOf(this.task._id);
+              issue.tasks.splice(this.index,1);
+              this.axios.put(this.$proxyIssues+'/issues/'+issue._id,issue);
+            }
+          });
+          this.taskIssues = [];
+          // Add to new Ok
+          this.newIssuesId.forEach(issueId => {
+            this.axios.get(this.$proxyIssues+'/issues/'+issueId).then(response =>{
+              this.changedIssue = response.data;
+              while( (this.changedIssue.tasks.indexOf(this.task._id ) == -1) || (this.taskIssues.indexOf(this.changedIssue) == -1)){
+                this.taskIssues.push(this.changedIssue);
+                this.changedIssue.tasks.push(this.task._id);
+                this.axios.put(this.$proxyIssues+'/issues/'+this.changedIssue._id,this.changedIssue);
+              }
+            });
+          });
+          this.taskIssuesId = this.newIssuesId;
+          this.task.dependencies = this.newTasksId;
+          this.task.status = this.newStat;
           this.axios.put(this.$proxyTasks+'/tasks/'+this.id,this.task)
-          .then(()=> window.location.reload())
+          //.then(()=> window.location.reload());
       },
       clear: function(){
           this.newTitle = this.task.title;
@@ -226,7 +245,7 @@ export default {
           }else{
             this.newDevs = this.task.developer;
           }
-          this.newIssuesId = this.task.issues;
+          this.newIssuesId = this.taskIssuesId;
           this.newTasksId = this.task.dependencies;
           this.newDevs = this.task.developer;
           this.newStat = this.task.status;
