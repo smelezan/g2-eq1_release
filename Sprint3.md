@@ -22,7 +22,7 @@
                 </ul>
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>2</td>
@@ -41,7 +41,7 @@
                 afin de pouvoir me déplacer entre les différentes pages de l'application.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
         <td>3</td>
@@ -53,7 +53,7 @@
                 afin de supprimer un projet.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>5</td>
