@@ -9,7 +9,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-icon
             class="stateIcon"
-            v-if="issue.status != 'DONE'"
+            v-if="issue.status != 'CLOSED'"
             v-bind="attrs"
             v-on="on"
             >mdi-progress-alert</v-icon
@@ -23,7 +23,7 @@
             >mdi-alert-circle-check-outline</v-icon
           >
         </template>
-        <span v-if="issue.status != 'DONE'">issue ouverte</span>
+        <span v-if="issue.status != 'CLOSED'">issue ouverte</span>
         <span v-else>issue terminée</span>
       </v-tooltip>
       {{ issue.title }}
