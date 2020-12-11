@@ -1,0 +1,12 @@
+const mongoAddress = process.env.MONGO_RELEASEADDRESS || 'localhost';
+const mongoPORT = process.env.MONGO_RELEASEPORT || 27017;
+
+if (process.env.NODE_ENV === 'test') {
+  module.exports = {
+    DB: `mongodb://${mongoAddress}:${mongoPORT}/test`,
+  };
+} else {
+  module.exports = {
+    DB: `mongodb://${mongoAddress}:${mongoPORT}/Release-Documentation-db`,
+  };
+}

@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start-dev": "nodemon -L app",
     "start": "node app",
     "test": "mocha --exit > issues_test",
-    "test2": "mocha -R mocha-spec-json-output-reporter --exit",
-    "build": "mocha -R spec test/*.js > report 2>&1"
+    "test2": "mocha -R mocha-spec-json-output-reporter --exit"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,8 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.13",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.4",
     "nodemon": "^2.0.6"
   },
   "devDependencies": {

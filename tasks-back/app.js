@@ -39,9 +39,6 @@ app.listen(5000, () => {
 app.post('/populate', (req, res) => {
   mongoose.connection.db.dropDatabase();
   const { issues } = req.body;
-
-  Task.find().remove();
-
   const promises = taskData.map(
     (result) =>
       new Promise((resolve, reject) => {
@@ -54,20 +51,26 @@ app.post('/populate', (req, res) => {
         );
         const task = new Task({
           ...taskD,
-          issues: newIssuesList,
         });
+        const newTask = {
+          taskId: task._id,
+          issues: newIssuesList,
+        };
         task
           .save()
-          .then(() => resolve())
+          .then(() => resolve(newTask))
           .catch((err) => reject(err));
       }),
   );
 
-  Promise.all(promises).then(() => {
-    Task.find()
-      .then((tasks) => res.status(200).json(tasks))
-      .catch((error) => res.status(400).json({ error }));
-  });
+  Promise.all(promises)
+    .then((tasks) => {
+      console.log(tasks);
+      res.status(200).json(tasks);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
 
 app.use('/tasks', taskRoutes);

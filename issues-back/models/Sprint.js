@@ -19,4 +19,13 @@ const sprintSchema = mongoose.Schema({
   },
 });
 
+sprintSchema.methods.addIssue = async function addIssue(issueId) {
+  this.issues.push(issueId);
+  await this.save();
+};
+
+sprintSchema.methods.removeIssue = async function removeIssue(issueId) {
+  this.issues.splice(this.issues.indexOf(issueId), 1);
+  await this.save();
+};
 module.exports = mongoose.model('Sprint', sprintSchema);

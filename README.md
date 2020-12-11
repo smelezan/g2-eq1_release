@@ -1,6 +1,7 @@
 Backlog : Liste les besoins que doit couvrir le logiciel
 <br/>
 =======
+
 <table>
   <tbody>
     <tr>
@@ -34,7 +35,6 @@ Backlog : Liste les besoins que doit couvrir le logiciel
         Je souhaite à partir de la page d'un projet avoir accès:
         <ul>
           <li>au nom du projet</li>
-          <li>à la liste des collaborateurs</li>
           <li>à l'onglet des sprints</li>
           <li>à l'onglet des issues</li>
           <li>à l'onglet des Tâches</li>
@@ -548,10 +548,10 @@ Backlog : Liste les besoins que doit couvrir le logiciel
 </table>
 <br/>
 
-Sprints : Regroupent les issues réalisées
-======
+# Sprints : Regroupent les issues réalisées
+
 Ici vous trouverez les différents Sprints : [Sprint1](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint1.md), [Sprint2](https://github.com/Demalios/g2-eq1_dev/blob/main/Sprint2.md).
 
-Releases : Regroupent les fichiers nécessaires à l'installation et l'exécution du logiciel
-=======
+# Releases : Regroupent les fichiers nécessaires à l'installation et l'exécution du logiciel
+
 Ici vous trouverez les différentes [releases](https://github.com/smelezan/g2-eq1_release).

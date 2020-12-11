@@ -1,32 +1,53 @@
-
-  1) Uncaught error outside test suite
-
-  0 passing (2ms)
-  1 failing
-
-  1) Uncaught error outside test suite:
-     Uncaught Error: listen EADDRINUSE: address already in use :::4000
-      at Server.setupListenHandle [as _listen2] (net.js:1313:16)
-      at listenInCluster (net.js:1361:12)
-      at Server.listen (net.js:1447:7)
-      at Function.listen (node_modules\express\lib\application.js:618:24)
-      at Object.<anonymous> (app.js:36:5)
-      at Module._compile (internal/modules/cjs/loader.js:1137:30)
-      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
-      at Module.load (internal/modules/cjs/loader.js:985:32)
-      at Function.Module._load (internal/modules/cjs/loader.js:878:14)
-      at Module.require (internal/modules/cjs/loader.js:1025:19)
-      at require (internal/modules/cjs/helpers.js:72:18)
-      at Object.<anonymous> (test\issue.js:11:13)
-      at Module._compile (internal/modules/cjs/loader.js:1137:30)
-      at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
-      at Module.load (internal/modules/cjs/loader.js:985:32)
-      at Function.Module._load (internal/modules/cjs/loader.js:878:14)
-      at Module.require (internal/modules/cjs/loader.js:1025:19)
-      at require (internal/modules/cjs/helpers.js:72:18)
-      at C:\Users\sebas\cours\Master2\conduite-de-projet\projet\g2-eq1_dev\issues-back\node_modules\yargs\lib\command.js:241:49
+Example app listening on port 4000!
 
 
+  Issues
+    get all issues
+Connexion à MongoDB réussie!!!!!! !
+      √ it should GET all issues (50ms)
+    create issue
+CREATE
+      √ it should not create an Issue without title field (45ms)
+CREATE
+{
+  status: 'TO DO',
+  tasks: [],
+  progression: 0,
+  _id: 5fd134a5742bad0b70a2954c,
+  title: 'Test Issue',
+  description: 'Test Description',
+  type: 'feature',
+  __v: 0
+}
+      √ it should create an Issue
+    Get an issue by id
+      √ it should get an issue by the given id
+      √ it should send an error if issue doesn't exist
+    update an issue 
+      √ it should UPDATE an issue given an id
+    delete an issue 
+      √ it should DELETE an issue given an id
+    update issue difficulty 
+      √ it should UPDATE an issue given an id and a difficulty
+      √ it should not UPDATE an issue with invalid field (38ms)
+    update issue priority 
+      √ it should UPDATE an issue given an id and a priority
+      √ it should not UPDATE an issue with invalid field
+
+  Sprints
+    get all sprints
+      √ it should GET all sprints
+    create a sprint
+      √ it should not create a  sprint without startDate field
+      √ it should not create a  sprint invalid dates
+      √ it should not overlay two sprints
+      √ it should create a Sprint
+    Get a sprint by id 
+      √ it should get a sprint by the given id
+      √ it should send an error if sprint doesn't exist
+    /DELETE /sprint/:sprint sprint 
+      √ it should DELETE a sprint given an id
 
 
+  19 passing (441ms)
 

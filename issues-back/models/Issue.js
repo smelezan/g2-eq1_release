@@ -26,7 +26,7 @@ const issueSchema = mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['TO DO', 'DOING', 'DONE'],
+    enum: ['TO DO', 'DOING', 'DONE', 'CLOSED'],
     default: 'TO DO',
   },
   tasks: {
@@ -38,5 +38,14 @@ const issueSchema = mongoose.Schema({
     default: 0,
   },
 });
+
+issueSchema.methods.addTask = async function addTask(taskId) {
+  this.tasks.push(taskId);
+  await this.save();
+};
+issueSchema.methods.removeTask = async function removeTask(taskId) {
+  this.tasks.splice(this.tasks.indexOf(taskId), 1);
+  await this.save();
+};
 
 module.exports = mongoose.model('Issue', issueSchema);

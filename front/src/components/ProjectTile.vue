@@ -8,7 +8,6 @@
       dark
       max-width="400"
       height="200"
-      :to="'Project/'+Project_Name"
     >
       <v-card-title>
         <v-icon
@@ -19,18 +18,62 @@
           mdi-briefcase-outline
         </v-icon>
 
-        <span class="title font-weight-light" style="color:grey">{{Project_Name}}</span>
-      
-       <!--  <v-layout align-end justify-end>
-          <v-icon
-            color="yellow"
-        >mdi-alert-outline</v-icon>
-          <v-icon
-            color="grey"
-          >mdi-dots-vertical</v-icon>
-        </v-layout> -->
-            
+        <router-link :to="'Project/'+Project_Name" style="text-decoration:none">
+          <span class="title font-weight-light" style="color:grey">{{Project_Name}}</span>
+        </router-link>
+        <div style="position:absolute; top:0; right:0;">
+          <v-card  @click="deleteProject()" class="mx-auto" outlined color="white" >
+                <v-layout style="color:white" >
+
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon
+                        v-bind="attrs"
+                        v-on="on"
+                        color="grey"
+                      >clear</v-icon>
+                    </template>
+                    <span>Supprimer</span>
+                  </v-tooltip>
+                  
+                </v-layout>
+          </v-card>
+        </div>
+            <div class="text-center">
+   <v-row justify="center">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline">
+          Supprimer ce projet ?
+        </v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Annuler
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Confirmer
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+  </div>
+
       </v-card-title>
+      
 
       <v-card-actions>
         <v-list-item
@@ -58,8 +101,8 @@
       <v-progress-linear
                   style=" bottom:-40px"
                   color="#76D72B"
-                  buffer-value="0"
-                  value="1"
+                  buffer-value="100"
+                  value="0"
                   ltr
       ></v-progress-linear>
 
@@ -70,6 +113,16 @@
 
 <script>
 export default {
+  data() {
+      return {
+        dialog: false,
+      }
+    },
   props: ['Project_Name'],
+  methods: {
+    deleteProject: function() {
+      this.dialog = !this.dialog
+    }
+  }
 }
 </script>

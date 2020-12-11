@@ -39,7 +39,6 @@ app.listen(4000, () => {
 
 app.post('/populate', (req, res) => {
   mongoose.connection.db.dropDatabase();
-  Issue.find().remove();
   const promises = issueData.map(
     (issue) =>
       new Promise((resolve, reject) => {
@@ -52,7 +51,9 @@ app.post('/populate', (req, res) => {
 
   Promise.all(promises).then(() => {
     Issue.find()
-      .then((issues) => res.status(200).json(issues))
+      .then((issues) => {
+        res.status(200).json(issues);
+      })
       .catch((error) => res.status(400).json({ error }));
   });
 });

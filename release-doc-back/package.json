@@ -1,0 +1,37 @@
+{
+  "name": "release-doc-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start-dev": "nodemon -L app",
+    "start": "node app",
+    "test": "mocha --exit > issues_test",
+    "test2": "mocha -R mocha-spec-json-output-reporter --exit",
+    "build": "mocha -R spec test/*.js > report 2>&1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.5",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-chai-friendly": "^0.6.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "mocha": "^8.2.1",
+    "mocha-spec-json-output-reporter": "^1.1.7",
+    "prettier": "^2.2.1"
+  }
+}

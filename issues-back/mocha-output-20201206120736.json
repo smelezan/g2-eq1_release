@@ -1,0 +1,529 @@
+{
+  "stats": {
+    "suites": 14,
+    "tests": 18,
+    "passes": 9,
+    "pending": 0,
+    "failures": 9,
+    "start": "2020-12-06T11:07:36.141Z",
+    "end": "2020-12-06T11:07:36.722Z",
+    "duration": 581
+  },
+  "suites": [
+    {
+      "title": "Issues",
+      "tests": []
+    },
+    {
+      "title": "get all issues",
+      "tests": [
+        {
+          "fullTitle": "get all issues it should GET all issues",
+          "title": "it should GET all issues",
+          "duration": 25,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "create issue",
+      "tests": [
+        {
+          "fullTitle": "create issue it should not create an Issue without title field",
+          "title": "it should not create an Issue without title field",
+          "duration": 58,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have property 'message'",
+            "showDiff": false,
+            "actual": {
+              "req": {
+                "method": "post",
+                "url": "http://127.0.0.1:49296/issues",
+                "data": {
+                  "description": "A test description",
+                  "type": "feature"
+                },
+                "headers": {
+                  "user-agent": "node-superagent/3.8.3",
+                  "content-type": "application/json"
+                }
+              },
+              "header": {
+                "x-powered-by": "Express",
+                "access-control-allow-origin": "*",
+                "access-control-allow-headers": "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization",
+                "access-control-allow-methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+                "content-type": "application/json; charset=utf-8",
+                "content-length": "320",
+                "etag": "W/\"140-RwMmYdU8GeFM1pnRFXZvb4t92to\"",
+                "date": "Sun, 06 Dec 2020 11:07:36 GMT",
+                "connection": "close"
+              },
+              "status": 401,
+              "text": "{\"error\":{\"errors\":{\"title\":{\"name\":\"ValidatorError\",\"message\":\"Path `title` is required.\",\"properties\":{\"message\":\"Path `title` is required.\",\"type\":\"required\",\"path\":\"title\"},\"kind\":\"required\",\"path\":\"title\"}},\"_message\":\"Issue validation failed\",\"message\":\"Issue validation failed: title: Path `title` is required.\"}}"
+            },
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have property 'message'\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:52:27\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        },
+        {
+          "fullTitle": "create issue it should create an Issue",
+          "title": "it should create an Issue",
+          "duration": 21,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "Get an issue by id",
+      "tests": [
+        {
+          "fullTitle": "Get an issue by id it should get an issue by the given id",
+          "title": "it should get an issue by the given id",
+          "duration": 38,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "Get an issue by id it should send an error if issue doesn't exist",
+          "title": "it should send an error if issue doesn't exist",
+          "duration": 9,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (error) } to be an error",
+            "showDiff": false,
+            "actual": {
+              "error": {
+                "stringValue": "\"abcdEfgH\"",
+                "kind": "ObjectId",
+                "value": "abcdEfgH",
+                "path": "_id",
+                "reason": {}
+              }
+            },
+            "stack": "AssertionError: expected { Object (error) } to be an error\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:116:32\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "update an issue ",
+      "tests": [
+        {
+          "fullTitle": "update an issue  it should UPDATE an issue given an id",
+          "title": "it should UPDATE an issue given an id",
+          "duration": 41,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 200",
+            "showDiff": true,
+            "actual": "200",
+            "expected": "201",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 200\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:137:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        },
+        {
+          "fullTitle": "update an issue  it should not update an issue given an id if invalid field",
+          "title": "it should not update an issue given an id if invalid field",
+          "duration": 21,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 200",
+            "showDiff": true,
+            "actual": "200",
+            "expected": "401",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 200\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:162:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "delete an issue ",
+      "tests": [
+        {
+          "fullTitle": "delete an issue  it should DELETE an issue given an id",
+          "title": "it should DELETE an issue given an id",
+          "duration": 9,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "update issue difficulty ",
+      "tests": [
+        {
+          "fullTitle": "update issue difficulty  it should UPDATE an issue given an id and a difficulty",
+          "title": "it should UPDATE an issue given an id and a difficulty",
+          "duration": 18,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404",
+            "showDiff": true,
+            "actual": "404",
+            "expected": "201",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:207:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        },
+        {
+          "fullTitle": "update issue difficulty  it should not UPDATE an issue with invalid field",
+          "title": "it should not UPDATE an issue with invalid field",
+          "duration": 20,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404",
+            "showDiff": true,
+            "actual": "404",
+            "expected": "401",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:227:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "update issue priority ",
+      "tests": [
+        {
+          "fullTitle": "update issue priority  it should UPDATE an issue given an id and a priority",
+          "title": "it should UPDATE an issue given an id and a priority",
+          "duration": 14,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404",
+            "showDiff": true,
+            "actual": "404",
+            "expected": "201",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:248:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        },
+        {
+          "fullTitle": "update issue priority  it should not UPDATE an issue with invalid field",
+          "title": "it should not UPDATE an issue with invalid field",
+          "duration": 10,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404",
+            "showDiff": true,
+            "actual": "404",
+            "expected": "401",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:268:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "update issue's tasks field ",
+      "tests": [
+        {
+          "fullTitle": "update issue's tasks field  it should UPDATE an issue given an id and n array of task id",
+          "title": "it should UPDATE an issue given an id and n array of task id",
+          "duration": 15,
+          "result": "failed",
+          "err": {
+            "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404",
+            "showDiff": true,
+            "actual": "404",
+            "expected": "201",
+            "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:289:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+            "uncaught": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sprints",
+      "tests": []
+    },
+    {
+      "title": "/GET sprint",
+      "tests": [
+        {
+          "fullTitle": "/GET sprint it should GET all sprints",
+          "title": "it should GET all sprints",
+          "duration": 8,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/POST Sprint",
+      "tests": [
+        {
+          "fullTitle": "/POST Sprint it should not POST sprint without startDate field",
+          "title": "it should not POST sprint without startDate field",
+          "duration": 8,
+          "result": "passed",
+          "err": {}
+        },
+        {
+          "fullTitle": "/POST Sprint it should POST a Sprint",
+          "title": "it should POST a Sprint",
+          "duration": 12,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/GET /sprint/:sprint sprint ",
+      "tests": [
+        {
+          "fullTitle": "/GET /sprint/:sprint sprint  it should GET a sprint by the given id",
+          "title": "it should GET a sprint by the given id",
+          "duration": 9,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    },
+    {
+      "title": "/DELETE /sprint/:sprint sprint ",
+      "tests": [
+        {
+          "fullTitle": "/DELETE /sprint/:sprint sprint  it should DELETE a sprint given an id",
+          "title": "it should DELETE a sprint given an id",
+          "duration": 8,
+          "result": "passed",
+          "err": {}
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "failures": [
+    {
+      "fullTitle": "create issue it should not create an Issue without title field",
+      "title": "it should not create an Issue without title field",
+      "duration": 58,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have property 'message'",
+        "showDiff": false,
+        "actual": {
+          "req": {
+            "method": "post",
+            "url": "http://127.0.0.1:49296/issues",
+            "data": {
+              "description": "A test description",
+              "type": "feature"
+            },
+            "headers": {
+              "user-agent": "node-superagent/3.8.3",
+              "content-type": "application/json"
+            }
+          },
+          "header": {
+            "x-powered-by": "Express",
+            "access-control-allow-origin": "*",
+            "access-control-allow-headers": "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization",
+            "access-control-allow-methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "320",
+            "etag": "W/\"140-RwMmYdU8GeFM1pnRFXZvb4t92to\"",
+            "date": "Sun, 06 Dec 2020 11:07:36 GMT",
+            "connection": "close"
+          },
+          "status": 401,
+          "text": "{\"error\":{\"errors\":{\"title\":{\"name\":\"ValidatorError\",\"message\":\"Path `title` is required.\",\"properties\":{\"message\":\"Path `title` is required.\",\"type\":\"required\",\"path\":\"title\"},\"kind\":\"required\",\"path\":\"title\"}},\"_message\":\"Issue validation failed\",\"message\":\"Issue validation failed: title: Path `title` is required.\"}}"
+        },
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have property 'message'\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:52:27\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "Get an issue by id it should send an error if issue doesn't exist",
+      "title": "it should send an error if issue doesn't exist",
+      "duration": 9,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (error) } to be an error",
+        "showDiff": false,
+        "actual": {
+          "error": {
+            "stringValue": "\"abcdEfgH\"",
+            "kind": "ObjectId",
+            "value": "abcdEfgH",
+            "path": "_id",
+            "reason": {}
+          }
+        },
+        "stack": "AssertionError: expected { Object (error) } to be an error\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:116:32\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update an issue  it should UPDATE an issue given an id",
+      "title": "it should UPDATE an issue given an id",
+      "duration": 41,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 200",
+        "showDiff": true,
+        "actual": "200",
+        "expected": "201",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 200\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:137:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update an issue  it should not update an issue given an id if invalid field",
+      "title": "it should not update an issue given an id if invalid field",
+      "duration": 21,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 200",
+        "showDiff": true,
+        "actual": "200",
+        "expected": "401",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 200\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:162:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update issue difficulty  it should UPDATE an issue given an id and a difficulty",
+      "title": "it should UPDATE an issue given an id and a difficulty",
+      "duration": 18,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404",
+        "showDiff": true,
+        "actual": "404",
+        "expected": "201",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:207:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update issue difficulty  it should not UPDATE an issue with invalid field",
+      "title": "it should not UPDATE an issue with invalid field",
+      "duration": 20,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404",
+        "showDiff": true,
+        "actual": "404",
+        "expected": "401",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:227:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update issue priority  it should UPDATE an issue given an id and a priority",
+      "title": "it should UPDATE an issue given an id and a priority",
+      "duration": 14,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404",
+        "showDiff": true,
+        "actual": "404",
+        "expected": "201",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:248:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update issue priority  it should not UPDATE an issue with invalid field",
+      "title": "it should not UPDATE an issue with invalid field",
+      "duration": 10,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404",
+        "showDiff": true,
+        "actual": "404",
+        "expected": "401",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 401 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:268:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    },
+    {
+      "fullTitle": "update issue's tasks field  it should UPDATE an issue given an id and n array of task id",
+      "title": "it should UPDATE an issue given an id and n array of task id",
+      "duration": 15,
+      "result": "failed",
+      "err": {
+        "message": "expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404",
+        "showDiff": true,
+        "actual": "404",
+        "expected": "201",
+        "stack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 201 but got 404\n    at C:\\Users\\sebas\\cours\\Master2\\conduite-de-projet\\projet\\g2-eq1_dev\\issues-back\\test\\issue.js:289:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:1220:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+        "uncaught": true
+      }
+    }
+  ],
+  "passes": [
+    {
+      "fullTitle": "get all issues it should GET all issues",
+      "title": "it should GET all issues",
+      "duration": 25,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "create issue it should create an Issue",
+      "title": "it should create an Issue",
+      "duration": 21,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "Get an issue by id it should get an issue by the given id",
+      "title": "it should get an issue by the given id",
+      "duration": 38,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "delete an issue  it should DELETE an issue given an id",
+      "title": "it should DELETE an issue given an id",
+      "duration": 9,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET sprint it should GET all sprints",
+      "title": "it should GET all sprints",
+      "duration": 8,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST Sprint it should not POST sprint without startDate field",
+      "title": "it should not POST sprint without startDate field",
+      "duration": 8,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/POST Sprint it should POST a Sprint",
+      "title": "it should POST a Sprint",
+      "duration": 12,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/GET /sprint/:sprint sprint  it should GET a sprint by the given id",
+      "title": "it should GET a sprint by the given id",
+      "duration": 9,
+      "result": "passed",
+      "err": {}
+    },
+    {
+      "fullTitle": "/DELETE /sprint/:sprint sprint  it should DELETE a sprint given an id",
+      "title": "it should DELETE a sprint given an id",
+      "duration": 8,
+      "result": "passed",
+      "err": {}
+    }
+  ]
+}

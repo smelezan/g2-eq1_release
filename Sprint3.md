@@ -22,7 +22,7 @@
                 </ul>
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>2</td>
@@ -31,7 +31,6 @@
                 Je souhaite à partir de la page d'un projet avoir accès:
                 <ul>
                 <li>au nom du projet</li>
-                <li>à la liste des collaborateurs</li>
                 <li>à l'onglet des sprints</li>
                 <li>à l'onglet des issues</li>
                 <li>à l'onglet des Tâches</li>
@@ -42,7 +41,7 @@
                 afin de pouvoir me déplacer entre les différentes pages de l'application.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
         <td>3</td>
@@ -54,7 +53,7 @@
                 afin de supprimer un projet.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DOING</td>
         </tr>
         <tr>
             <td>5</td>
@@ -65,7 +64,7 @@
                 Afin de déplacer ( drag and drop ) les Issues de tableau en tableau en fonction de nos intentions.
             </td>
             <td>2</td>
-            <td>DOING</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>6</td>
@@ -76,27 +75,7 @@
                 afin de supprimer un sprint, les issues contenus dans un sprint seront renvoyées dans le premier tableau qui liste les Issues sans sprint.
             </td>
             <td>2</td>
-            <td>DOING</td>
-        </tr>
-        <tr>
-            <td>21</td>
-            <td>
-                US21 : En tant qu'utilisateur<br>
-                Je souhaite avoir accès depuis la page des Tâches, à un onglet plannification dans lequel il y aurait un tableau modifiable de la forme suivante:
-                <ul>
-                <li> En x: Les jours </li>   
-                <li> En y: Les développeurs </li>   
-                <li> Dans les cases internes: l'id d'une tâche </li>   
-                </ul>
-                En cliquant sur l'une des cases internes: 
-                <ul> 
-                <li> Si la case est vide: une liste des tâches attribuables apparaît </li>
-                <li> Si la case est pleine: une description de la tâche associée à la case est affichée, donnant le titre et la description de cette tâche, ainsi que d'un bouton modifier la tâche qui affichera un menu déroulant listant les tâches attribuableso </li>
-                </ul>
-                afin d'organiser la charge de travail entre les développeurs.
-            </td>
-            <td>2</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
             <td>28</td>
@@ -106,22 +85,7 @@
                     Afin de permettre l'évolution des tests.
                 </td>
             <td>2</td>
-            <td>DOING</td>
-        </tr>
-        <tr>
-        <td>30</td>
-            <td>
-              US30 : En tant qu'utilisateur<br> 
-              Je souhaite pouvoir être informé des warnings sur une issue ou sur une tâche. <br>
-              Ces warnings sont:
-              <ul>
-                <li> Une information manquante
-                <li> ....
-              </ul>
-              Afin de me tenir informer de l'avancement du projet.
-            </td>
-          <td>3</td>
-          <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         </tr>
         <tr>
@@ -138,7 +102,7 @@
                 Afin d'ajouter une release.
             </td>
             <td>1</td>
-            <td>TO DO</td>
+            <td>DONE</td>
         </tr>
         <tr>
           <td>32</td>
@@ -148,7 +112,7 @@
             Afin d'avoir un suivis des releases.
           </td>
           <td>1</td>
-          <td>TO DO</td>
+          <td>DONE</td>
         </tr>
         <tr>
           <td>33</td>
@@ -231,4 +195,4 @@
     </tbody>
 </table>
 
-Total: 21
+Total: 16

@@ -20,7 +20,12 @@ export default {
         response.data.forEach(({ title, _id }) => {
           issues.push({ _id, title });
         });
-        this.axios.post(this.$proxyTasks + "/populate", { issues: issues });
+        console.log(issues);
+        this.axios
+          .post(this.$proxyTasks + "/populate", { issues: issues })
+          .then((response) =>
+            this.axios.post(this.$proxyIssues + "/issues/tasks", response.data)
+          );
       });
       this.axios.post(this.$proxyTests + "/populate");
     },

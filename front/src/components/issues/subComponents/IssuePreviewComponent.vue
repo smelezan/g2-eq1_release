@@ -36,7 +36,6 @@ export default {
       .get(this.$proxyTasks + "/tasks/issues/" + this.id)
       .then((response) => {
         const tasks = response.data;
-        console.log(tasks);
         let totalTasksComplete = 0;
         for (let task of tasks) {
           if (task.status.toUpperCase() === "DONE") totalTasksComplete++;

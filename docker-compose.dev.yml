@@ -1,0 +1,169 @@
+version: "3.8"
+services:
+  front:
+    container_name: front
+    environment:
+      - VUE_APP_ISSUEADDRESS=localhost
+      - VUE_APP_ISSUEPORT=4000
+      - VUE_APP_TASKADDRESS=localhost
+      - VUE_APP_TASKPORT=5000
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    networks:
+      - cdp
+    depends_on:
+      - issues
+    volumes:
+      - ./front/src:/app/src
+
+  issues:
+    container_name: issue_server
+    environment:
+      - MONGO_ISSUEADDRESS=issue_database
+      - CHOKIDAR_USEPOLLING=true
+
+    build:
+      context: ./issues-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    networks:
+      - cdp
+    depends_on:
+      - mongoIssues
+    volumes:
+      - ./issues-back:/usr/src/issuesBack
+
+  mongoIssues:
+    image: mongo
+    container_name: issue_database
+    ports:
+      - 27017:27017
+    networks:
+      - cdp
+
+  tasks:
+    container_name: task_server
+    environment:
+      - MONGO_TASKADDRESS=task_database
+      - MONGO_TASKPORT=27018
+      - CHOKIDAR_USEPOLLING=true
+
+    build:
+      context: ./tasks-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    networks:
+      - cdp
+    depends_on:
+      - mongoTasks
+    volumes:
+      - ./tasks-back:/usr/src/tasksBack
+
+  mongoTasks:
+    image: mongo
+    container_name: task_database
+    command: mongod --port 27018
+    ports:
+      - 27018:27018
+    networks:
+      - cdp
+  tests:
+    container_name: test_server
+    environment:
+      - MONGO_TESTADDRESS=test_database
+      - MONGO_TESTPORT=27019
+      - CHOKIDAR_USEPOLLING=true
+
+    build:
+      context: ./tests-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5001:5001"
+    networks:
+      - cdp
+    depends_on:
+      - mongoTest
+    volumes:
+      - ./tests-back:/usr/src/testsBack
+
+  mongoTest:
+    image: mongo
+    container_name: test_database
+    command: mongod --port 27019
+    ports:
+      - 27019:27019
+    networks:
+      - cdp
+
+  release:
+    container_name: release_server
+    environment:
+      - MONGO_RELEASEADDRESS=release_database
+      - MONGO_RELEASEPORT=27021
+      - CHOKIDAR_USEPOLLING=true
+
+    build:
+      context: ./release-doc-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5003:5003"
+    networks:
+      - cdp
+    depends_on:
+      - mongoRelease
+    volumes:
+      - ./release-doc-back:/usr/src/release-docBack
+
+  mongoRelease:
+    image: mongo
+    container_name: release_database
+    command: mongod --port 27021
+    ports:
+      - 27021:27021
+    networks:
+      - cdp
+
+  projects:
+    container_name: project_server
+    environment:
+      - MONGO_PROJECTADDRESS=project_database
+      - MONGO_PROJECTPORT=27020
+      - ISSUE_ADDRESS=issue_server
+      - ISSUE_PORT=4000
+      - TASK_ADDRESS=task_server
+      - TASK_PORT=5000
+      - TEST_ADDRESS=test_server
+      - TEST_PORT=5001
+      - CHOKIDAR_USEPOLLING=true
+      - RELEASE_ADDRESS=release_server
+      - RELEASE_PORT=5003
+    build:
+      context: ./projects-back
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5002:5002"
+    networks:
+      - cdp
+    depends_on:
+      - mongoProject
+    volumes:
+      - ./projects-back:/usr/src/projectsBack
+
+  mongoProject:
+    image: mongo
+    container_name: project_database
+    command: mongod --port 27020
+    ports:
+      - 27020:27020
+    networks:
+      - cdp
+
+networks:
+  cdp:
+    driver: bridge

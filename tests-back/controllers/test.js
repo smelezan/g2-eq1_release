@@ -12,18 +12,26 @@ exports.createTest = function (req, res, next) {
 };
 
 exports.updateTest = function (req, res, next) {
+  console.log(req.body);
+  console.log(req.params);
   Test.findOneAndUpdate(
     { _id: req.params.test },
     { ...req.body, _id: req.params.test }
   )
     .then(() => res.status(200).json({ message: "Test updated" }))
-    .catch((error) => res.status(400).json({ error }));
+    .catch((error) => {
+      console.log(error);
+      res.status(400).json({ error });
+    });
 };
 
 exports.getAllTests = function (req, res, next) {
   Test.find()
     .then((tests) => res.status(200).json(tests))
-    .catch((error) => res.status(400).json({ error }));
+    .catch((error) => {
+      console.log(error);
+      res.status(400).json({ error });
+    });
 };
 
 exports.deleteTest = function (req, res, next) {
@@ -38,7 +46,13 @@ exports.findOneTest = function (req, res, next) {
     .catch((error) => res.status(400).json({ error }));
 };
 
-exports.verifyTest = function (req, res, next) {
+/**
+ *  From a list of tests, issues and tasks,
+ *  checks if a test can be mapped with an issue or a task
+ * @param {*} req the request, object containing informations about http request.
+ * @param {*} res the response, object containing informations to send to user.
+ */
+exports.checkTest = function (req, res, next) {
   const tests = req.body.tests;
   const issues = req.body.issues;
   const tasks = req.body.tasks;
@@ -81,10 +95,10 @@ exports.verifyTest = function (req, res, next) {
 };
 
 /**
- * A réécrire
- * @param {} req
- * @param {*} res
- * @param {*} next
+ *  From a list of tests
+ * Save all of then in the database
+ * @param {*} req the request, object containing informations about http request.
+ * @param {*} res the response, object containing informations to send to user.
  */
 exports.saveTest = function (req, res, next) {
   const tests = req.body.tests;
@@ -120,12 +134,12 @@ exports.saveTest = function (req, res, next) {
 };
 
 /**
+ * Get the issue or task on which the test depends
+ * @param {Test} test test object
+ * @param {list} issues list of issues
+ * @param {list} tasks list of tasks
  *
- * @param {list} test
- * @param {list} issues
- * @param {list} tasks
- *
- * @returns {type, id} si il y a une dépendance et {} sinon.
+ * @returns {type, id} the dependance, empty if no dependance.
  */
 async function getTestDependances(test, issues, tasks) {
   let dependance = test.title;

@@ -3,7 +3,7 @@
 process.env.NODE_ENV = 'test';
 
 const mongoose = require('mongoose');
-
+const moment = require('moment');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const Sprint = require('../models/Sprint');
@@ -21,7 +21,7 @@ describe('Sprints', () => {
     });
   });
 
-  describe('/GET sprint', () => {
+  describe('get all sprints', () => {
     it('it should GET all sprints', (done) => {
       chai
         .request(app)
@@ -35,8 +35,8 @@ describe('Sprints', () => {
     });
   });
 
-  describe('/POST Sprint', () => {
-    it('it should not POST sprint without startDate field', (done) => {
+  describe('create a sprint', () => {
+    it('it should not create a  sprint without startDate field', (done) => {
       const sprint = {
         endDate: new Date(),
       };
@@ -46,16 +46,58 @@ describe('Sprints', () => {
         .send(sprint)
         .end((err, res) => {
           res.should.have.status(401);
-          res.should.be.a('object');
-          res.should.have.property('error');
+          res.body.should.be.a('object');
+          res.body.should.have.property('error');
+          res.body.should.have.property('message').eql('Missing property');
           done();
         });
     });
-
-    it('it should POST a Sprint', (done) => {
+    it('it should not create a  sprint invalid dates', (done) => {
       const sprint = {
-        endDate: new Date(),
         startDate: new Date(),
+        endDate: new Date(),
+      };
+      chai
+        .request(app)
+        .post('/sprints')
+        .send(sprint)
+        .end((err, res) => {
+          res.should.have.status(401);
+          res.body.should.be.a('object');
+          res.body.should.have.property('error');
+          res.body.should.have
+            .property('message')
+            .eql("Can't create a sprint with theses dates");
+          done();
+        });
+    });
+    it('it should not overlay two sprints', (done) => {
+      const sprint1 = new Sprint({
+        startDate: new Date('2020-12-09'),
+        endDate: new Date('2020-12-15'),
+      });
+      const sprint2 = {
+        startDate: new Date('2020-12-14'),
+        endDate: new Date('2020-12-23'),
+      };
+      sprint1.save((err, sprintSaved) => {
+        chai
+          .request(app)
+          .post(`/sprints/`)
+          .send(sprint2)
+          .end((_, res) => {
+            res.should.have.status(401);
+            res.body.should.be.a('object');
+            res.body.should.have.property('error').eql("Can't overlay sprints");
+            done();
+          });
+      });
+    });
+
+    it('it should create a Sprint', (done) => {
+      const sprint = {
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       };
       chai
         .request(app)
@@ -75,11 +117,11 @@ describe('Sprints', () => {
     });
   });
 
-  describe('/GET /sprint/:sprint sprint ', () => {
-    it('it should GET a sprint by the given id', (done) => {
+  describe('Get a sprint by id ', () => {
+    it('it should get a sprint by the given id', (done) => {
       const sprint = new Sprint({
-        endDate: new Date(),
-        startDate: new Date(),
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       });
       sprint.save((err, sprintSaved) => {
         chai
@@ -91,17 +133,37 @@ describe('Sprints', () => {
             res.body.should.be.a('object');
             res.body.should.have.property('endDate');
             res.body.should.have.property('startDate');
+            res.body.should.have.property('_id').eql(sprintSaved.id);
+            done();
+          });
+      });
+    });
+    it("it should send an error if sprint doesn't exist", (done) => {
+      const sprint = new Sprint({
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
+      });
+      sprint.save((err, sprintSaved) => {
+        chai
+          .request(app)
+          .get(`/sprints/abdcdezz`)
+          .end((_, res) => {
+            res.should.have.status(400);
+            res.body.should.be.a('object');
+            res.body.should.have.property('error');
+            res.body.should.have
+              .property('message')
+              .eql("Sprint doesn't exist");
             done();
           });
       });
     });
   });
-
-  describe('/DELETE /sprint/:sprint sprint ', () => {
+  describe('delete a sprint', () => {
     it('it should DELETE a sprint given an id', (done) => {
       const sprint = new Sprint({
-        endDate: new Date(),
-        startDate: new Date(),
+        startDate: moment('2020-12-09'),
+        endDate: moment('2020-12-12'),
       });
       sprint.save((err, sprintSaved) => {
         chai

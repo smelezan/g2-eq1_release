@@ -1,0 +1,35 @@
+{
+  "name": "g2-eq1_dev",
+  "version": "1.0.0",
+  "description": "Backlog : Liste les besoins que doit couvrir le logiciel\r <br/>\r =======",
+  "main": "test.js",
+  "scripts": {
+    "test": "mocha */test/*.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Demalios/g2-eq1_dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Demalios/g2-eq1_dev/issues"
+  },
+  "homepage": "https://github.com/Demalios/g2-eq1_dev#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.5",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.6"
+  }
+}
