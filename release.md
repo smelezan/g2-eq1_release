@@ -1,6 +1,14 @@
 # Release version 2.0.0
 
-Ceci est la toute première releases.
+11/12/2020
+
+Ceci est la 3ème release,
+
+Dans celle:
+
+- la gestion des releases
+- un début de gestion des projets
+- corrections de quelques bugs
 
 ## Date de sortie
 
@@ -12,11 +20,11 @@ Nombre d'issues réalisées: 20
 
 Les ids des issues réalisées:
 
-4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 29.
+1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 31, 32 .
 
-## Documentation utilisateur
+## Documentation du code
 
-Ici vous trouverez la [documentation utilisateur](https://github.com/smelezan/g2-eq1_release/blob/main/Documentation.md)
+Ici vous trouverez la [documentation du code](https://github.com/smelezan/g2-eq1_release/blob/main/CodeDocumention.md)
 
 ## Documentation administrateur
 
@@ -24,4 +32,4 @@ Ici vous trouverez la [documentation administrateur](https://github.com/smelezan
 
 ## Changements
 
-Aucun changements depuis la version précédente.
+Nous avons alors ajouter la gestion des releases, et la gestion des projets en local.

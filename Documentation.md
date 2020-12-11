@@ -12,6 +12,8 @@ Vous avez aussi besoin que les ports suivants soient libres:
 - 4000
 - 5000
 - 5001
+- 5002
+- 5003
 - 8081
 
 ---
@@ -32,10 +34,18 @@ Rentrer dans le dossier:
 cd g2-eq1_release
 ```
 
+### Environnement de développement
+
 Exécuter docker
 
 ```
 docker-compose up --build
+```
+
+### Environnement de production
+
+```
+docker-compose -f ./docker-compose.build.yml up --build
 ```
 
 ---

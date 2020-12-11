@@ -1,60 +1,73 @@
 <template>
   <div>
-    <div style="display:table" >
+    <div style="display: table">
       <div style="display: table-row">
         <div style="display: table-cell">
-        <router-link to="/tests">
-          <v-btn color="primary" dark class="mb-2"> Ajouter des tests</v-btn>
-        </router-link>
+          <router-link to="/tests">
+            <v-btn color="primary" dark class="mb-2"> Ajouter des tests</v-btn>
+          </router-link>
         </div>
-        
+
         <div style="display: table-cell" @click="openHelp()" class="mx-auto">
-          <v-tooltip bottom  >
+          <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
-              <v-icon 
-              v-bind="attrs"
-              v-on="on"
-              color="grey"
-              style=" position:relative; bottom:3px; left:5px"
-              >help_outline</v-icon>
+              <v-icon
+                v-bind="attrs"
+                v-on="on"
+                color="grey"
+                style="position: relative; bottom: 3px; left: 5px"
+                >help_outline</v-icon
+              >
             </template>
             <span>aide</span>
           </v-tooltip>
-          </div>
+        </div>
       </div>
     </div>
 
     <div class="text-center">
-      <v-dialog
-        v-model="help"
-        width="500"
-      >
-
+      <v-dialog v-model="help" width="500">
         <v-card>
           <v-card-title class="headline grey lighten-2">
-            Aide
+            Comment ajouter des tests ?
           </v-card-title>
 
           <v-card-text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <h2>Prérequis</h2>
+            Les modules suivants doivent être installés:
+            <ul>
+              <li>mocha</li>
+              <li>chai</li>
+              <li>mocha-spec-json-output-reporter</li>
+            </ul>
+            <h2>Utilisation</h2>
+            En bref, vous devez passer un fichier json avec un format bien
+            spécifique.
+            <h3>Format des tests</h3>
+            Tous les tests doivent avoir dans leur "describe": <br />
+            "# NomIssue" ou "~ NomTâche" , sans fautes dans les noms<br />
+            <h3>Création du json</h3>
+            Dans votre package.json, vous devez rajouter un script , nommez le
+            comme vous le voulez. <br />
+            Ex: "testMocha":"mocha -R mocha-spec-json-output-reporter --exit".
+            <br />
+            Lancez le test avec la commande: npm run script testMocha <br />
+            <h3>Ajout des tests dans l'application</h3>
+            Une fois que le fichier est crée, vous devrez le passer à
+            l'application.<br />
+            Si vous avez une erreur, pas de panique, vous pourrez modifier
+            chaque test.
           </v-card-text>
 
           <v-divider></v-divider>
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-              color="primary"
-              text
-              @click="help = false"
-            >
-              Fermer
-            </v-btn>
+            <v-btn color="primary" text @click="help = false"> Fermer </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
     </div>
-
 
     <v-data-table
       :headers="headers"
@@ -233,8 +246,8 @@ export default {
   },
 
   methods: {
-    openHelp: function() {
-      this.help = !this.help
+    openHelp: function () {
+      this.help = !this.help;
     },
     updateSelection(event) {
       this.issueChosen = event == "issues";
