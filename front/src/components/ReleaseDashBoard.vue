@@ -4,6 +4,17 @@
       <v-toolbar flat>
         <v-toolbar-title>Releases</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon 
+            v-bind="attrs"
+            v-on="on"
+            color="grey"
+            style=" position:relative; right:5px"
+            >help_outline</v-icon>
+          </template>
+          <span>Message pour la doc user release</span>
+        </v-tooltip>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">

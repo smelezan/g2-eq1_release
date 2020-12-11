@@ -2,6 +2,17 @@
   <div>
     <div>
       <v-row style="float: right" justify="space-around">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon 
+            v-bind="attrs"
+            v-on="on"
+            color="grey"
+            style=" position:relative; bottom:3px; right:5px"
+            >help_outline</v-icon>
+          </template>
+          <span>Message pour la doc user issue</span>
+        </v-tooltip>
         <router-link style="text-decoration: none" to="/create-issue">
           <v-btn color="primary">
             <a style="color: white">Ajouter une Issue</a>

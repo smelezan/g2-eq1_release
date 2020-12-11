@@ -2,6 +2,17 @@
   <div>
     <v-row style="float: right" justify="space-around">
       <AddSprintModaleComponent />
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-icon 
+          v-bind="attrs"
+          v-on="on"
+          color="grey"
+          style=" position:relative; bottom:3px; right:225px"
+          >help_outline</v-icon>
+        </template>
+        <span>Message pour la doc user sprint</span>
+      </v-tooltip>
     </v-row>
     <div v-if="this.sprints.length < 1" class="col">
       <h3 class="garamond"> Aucun sprint créé</h3>

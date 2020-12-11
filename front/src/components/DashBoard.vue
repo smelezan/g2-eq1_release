@@ -3,6 +3,19 @@
     <router-link to="/tests">
       <v-btn color="primary" dark class="mb-2"> Ajouter des tests</v-btn>
     </router-link>
+    
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-icon 
+        v-bind="attrs"
+        v-on="on"
+        color="grey"
+        style=" position:relative; bottom:3px; left:5px"
+        >help_outline</v-icon>
+      </template>
+      <span>Message pour la doc user test</span>
+    </v-tooltip>
+
     <v-data-table
       :headers="headers"
       :items="tests"
