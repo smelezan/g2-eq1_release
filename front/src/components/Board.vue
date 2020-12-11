@@ -36,23 +36,7 @@
         >
         <div >
           <div class="issue-card" style="position: relative;">
-            <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon class="stateIcon"
-                      v-if="element.status!='DONE'"
-                      v-bind="attrs"
-                      v-on="on"
-                    >mdi-progress-alert</v-icon>
-                    <v-icon class="stateIcon"
-                      v-else
-                      v-bind="attrs"
-                      v-on="on"
-                    >mdi-alert-circle-check-outline</v-icon>
-                  </template>
-                  <span v-if="element.status!='DONE'">Tâche ouverte</span>
-                  <span v-else>Tâche fermée</span>
-                </v-tooltip>
-          <p id="issueTitle">{{ element.title }}</p>
+          <div id="issueTitle">{{ element.title }}</div>
         <v-dialog
               v-model="dialog"
               persistent
@@ -180,10 +164,11 @@ export default {
 <style>
   .issue-card {
     background: rgba(199, 203, 209, 0.26);
-    height: 130px;
+    height: 40px;
     margin-top: 10px;
     border-radius: 0.5cm;
     text-overflow: ellipsis;
+    overflow: hidden;
     /* border: 2px solid green; */
   }
   #issueTitle {
@@ -192,7 +177,6 @@ export default {
     overflow: hidden;
     transform: scale(0.8);
     position: relative;
-    bottom: 10px;
     font-family :Arial, Helvetica, sans-serif;
     font-size: 17px;
   }
@@ -202,7 +186,7 @@ export default {
   .icon {
     /* border:2px solid blue;  */
     position:absolute; 
-    bottom: 90px; 
+    bottom: 2px; 
     right: 0px
   }
   .stateIcon {
