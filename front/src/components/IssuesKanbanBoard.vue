@@ -12,7 +12,7 @@
               style=" position:relative; bottom:-5px; right:5px"
               >help_outline</v-icon>
             </template>
-            <span>Message pour la doc user issue</span>
+            <span>aide</span>
           </v-tooltip>
         </div>
 

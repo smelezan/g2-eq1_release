@@ -15,7 +15,7 @@
               style=" position:relative; right:5px"
               >help_outline</v-icon>
             </template>
-            <span>Message pour la doc user release</span>
+            <span>aide</span>
           </v-tooltip>
          </div>
 

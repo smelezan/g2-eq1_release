@@ -12,7 +12,7 @@
             style=" position:relative; bottom:-5px; right:225px"
             >help_outline</v-icon>
           </template>
-          <span>Message pour la doc user sprint</span>
+          <span>aide</span>
         </v-tooltip>
       </div>
 
@@ -120,7 +120,7 @@ export default {
     openHelp: function() {
       this.help = !this.help
     },
-    
+
     onEnd: function (evt) {
       console.log(evt);
       this.oldIndex = evt.oldIndex;
