@@ -7,8 +7,8 @@ const middleware = require('../middlewares/issue');
 
 router.put('/manageDifficulty', issueCtrl.manageDifficulty);
 router.put('/managePriority', issueCtrl.managePriority);
-router.put('/addTask', issueCtrl.addTaskToIssue);
-router.put('/removeTask', issueCtrl.removeTaskToIssue);
+router.put('/addTask/:issue', issueCtrl.addTaskToIssue);
+router.put('/removeTask/:issue', issueCtrl.removeTaskToIssue);
 
 router.put(
   '/difficulty/:issue',
