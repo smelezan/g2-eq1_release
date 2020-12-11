@@ -102,7 +102,7 @@
                   style=" bottom:-40px"
                   color="#76D72B"
                   buffer-value="100"
-                  value="60"
+                  value="0"
                   ltr
       ></v-progress-linear>
 
